@@ -1,0 +1,2040 @@
+openapi: 3.0.3
+info:
+  title: Hardware Store POS API
+  description: |
+    RESTful API for a hardware store Point-of-Sale and inventory management system.
+
+    **Features:**
+    - Role-based access control
+    - Multi-entity management (staff, customers, suppliers, categories, products)
+    - Batch-based inventory tracking
+    - Multi-session POS operations
+    - Credit management and settlements
+    - Returns processing with manager approval
+
+  version: 1.0.0
+  contact:
+    name: API Support
+    email: support@example.com
+
+servers:
+  - url: http://localhost:8080/api/v1
+    description: Development server
+  - url: https://api.example.com/api/v1
+    description: Production server
+
+tags:
+  - name: Authentication
+    description: Login, logout, token refresh
+  - name: Roles & Permissions
+    description: Role and permission management
+  - name: Staff
+    description: Staff account management
+  - name: Customers
+    description: Customer management
+  - name: Suppliers
+    description: Supplier management
+  - name: Categories
+    description: Hierarchical category management
+  - name: Products
+    description: Product catalog management
+  - name: Inventory
+    description: Inventory batch management
+  - name: Purchases
+    description: Purchase order management
+  - name: POS
+    description: Point-of-sale session management
+  - name: Sales
+    description: Sales transactions
+  - name: Payments
+    description: Payment processing
+  - name: Credits
+    description: Customer credit management
+  - name: Returns
+    description: Return processing
+
+security:
+  - bearerAuth: []
+
+paths:
+  # ==================== AUTHENTICATION ====================
+  /auth/login:
+    post:
+      tags: [Authentication]
+      summary: User login
+      description: Authenticate staff member and receive JWT tokens
+      security: []
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              required: [username, password]
+              properties:
+                username:
+                  type: string
+                  example: "john.doe"
+                password:
+                  type: string
+                  format: password
+                  example: "password123"
+      responses:
+        '200':
+          description: Login successful
+          headers:
+            Set-Cookie:
+              description: Refresh token as HTTP-only cookie
+              schema:
+                type: string
+                example: refresh_token=eyJhbGc...; HttpOnly; Secure; SameSite=Strict
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  access_token:
+                    type: string
+                    example: "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9..."
+                  user:
+                    $ref: '#/components/schemas/StaffDTO'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+
+  /auth/logout:
+    post:
+      tags: [Authentication]
+      summary: User logout
+      description: Invalidate refresh token
+      responses:
+        '200':
+          description: Logout successful
+          headers:
+            Set-Cookie:
+              description: Clear refresh token cookie
+              schema:
+                type: string
+                example: refresh_token=; Max-Age=0
+
+  /auth/refresh:
+    post:
+      tags: [Authentication]
+      summary: Refresh access token
+      description: Get new access token using refresh token from cookie
+      security: []
+      responses:
+        '200':
+          description: Token refreshed
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  access_token:
+                    type: string
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+
+  /auth/session:
+    get:
+      tags: [Authentication]
+      summary: Get current session info
+      responses:
+        '200':
+          description: Session info
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/StaffDTO'
+
+  # ==================== ROLES & PERMISSIONS ====================
+  /roles:
+    get:
+      tags: [Roles & Permissions]
+      summary: List all roles
+      parameters:
+        - $ref: '#/components/parameters/PageParam'
+        - $ref: '#/components/parameters/LimitParam'
+      responses:
+        '200':
+          description: List of roles
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PaginatedRoleList'
+
+    post:
+      tags: [Roles & Permissions]
+      summary: Create new role
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/RoleInput'
+      responses:
+        '201':
+          description: Role created
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Role'
+        '400':
+          $ref: '#/components/responses/BadRequest'
+        '403':
+          $ref: '#/components/responses/Forbidden'
+
+  /roles/{id}:
+    get:
+      tags: [Roles & Permissions]
+      summary: Get role by ID
+      parameters:
+        - $ref: '#/components/parameters/IdParam'
+      responses:
+        '200':
+          description: Role details
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/RoleWithPermissions'
+        '404':
+          $ref: '#/components/responses/NotFound'
+
+    put:
+      tags: [Roles & Permissions]
+      summary: Update role
+      parameters:
+        - $ref: '#/components/parameters/IdParam'
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/RoleInput'
+      responses:
+        '200':
+          description: Role updated
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Role'
+        '404':
+          $ref: '#/components/responses/NotFound'
+
+    delete:
+      tags: [Roles & Permissions]
+      summary: Delete role
+      parameters:
+        - $ref: '#/components/parameters/IdParam'
+      responses:
+        '204':
+          description: Role deleted
+        '400':
+          description: Cannot delete role assigned to staff
+        '404':
+          $ref: '#/components/responses/NotFound'
+
+  /roles/{id}/permissions:
+    post:
+      tags: [Roles & Permissions]
+      summary: Assign permissions to role
+      parameters:
+        - $ref: '#/components/parameters/IdParam'
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              required: [permission_ids]
+              properties:
+                permission_ids:
+                  type: array
+                  items:
+                    type: integer
+                  example: [1, 2, 3]
+      responses:
+        '200':
+          description: Permissions assigned
+        '404':
+          $ref: '#/components/responses/NotFound'
+
+  /roles/{id}/permissions/{permissionId}:
+    delete:
+      tags: [Roles & Permissions]
+      summary: Remove permission from role
+      parameters:
+        - $ref: '#/components/parameters/IdParam'
+        - name: permissionId
+          in: path
+          required: true
+          schema:
+            type: integer
+      responses:
+        '204':
+          description: Permission removed
+        '404':
+          $ref: '#/components/responses/NotFound'
+
+  /permissions:
+    get:
+      tags: [Roles & Permissions]
+      summary: List all permissions
+      responses:
+        '200':
+          description: List of permissions
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Permission'
+
+  # ==================== STAFF ====================
+  /staff:
+    get:
+      tags: [Staff]
+      summary: List all staff
+      parameters:
+        - $ref: '#/components/parameters/PageParam'
+        - $ref: '#/components/parameters/LimitParam'
+        - name: role_id
+          in: query
+          schema:
+            type: integer
+        - name: is_active
+          in: query
+          schema:
+            type: boolean
+      responses:
+        '200':
+          description: List of staff
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PaginatedStaffList'
+
+    post:
+      tags: [Staff]
+      summary: Create staff account
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/StaffInput'
+      responses:
+        '201':
+          description: Staff created
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Staff'
+        '400':
+          description: Username already exists
+
+  /staff/{id}:
+    get:
+      tags: [Staff]
+      summary: Get staff by ID
+      parameters:
+        - $ref: '#/components/parameters/IdParam'
+      responses:
+        '200':
+          description: Staff details
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Staff'
+        '404':
+          $ref: '#/components/responses/NotFound'
+
+    put:
+      tags: [Staff]
+      summary: Update staff
+      parameters:
+        - $ref: '#/components/parameters/IdParam'
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/StaffUpdateInput'
+      responses:
+        '200':
+          description: Staff updated
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Staff'
+        '404':
+          $ref: '#/components/responses/NotFound'
+
+  /staff/{id}/deactivate:
+    put:
+      tags: [Staff]
+      summary: Deactivate staff account
+      parameters:
+        - $ref: '#/components/parameters/IdParam'
+      responses:
+        '200':
+          description: Staff deactivated
+        '404':
+          $ref: '#/components/responses/NotFound'
+
+  # ==================== CUSTOMERS ====================
+  /customers:
+    get:
+      tags: [Customers]
+      summary: List all customers
+      parameters:
+        - $ref: '#/components/parameters/PageParam'
+        - $ref: '#/components/parameters/LimitParam'
+      responses:
+        '200':
+          description: List of customers
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PaginatedCustomerList'
+
+    post:
+      tags: [Customers]
+      summary: Create customer
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/CustomerInput'
+      responses:
+        '201':
+          description: Customer created
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Customer'
+
+  /customers/{id}:
+    get:
+      tags: [Customers]
+      summary: Get customer by ID
+      parameters:
+        - $ref: '#/components/parameters/IdParam'
+      responses:
+        '200':
+          description: Customer details
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/CustomerWithCredit'
+        '404':
+          $ref: '#/components/responses/NotFound'
+
+    put:
+      tags: [Customers]
+      summary: Update customer
+      parameters:
+        - $ref: '#/components/parameters/IdParam'
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/CustomerInput'
+      responses:
+        '200':
+          description: Customer updated
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Customer'
+
+  /customers/search:
+    get:
+      tags: [Customers]
+      summary: Search customers by name
+      parameters:
+        - name: name
+          in: query
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Search results
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Customer'
+
+  /customers/{id}/credits:
+    get:
+      tags: [Credits]
+      summary: Get customer credit transactions
+      parameters:
+        - $ref: '#/components/parameters/IdParam'
+      responses:
+        '200':
+          description: Credit transactions
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  total_balance:
+                    type: number
+                    format: double
+                  transactions:
+                    type: array
+                    items:
+                      $ref: '#/components/schemas/CreditTransaction'
+
+  /customers/{id}/credits/settle:
+    post:
+      tags: [Credits]
+      summary: Settle customer credit
+      parameters:
+        - $ref: '#/components/parameters/IdParam'
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/CreditSettlementInput'
+      responses:
+        '201':
+          description: Payment recorded
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/CreditSettlement'
+
+  # ==================== SUPPLIERS ====================
+  /suppliers:
+    get:
+      tags: [Suppliers]
+      summary: List all suppliers
+      parameters:
+        - $ref: '#/components/parameters/PageParam'
+        - $ref: '#/components/parameters/LimitParam'
+      responses:
+        '200':
+          description: List of suppliers
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PaginatedSupplierList'
+
+    post:
+      tags: [Suppliers]
+      summary: Create supplier
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/SupplierInput'
+      responses:
+        '201':
+          description: Supplier created
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Supplier'
+
+  /suppliers/{id}:
+    get:
+      tags: [Suppliers]
+      summary: Get supplier by ID
+      parameters:
+        - $ref: '#/components/parameters/IdParam'
+      responses:
+        '200':
+          description: Supplier details
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Supplier'
+
+    put:
+      tags: [Suppliers]
+      summary: Update supplier
+      parameters:
+        - $ref: '#/components/parameters/IdParam'
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/SupplierInput'
+      responses:
+        '200':
+          description: Supplier updated
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Supplier'
+
+  # ==================== CATEGORIES ====================
+  /categories:
+    get:
+      tags: [Categories]
+      summary: List all categories (flat)
+      responses:
+        '200':
+          description: List of categories
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Category'
+
+    post:
+      tags: [Categories]
+      summary: Create category
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/CategoryInput'
+      responses:
+        '201':
+          description: Category created
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Category'
+
+  /categories/tree:
+    get:
+      tags: [Categories]
+      summary: Get category hierarchy tree
+      responses:
+        '200':
+          description: Category tree
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/CategoryTree'
+
+  /categories/{id}:
+    get:
+      tags: [Categories]
+      summary: Get category by ID
+      parameters:
+        - $ref: '#/components/parameters/IdParam'
+      responses:
+        '200':
+          description: Category details
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Category'
+
+    put:
+      tags: [Categories]
+      summary: Update category
+      parameters:
+        - $ref: '#/components/parameters/IdParam'
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/CategoryInput'
+      responses:
+        '200':
+          description: Category updated
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Category'
+
+    delete:
+      tags: [Categories]
+      summary: Delete category
+      parameters:
+        - $ref: '#/components/parameters/IdParam'
+      responses:
+        '204':
+          description: Category deleted
+        '400':
+          description: Category has products or subcategories
+
+  # ==================== PRODUCTS ====================
+  /products:
+    get:
+      tags: [Products]
+      summary: List all products
+      parameters:
+        - $ref: '#/components/parameters/PageParam'
+        - $ref: '#/components/parameters/LimitParam'
+        - name: category_id
+          in: query
+          schema:
+            type: integer
+        - name: is_active
+          in: query
+          schema:
+            type: boolean
+      responses:
+        '200':
+          description: List of products
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PaginatedProductList'
+
+    post:
+      tags: [Products]
+      summary: Create product
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ProductInput'
+      responses:
+        '201':
+          description: Product created
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Product'
+        '400':
+          description: Product code already exists
+
+  /products/{id}:
+    get:
+      tags: [Products]
+      summary: Get product by ID
+      parameters:
+        - $ref: '#/components/parameters/IdParam'
+      responses:
+        '200':
+          description: Product details
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Product'
+
+    put:
+      tags: [Products]
+      summary: Update product
+      parameters:
+        - $ref: '#/components/parameters/IdParam'
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ProductInput'
+      responses:
+        '200':
+          description: Product updated
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Product'
+
+    delete:
+      tags: [Products]
+      summary: Delete product
+      parameters:
+        - $ref: '#/components/parameters/IdParam'
+      responses:
+        '204':
+          description: Product deleted
+        '400':
+          description: Product has inventory
+
+  /products/search:
+    get:
+      tags: [Products]
+      summary: Search products
+      parameters:
+        - name: q
+          in: query
+          required: true
+          schema:
+            type: string
+          description: Search by code or description
+      responses:
+        '200':
+          description: Search results
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Product'
+
+  # ==================== INVENTORY ====================
+  /inventory:
+    get:
+      tags: [Inventory]
+      summary: List all inventory batches
+      parameters:
+        - $ref: '#/components/parameters/PageParam'
+        - $ref: '#/components/parameters/LimitParam'
+        - name: product_id
+          in: query
+          schema:
+            type: integer
+        - name: supplier_id
+          in: query
+          schema:
+            type: integer
+        - name: min_quantity
+          in: query
+          schema:
+            type: integer
+      responses:
+        '200':
+          description: List of inventory batches
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PaginatedInventoryList'
+
+  /inventory/product/{productId}:
+    get:
+      tags: [Inventory]
+      summary: Get inventory batches for a product
+      parameters:
+        - name: productId
+          in: path
+          required: true
+          schema:
+            type: integer
+      responses:
+        '200':
+          description: Product inventory batches
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/InventoryBatch'
+
+  /inventory/batches/product/{productId}/available:
+    get:
+      tags: [Inventory]
+      summary: Get available batches for product (FIFO order)
+      parameters:
+        - name: productId
+          in: path
+          required: true
+          schema:
+            type: integer
+      responses:
+        '200':
+          description: Available batches ordered by FIFO
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/InventoryBatchAvailable'
+
+  /inventory/batch/{batchId}/adjust:
+    put:
+      tags: [Inventory]
+      summary: Manually adjust batch quantity
+      parameters:
+        - name: batchId
+          in: path
+          required: true
+          schema:
+            type: integer
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              required: [adjustment, reason]
+              properties:
+                adjustment:
+                  type: integer
+                  description: Positive or negative adjustment
+                  example: -5
+                reason:
+                  type: string
+                  example: "Damaged items"
+      responses:
+        '200':
+          description: Quantity adjusted
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/InventoryBatch'
+
+  # ==================== PURCHASES ====================
+  /purchases:
+    get:
+      tags: [Purchases]
+      summary: List all purchases
+      parameters:
+        - $ref: '#/components/parameters/PageParam'
+        - $ref: '#/components/parameters/LimitParam'
+        - name: supplier_id
+          in: query
+          schema:
+            type: integer
+        - name: date_from
+          in: query
+          schema:
+            type: string
+            format: date
+        - name: date_to
+          in: query
+          schema:
+            type: string
+            format: date
+      responses:
+        '200':
+          description: List of purchases
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PaginatedPurchaseList'
+
+    post:
+      tags: [Purchases]
+      summary: Create purchase order
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/PurchaseInput'
+      responses:
+        '201':
+          description: Purchase created and inventory batches created
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Purchase'
+
+  /purchases/{id}:
+    get:
+      tags: [Purchases]
+      summary: Get purchase by ID
+      parameters:
+        - $ref: '#/components/parameters/IdParam'
+      responses:
+        '200':
+          description: Purchase details with line items
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PurchaseWithItems'
+
+  # ==================== POS SESSIONS ====================
+  /pos/sessions:
+    get:
+      tags: [POS]
+      summary: List active/held sessions for current staff
+      parameters:
+        - name: status
+          in: query
+          schema:
+            type: string
+            enum: [active, completed, abandoned]
+      responses:
+        '200':
+          description: List of sessions
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/SalesSession'
+
+    post:
+      tags: [POS]
+      summary: Create new POS session
+      responses:
+        '201':
+          description: Session created
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/SalesSession'
+
+  /pos/sessions/{sessionId}:
+    get:
+      tags: [POS]
+      summary: Get session details
+      parameters:
+        - $ref: '#/components/parameters/SessionIdParam'
+      responses:
+        '200':
+          description: Session details
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/SalesSessionWithItems'
+
+    put:
+      tags: [POS]
+      summary: Update session (customer, discounts)
+      parameters:
+        - $ref: '#/components/parameters/SessionIdParam'
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/SessionUpdateInput'
+      responses:
+        '200':
+          description: Session updated
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/SalesSession'
+
+    delete:
+      tags: [POS]
+      summary: Delete/abandon session
+      parameters:
+        - $ref: '#/components/parameters/SessionIdParam'
+      responses:
+        '204':
+          description: Session deleted
+
+  /pos/sessions/{sessionId}/items:
+    post:
+      tags: [POS]
+      summary: Add item to session
+      parameters:
+        - $ref: '#/components/parameters/SessionIdParam'
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/SessionItemInput'
+      responses:
+        '201':
+          description: Item added
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/SalesSessionItem'
+
+  /pos/sessions/{sessionId}/items/{itemId}:
+    put:
+      tags: [POS]
+      summary: Update item (quantity, discount)
+      parameters:
+        - $ref: '#/components/parameters/SessionIdParam'
+        - name: itemId
+          in: path
+          required: true
+          schema:
+            type: integer
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/SessionItemUpdateInput'
+      responses:
+        '200':
+          description: Item updated
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/SalesSessionItem'
+
+    delete:
+      tags: [POS]
+      summary: Remove item from session
+      parameters:
+        - $ref: '#/components/parameters/SessionIdParam'
+        - name: itemId
+          in: path
+          required: true
+          schema:
+            type: integer
+      responses:
+        '204':
+          description: Item removed
+
+  /pos/sessions/{sessionId}/discounts:
+    post:
+      tags: [POS]
+      summary: Apply bill-level discount
+      parameters:
+        - $ref: '#/components/parameters/SessionIdParam'
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/BillDiscountInput'
+      responses:
+        '200':
+          description: Discount applied
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/SalesSession'
+
+  /pos/sessions/{sessionId}/payment:
+    post:
+      tags: [Payments]
+      summary: Complete payment and finalize sale
+      parameters:
+        - $ref: '#/components/parameters/SessionIdParam'
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/PaymentInput'
+      responses:
+        '201':
+          description: Payment processed, sale created
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Sale'
+        '400':
+          description: Insufficient stock or validation error
+
+  # ==================== SALES ====================
+  /sales/{id}:
+    get:
+      tags: [Sales]
+      summary: Get sale by ID
+      parameters:
+        - $ref: '#/components/parameters/IdParam'
+      responses:
+        '200':
+          description: Sale details
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/SaleWithItems'
+
+  /sales/{id}/receipt:
+    get:
+      tags: [Sales]
+      summary: Generate sale receipt (PDF)
+      parameters:
+        - $ref: '#/components/parameters/IdParam'
+      responses:
+        '200':
+          description: PDF receipt
+          content:
+            application/pdf:
+              schema:
+                type: string
+                format: binary
+
+  # ==================== RETURNS ====================
+  /returns:
+    post:
+      tags: [Returns]
+      summary: Process return
+      description: |
+        Process return for items from a sale. If sale is older than 7 days,
+        requires manager authentication via X-Manager-Token header.
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ReturnInput'
+      responses:
+        '201':
+          description: Return processed
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Return'
+        '403':
+          description: Manager approval required for old sale
+
+  /returns/{id}/receipt:
+    get:
+      tags: [Returns]
+      summary: Generate return receipt (PDF)
+      parameters:
+        - $ref: '#/components/parameters/IdParam'
+      responses:
+        '200':
+          description: PDF receipt
+          content:
+            application/pdf:
+              schema:
+                type: string
+                format: binary
+
+components:
+  securitySchemes:
+    bearerAuth:
+      type: http
+      scheme: bearer
+      bearerFormat: JWT
+
+  parameters:
+    IdParam:
+      name: id
+      in: path
+      required: true
+      schema:
+        type: integer
+
+    SessionIdParam:
+      name: sessionId
+      in: path
+      required: true
+      schema:
+        type: string
+        format: uuid
+
+    PageParam:
+      name: page
+      in: query
+      schema:
+        type: integer
+        default: 1
+
+    LimitParam:
+      name: limit
+      in: query
+      schema:
+        type: integer
+        default: 20
+
+  schemas:
+    # ========== Authentication ==========
+    StaffDTO:
+      type: object
+      properties:
+        id:
+          type: integer
+        username:
+          type: string
+        first_name:
+          type: string
+        last_name:
+          type: string
+        email:
+          type: string
+        role:
+          $ref: '#/components/schemas/Role'
+        permissions:
+          type: array
+          items:
+            type: string
+
+    # ========== Roles & Permissions ==========
+    Role:
+      type: object
+      properties:
+        id:
+          type: integer
+        name:
+          type: string
+        description:
+          type: string
+        is_active:
+          type: boolean
+        created_at:
+          type: string
+          format: date-time
+
+    RoleWithPermissions:
+      allOf:
+        - $ref: '#/components/schemas/Role'
+        - type: object
+          properties:
+            permissions:
+              type: array
+              items:
+                $ref: '#/components/schemas/Permission'
+
+    RoleInput:
+      type: object
+      required: [name]
+      properties:
+        name:
+          type: string
+          minLength: 2
+          maxLength: 50
+        description:
+          type: string
+
+    Permission:
+      type: object
+      properties:
+        id:
+          type: integer
+        name:
+          type: string
+        resource:
+          type: string
+        action:
+          type: string
+        description:
+          type: string
+
+    # ========== Staff ==========
+    Staff:
+      type: object
+      properties:
+        id:
+          type: integer
+        username:
+          type: string
+        first_name:
+          type: string
+        last_name:
+          type: string
+        email:
+          type: string
+        role_id:
+          type: integer
+        role:
+          $ref: '#/components/schemas/Role'
+        is_active:
+          type: boolean
+        last_login:
+          type: string
+          format: date-time
+        created_at:
+          type: string
+          format: date-time
+
+    StaffInput:
+      type: object
+      required: [username, password, first_name, last_name, role_id]
+      properties:
+        username:
+          type: string
+          minLength: 3
+          maxLength: 50
+        password:
+          type: string
+          minLength: 8
+        first_name:
+          type: string
+        last_name:
+          type: string
+        email:
+          type: string
+          format: email
+        role_id:
+          type: integer
+
+    StaffUpdateInput:
+      type: object
+      properties:
+        first_name:
+          type: string
+        last_name:
+          type: string
+        email:
+          type: string
+        role_id:
+          type: integer
+        password:
+          type: string
+          minLength: 8
+
+    # ========== Customers ==========
+    Customer:
+      type: object
+      properties:
+        id:
+          type: integer
+        name:
+          type: string
+        phone:
+          type: string
+        email:
+          type: string
+        address:
+          type: string
+        credit_limit:
+          type: number
+          format: double
+        total_credit_balance:
+          type: number
+          format: double
+        created_at:
+          type: string
+          format: date-time
+
+    CustomerWithCredit:
+      allOf:
+        - $ref: '#/components/schemas/Customer'
+        - type: object
+          properties:
+            credit_transactions:
+              type: array
+              items:
+                $ref: '#/components/schemas/CreditTransaction'
+
+    CustomerInput:
+      type: object
+      required: [name]
+      properties:
+        name:
+          type: string
+          minLength: 2
+        phone:
+          type: string
+        email:
+          type: string
+        address:
+          type: string
+        credit_limit:
+          type: number
+          format: double
+
+    # ========== Suppliers ==========
+    Supplier:
+      type: object
+      properties:
+        id:
+          type: integer
+        name:
+          type: string
+        contact_person:
+          type: string
+        phone:
+          type: string
+        email:
+          type: string
+        address:
+          type: string
+        created_at:
+          type: string
+          format: date-time
+
+    SupplierInput:
+      type: object
+      required: [name]
+      properties:
+        name:
+          type: string
+        contact_person:
+          type: string
+        phone:
+          type: string
+        email:
+          type: string
+        address:
+          type: string
+
+    # ========== Categories ==========
+    Category:
+      type: object
+      properties:
+        id:
+          type: integer
+        name:
+          type: string
+        parent_id:
+          type: integer
+        level:
+          type: integer
+        path:
+          type: string
+
+    CategoryTree:
+      allOf:
+        - $ref: '#/components/schemas/Category'
+        - type: object
+          properties:
+            children:
+              type: array
+              items:
+                $ref: '#/components/schemas/CategoryTree'
+
+    CategoryInput:
+      type: object
+      required: [name]
+      properties:
+        name:
+          type: string
+        parent_id:
+          type: integer
+
+    # ========== Products ==========
+    Product:
+      type: object
+      properties:
+        id:
+          type: integer
+        code:
+          type: string
+        description:
+          type: string
+        category_id:
+          type: integer
+        category:
+          $ref: '#/components/schemas/Category'
+        attributes:
+          type: object
+          additionalProperties: true
+        is_active:
+          type: boolean
+        created_at:
+          type: string
+          format: date-time
+
+    ProductInput:
+      type: object
+      required: [code, description, category_id]
+      properties:
+        code:
+          type: string
+          minLength: 2
+          maxLength: 50
+        description:
+          type: string
+          minLength: 5
+        category_id:
+          type: integer
+        attributes:
+          type: object
+
+    # ========== Inventory ==========
+    InventoryBatch:
+      type: object
+      properties:
+        id:
+          type: integer
+        product_id:
+          type: integer
+        product:
+          $ref: '#/components/schemas/Product'
+        supplier_id:
+          type: integer
+        supplier:
+          $ref: '#/components/schemas/Supplier'
+        quantity:
+          type: integer
+        original_quantity:
+          type: integer
+        unit_cost_price:
+          type: number
+          format: double
+        unit_sale_price:
+          type: number
+          format: double
+        received_date:
+          type: string
+          format: date
+        created_at:
+          type: string
+          format: date-time
+
+    InventoryBatchAvailable:
+      allOf:
+        - $ref: '#/components/schemas/InventoryBatch'
+        - type: object
+          properties:
+            purchase_reference:
+              type: string
+
+    # ========== Purchases ==========
+    Purchase:
+      type: object
+      properties:
+        id:
+          type: integer
+        purchase_no:
+          type: string
+        supplier_id:
+          type: integer
+        supplier:
+          $ref: '#/components/schemas/Supplier'
+        purchase_date:
+          type: string
+          format: date
+        total_cost:
+          type: number
+          format: double
+        notes:
+          type: string
+        created_at:
+          type: string
+          format: date-time
+
+    PurchaseWithItems:
+      allOf:
+        - $ref: '#/components/schemas/Purchase'
+        - type: object
+          properties:
+            line_items:
+              type: array
+              items:
+                $ref: '#/components/schemas/PurchaseLineItem'
+
+    PurchaseLineItem:
+      type: object
+      properties:
+        id:
+          type: integer
+        product_id:
+          type: integer
+        product:
+          $ref: '#/components/schemas/Product'
+        quantity:
+          type: integer
+        unit_cost_price:
+          type: number
+          format: double
+        unit_sale_price:
+          type: number
+          format: double
+        line_total:
+          type: number
+          format: double
+
+    PurchaseInput:
+      type: object
+      required: [supplier_id, purchase_date, line_items]
+      properties:
+        purchase_no:
+          type: string
+        supplier_id:
+          type: integer
+        purchase_date:
+          type: string
+          format: date
+        notes:
+          type: string
+        line_items:
+          type: array
+          items:
+            type: object
+            required: [product_id, quantity, unit_cost_price, unit_sale_price]
+            properties:
+              product_id:
+                type: integer
+              quantity:
+                type: integer
+              unit_cost_price:
+                type: number
+              unit_sale_price:
+                type: number
+
+    # ========== Sales Sessions ==========
+    SalesSession:
+      type: object
+      properties:
+        id:
+          type: integer
+        session_id:
+          type: string
+          format: uuid
+        staff_id:
+          type: integer
+        customer_id:
+          type: integer
+        customer:
+          $ref: '#/components/schemas/Customer'
+        bill_discount_type:
+          type: string
+          enum: [percent, fixed]
+        bill_discount_value:
+          type: number
+        status:
+          type: string
+          enum: [active, completed, abandoned]
+        last_activity:
+          type: string
+          format: date-time
+        created_at:
+          type: string
+          format: date-time
+
+    SalesSessionWithItems:
+      allOf:
+        - $ref: '#/components/schemas/SalesSession'
+        - type: object
+          properties:
+            items:
+              type: array
+              items:
+                $ref: '#/components/schemas/SalesSessionItem'
+            totals:
+              $ref: '#/components/schemas/SessionTotals'
+
+    SalesSessionItem:
+      type: object
+      properties:
+        id:
+          type: integer
+        inventory_batch_id:
+          type: integer
+        batch:
+          $ref: '#/components/schemas/InventoryBatch'
+        quantity:
+          type: integer
+        unit_price:
+          type: number
+        discount_type:
+          type: string
+          enum: [percent, fixed]
+        discount_value:
+          type: number
+        line_total:
+          type: number
+
+    SessionTotals:
+      type: object
+      properties:
+        subtotal:
+          type: number
+        bill_discount:
+          type: number
+        total:
+          type: number
+
+    SessionUpdateInput:
+      type: object
+      properties:
+        customer_id:
+          type: integer
+
+    SessionItemInput:
+      type: object
+      required: [inventory_batch_id, quantity]
+      properties:
+        inventory_batch_id:
+          type: integer
+        quantity:
+          type: integer
+        discount_type:
+          type: string
+          enum: [percent, fixed]
+        discount_value:
+          type: number
+
+    SessionItemUpdateInput:
+      type: object
+      properties:
+        quantity:
+          type: integer
+        discount_type:
+          type: string
+        discount_value:
+          type: number
+
+    BillDiscountInput:
+      type: object
+      required: [discount_type, discount_value]
+      properties:
+        discount_type:
+          type: string
+          enum: [percent, fixed]
+        discount_value:
+          type: number
+
+    # ========== Payments ==========
+    PaymentInput:
+      type: object
+      required: [payment_method]
+      properties:
+        payment_method:
+          type: string
+          enum: [cash, card, credit]
+        amount_paid:
+          type: number
+          description: Required for cash payments
+
+    # ========== Sales ==========
+    Sale:
+      type: object
+      properties:
+        id:
+          type: integer
+        transaction_id:
+          type: string
+        session_id:
+          type: string
+        staff_id:
+          type: integer
+        customer_id:
+          type: integer
+        subtotal:
+          type: number
+        bill_discount:
+          type: number
+        tax_amount:
+          type: number
+        total:
+          type: number
+        payment_method:
+          type: string
+        amount_paid:
+          type: number
+        change_given:
+          type: number
+        sale_date:
+          type: string
+          format: date-time
+
+    SaleWithItems:
+      allOf:
+        - $ref: '#/components/schemas/Sale'
+        - type: object
+          properties:
+            items:
+              type: array
+              items:
+                $ref: '#/components/schemas/SaleItem'
+
+    SaleItem:
+      type: object
+      properties:
+        id:
+          type: integer
+        product_code:
+          type: string
+        product_description:
+          type: string
+        quantity:
+          type: integer
+        unit_price:
+          type: number
+        discount_amount:
+          type: number
+        line_total:
+          type: number
+
+    # ========== Credits ==========
+    CreditTransaction:
+      type: object
+      properties:
+        id:
+          type: integer
+        sale_id:
+          type: integer
+        amount:
+          type: number
+        remaining_balance:
+          type: number
+        status:
+          type: string
+          enum: [outstanding, partially_paid, paid]
+        created_at:
+          type: string
+          format: date-time
+
+    CreditSettlement:
+      type: object
+      properties:
+        id:
+          type: integer
+        credit_transaction_id:
+          type: integer
+        amount:
+          type: number
+        payment_method:
+          type: string
+          enum: [cash, card]
+        payment_date:
+          type: string
+          format: date-time
+        staff_id:
+          type: integer
+        notes:
+          type: string
+
+    CreditSettlementInput:
+      type: object
+      required: [credit_transaction_id, amount, payment_method]
+      properties:
+        credit_transaction_id:
+          type: integer
+        amount:
+          type: number
+        payment_method:
+          type: string
+          enum: [cash, card]
+        notes:
+          type: string
+
+    # ========== Returns ==========
+    Return:
+      type: object
+      properties:
+        id:
+          type: integer
+        return_no:
+          type: string
+        sale_id:
+          type: integer
+        staff_id:
+          type: integer
+        approved_by_staff_id:
+          type: integer
+        refund_amount:
+          type: number
+        refund_method:
+          type: string
+        return_date:
+          type: string
+          format: date-time
+        notes:
+          type: string
+
+    ReturnInput:
+      type: object
+      required: [sale_id, items]
+      properties:
+        sale_id:
+          type: integer
+        items:
+          type: array
+          items:
+            type: object
+            required: [sale_item_id, quantity]
+            properties:
+              sale_item_id:
+                type: integer
+              quantity:
+                type: integer
+        notes:
+          type: string
+
+    # ========== Pagination ==========
+    PaginatedRoleList:
+      type: object
+      properties:
+        data:
+          type: array
+          items:
+            $ref: '#/components/schemas/Role'
+        pagination:
+          $ref: '#/components/schemas/Pagination'
+
+    PaginatedStaffList:
+      type: object
+      properties:
+        data:
+          type: array
+          items:
+            $ref: '#/components/schemas/Staff'
+        pagination:
+          $ref: '#/components/schemas/Pagination'
+
+    PaginatedCustomerList:
+      type: object
+      properties:
+        data:
+          type: array
+          items:
+            $ref: '#/components/schemas/Customer'
+        pagination:
+          $ref: '#/components/schemas/Pagination'
+
+    PaginatedSupplierList:
+      type: object
+      properties:
+        data:
+          type: array
+          items:
+            $ref: '#/components/schemas/Supplier'
+        pagination:
+          $ref: '#/components/schemas/Pagination'
+
+    PaginatedProductList:
+      type: object
+      properties:
+        data:
+          type: array
+          items:
+            $ref: '#/components/schemas/Product'
+        pagination:
+          $ref: '#/components/schemas/Pagination'
+
+    PaginatedInventoryList:
+      type: object
+      properties:
+        data:
+          type: array
+          items:
+            $ref: '#/components/schemas/InventoryBatch'
+        pagination:
+          $ref: '#/components/schemas/Pagination'
+
+    PaginatedPurchaseList:
+      type: object
+      properties:
+        data:
+          type: array
+          items:
+            $ref: '#/components/schemas/Purchase'
+        pagination:
+          $ref: '#/components/schemas/Pagination'
+
+    Pagination:
+      type: object
+      properties:
+        page:
+          type: integer
+        limit:
+          type: integer
+        total:
+          type: integer
+        total_pages:
+          type: integer
+
+  responses:
+    BadRequest:
+      description: Bad request
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              error:
+                type: string
+
+    Unauthorized:
+      description: Unauthorized
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              error:
+                type: string
+
+    Forbidden:
+      description: Forbidden - insufficient permissions
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              error:
+                type: string
+
+    NotFound:
+      description: Resource not found
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              error:
+                type: string
