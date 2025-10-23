@@ -61,20 +61,20 @@
 
 ### Implementation for User Story 1
 
-- [ ] T019 [P] [US1] Create Role model in backend/internal/models/role.go
-- [ ] T020 [P] [US1] Create Permission model in backend/internal/models/permission.go
-- [ ] T021 [P] [US1] Create RolePermission junction model in backend/internal/models/role_permission.go
-- [ ] T022 [US1] Implement role repository in backend/internal/repositories/role_repository.go
-- [ ] T023 [US1] Implement permission repository in backend/internal/repositories/permission_repository.go
-- [ ] T024 [US1] Implement role service with permission assignment in backend/internal/services/role_service.go
-- [ ] T025 [US1] Create role management handlers in backend/internal/handlers/role_handler.go
-- [ ] T026 [US1] Create permission management handlers in backend/internal/handlers/permission_handler.go
-- [ ] T027 [US1] Add role and permission routes to router in backend/cmd/server/main.go
-- [ ] T028 [P] [US1] Create role management components in frontend/src/components/roles/
-- [ ] T029 [P] [US1] Create permission management components in frontend/src/components/permissions/
-- [ ] T030 [US1] Create roles page in frontend/src/pages/RolesPage.tsx
-- [ ] T031 [US1] Create role API service in frontend/src/services/roles.service.ts
-- [ ] T032 [US1] Add role management routes to frontend routing in frontend/src/App.tsx
+- [x] T019 [P] [US1] Create Role model in backend/internal/models/role.go
+- [x] T020 [P] [US1] Create Permission model in backend/internal/models/permission.go
+- [x] T021 [P] [US1] Create RolePermission junction model in backend/internal/models/role_permission.go
+- [x] T022 [US1] Implement role repository in backend/internal/repositories/role_repository.go
+- [x] T023 [US1] Implement permission repository in backend/internal/repositories/permission_repository.go
+- [x] T024 [US1] Implement role service with permission assignment in backend/internal/services/role_service.go
+- [x] T025 [US1] Create role management handlers in backend/internal/handlers/role_handler.go
+- [x] T026 [US1] Create permission management handlers in backend/internal/handlers/permission_handler.go
+- [x] T027 [US1] Add role and permission routes to router in backend/cmd/server/main.go
+- [x] T028 [P] [US1] Create role management components in frontend/src/components/roles/
+- [x] T029 [P] [US1] Create permission management components in frontend/src/components/permissions/
+- [x] T030 [US1] Create roles page in frontend/src/pages/RolesPage.tsx
+- [x] T031 [US1] Create role API service in frontend/src/services/roles.service.ts
+- [x] T032 [US1] Add role management routes to frontend routing in frontend/src/App.tsx
 
 **Checkpoint**: At this point, User Story 1 should be fully functional and testable independently
 
@@ -88,22 +88,22 @@
 
 ### Implementation for User Story 2
 
-- [ ] T033 [US2] Create Staff model in backend/internal/models/staff.go
-- [ ] T034 [US2] Implement staff repository in backend/internal/repositories/staff_repository.go
-- [ ] T035 [US2] Implement staff service with authentication logic in backend/internal/services/staff_service.go
-- [ ] T036 [US2] Create staff management handlers in backend/internal/handlers/staff_handler.go
-- [ ] T037 [US2] Create authentication handlers (login/logout) in backend/internal/handlers/auth_handler.go
-- [ ] T038 [US2] Add staff and auth routes to router in backend/cmd/server/main.go
-- [ ] T039 [US2] Update JWT service to include staff permissions in backend/internal/auth/jwt.go
-- [ ] T040 [P] [US2] Create staff management components in frontend/src/components/staff/
-- [ ] T041 [P] [US2] Create login form component in frontend/src/components/auth/LoginForm.tsx
-- [ ] T042 [US2] Create staff page in frontend/src/pages/StaffPage.tsx
-- [ ] T043 [US2] Create login page in frontend/src/pages/LoginPage.tsx
-- [ ] T044 [US2] Create staff API service in frontend/src/services/staff.service.ts
-- [ ] T045 [US2] Create auth API service in frontend/src/services/auth.service.ts
-- [ ] T046 [US2] Update auth context with staff management in frontend/src/contexts/authContext.tsx
-- [ ] T047 [US2] Add protected route wrapper in frontend/src/components/auth/ProtectedRoute.tsx
-- [ ] T048 [US2] Update routing with protected routes in frontend/src/App.tsx
+- [x] T033 [US2] Create Staff model in backend/internal/models/staff.go
+- [x] T034 [US2] Implement staff repository in backend/internal/repositories/staff_repository.go
+- [x] T035 [US2] Implement staff service with authentication logic in backend/internal/services/staff_service.go
+- [x] T036 [US2] Create staff management handlers in backend/internal/handlers/staff_handler.go
+- [x] T037 [US2] Create authentication handlers (login/logout) in backend/internal/handlers/auth_handler.go
+- [x] T038 [US2] Add staff and auth routes to router in backend/cmd/server/main.go
+- [x] T039 [US2] Update JWT service to include staff permissions in backend/internal/auth/jwt.go
+- [x] T040 [P] [US2] Create staff management components in frontend/src/components/staff/
+- [x] T041 [P] [US2] Create login form component in frontend/src/components/auth/LoginForm.tsx
+- [x] T042 [US2] Create staff page in frontend/src/pages/StaffPage.tsx
+- [x] T043 [US2] Create login page in frontend/src/pages/LoginPage.tsx
+- [x] T044 [US2] Create staff API service in frontend/src/services/staff.service.ts
+- [x] T045 [US2] Create auth API service in frontend/src/services/auth.service.ts
+- [x] T046 [US2] Update auth context with staff management in frontend/src/contexts/authContext.tsx
+- [x] T047 [US2] Add protected route wrapper in frontend/src/components/auth/ProtectedRoute.tsx
+- [x] T048 [US2] Update routing with protected routes in frontend/src/App.tsx
 
 **Checkpoint**: At this point, User Stories 1 AND 2 should both work independently
 
@@ -119,8 +119,8 @@
 
 ### Implementation for User Story 9
 
-- [ ] T049 [P] [US9] Create SalesSession model in backend/internal/models/sales_session.go
-- [ ] T050 [P] [US9] Create SalesSessionItem model in backend/internal/models/sales_session_item.go
+- [x] T049 [P] [US9] Create SalesSession model in backend/internal/models/sales_session.go
+- [x] T050 [P] [US9] Create SalesSessionItem model in backend/internal/models/sales_session_item.go
 - [ ] T051 [US9] Implement sales session repository in backend/internal/repositories/sales_session_repository.go
 - [ ] T052 [US9] Implement POS service with multi-session logic in backend/internal/services/pos_service.go
 - [ ] T053 [US9] Create POS session handlers in backend/internal/handlers/pos_handler.go
