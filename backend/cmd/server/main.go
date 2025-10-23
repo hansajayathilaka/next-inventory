@@ -90,16 +90,20 @@ func setupRouter(db *gorm.DB, jwtService *auth.JWTService) *gin.Engine {
 	roleRepo := repositories.NewRoleRepository(db)
 	permissionRepo := repositories.NewPermissionRepository(db)
 	staffRepo := repositories.NewStaffRepository(db)
+	sessionRepo := repositories.NewSalesSessionRepository(db)
+	saleRepo := repositories.NewSaleRepository(db)
 
 	roleService := services.NewRoleService(roleRepo, permissionRepo)
 	staffService := services.NewStaffService(staffRepo, roleRepo)
 	authService := services.NewAuthService(staffRepo, staffService, roleService, jwtService)
+	posService := services.NewPOSService(sessionRepo, saleRepo, staffRepo)
 
 	// Initialize handlers
 	roleHandler := handlers.NewRoleHandler(roleService)
 	permissionHandler := handlers.NewPermissionHandler(roleService)
 	staffHandler := handlers.NewStaffHandler(staffService)
 	authHandler := handlers.NewAuthHandler(authService)
+	posHandler := handlers.NewPOSHandler(posService)
 
 	// API v1 routes
 	v1 := router.Group("/api/v1")
@@ -157,6 +161,22 @@ func setupRouter(db *gorm.DB, jwtService *auth.JWTService) *gin.Engine {
 				staff.GET("/:id", staffHandler.GetStaff)
 				staff.PUT("/:id", staffHandler.UpdateStaff)
 				staff.PUT("/:id/deactivate", staffHandler.DeactivateStaff)
+			}
+
+			// POS management routes
+			pos := protected.Group("/pos")
+			{
+				pos.POST("/sessions", posHandler.CreateSession)
+				pos.GET("/sessions", posHandler.ListActiveSessions)
+				pos.GET("/sessions/:sessionId", posHandler.GetSession)
+				pos.GET("/sessions/:sessionId/items", posHandler.GetSessionItems)
+				pos.GET("/sessions/:sessionId/total", posHandler.GetSessionTotal)
+				pos.POST("/sessions/:sessionId/items", posHandler.AddItemToSession)
+				pos.PUT("/sessions/:sessionId/items/:itemId", posHandler.UpdateSessionItem)
+				pos.DELETE("/sessions/:sessionId/items/:itemId", posHandler.RemoveSessionItem)
+				pos.POST("/sessions/:sessionId/discount", posHandler.ApplyBillDiscount)
+				pos.POST("/sessions/:sessionId/complete", posHandler.CompleteSession)
+				pos.POST("/sessions/:sessionId/abandon", posHandler.AbandonSession)
 			}
 		}
 	}

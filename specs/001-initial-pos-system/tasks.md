@@ -121,10 +121,10 @@
 
 - [x] T049 [P] [US9] Create SalesSession model in backend/internal/models/sales_session.go
 - [x] T050 [P] [US9] Create SalesSessionItem model in backend/internal/models/sales_session_item.go
-- [ ] T051 [US9] Implement sales session repository in backend/internal/repositories/sales_session_repository.go
-- [ ] T052 [US9] Implement POS service with multi-session logic in backend/internal/services/pos_service.go
-- [ ] T053 [US9] Create POS session handlers in backend/internal/handlers/pos_handler.go
-- [ ] T054 [US9] Add POS routes to router in backend/cmd/server/main.go
+- [x] T051 [US9] Implement sales session repository in backend/internal/repositories/sales_session_repository.go
+- [x] T052 [US9] Implement POS service with multi-session logic in backend/internal/services/pos_service.go
+- [x] T053 [US9] Create POS session handlers in backend/internal/handlers/pos_handler.go
+- [x] T054 [US9] Add POS routes to router in backend/cmd/server/main.go
 - [ ] T055 [P] [US9] Create Zustand POS store in frontend/src/stores/posStore.ts
 - [ ] T056 [P] [US9] Create session management components in frontend/src/components/pos/SessionManager.tsx
 - [ ] T057 [P] [US9] Create cart components in frontend/src/components/pos/Cart.tsx
