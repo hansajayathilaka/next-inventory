@@ -1,5 +1,6 @@
 import React, { createContext, useContext, useEffect, useState } from 'react';
 import type { AuthState } from '@/types';
+import { apiClient } from '@/services/api';
 
 interface AuthContextType {
   authState: AuthState;
@@ -44,35 +45,24 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
     setAuthState(prev => ({ ...prev, isLoading: true }));
 
     try {
-      // TODO: Implement actual login API call
-      const response = await fetch('/api/v1/auth/login', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify({ username, password }),
-        credentials: 'include', // For refresh token cookie
-      });
+      const response = await apiClient.post('/auth/login', { username, password });
 
-      if (!response.ok) {
-        throw new Error('Login failed');
-      }
-
-      const data = await response.json();
-
-      if (data.success) {
+      if (response.success) {
         // Store access token
-        localStorage.setItem('access_token', data.data.access_token);
+        localStorage.setItem('access_token', response.data.access_token);
+        if (response.data.refresh_token) {
+          localStorage.setItem('refresh_token', response.data.refresh_token);
+        }
 
-        // Update auth state
+        // Update auth state - backend returns permissions directly in user object
         setAuthState({
-          user: data.data.user,
-          permissions: data.data.user.role?.permissions?.map((p: any) => p.name) || [],
+          user: response.data.user,
+          permissions: response.data.user.permissions || [],
           isAuthenticated: true,
           isLoading: false,
         });
       } else {
-        throw new Error(data.error?.message || 'Login failed');
+        throw new Error(response.error?.message || 'Login failed');
       }
     } catch (error) {
       setAuthState(prev => ({ ...prev, isLoading: false }));
@@ -82,12 +72,10 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
 
   const logout = () => {
     localStorage.removeItem('access_token');
+    localStorage.removeItem('refresh_token');
 
     // Call logout endpoint to clear refresh token cookie
-    fetch('/api/v1/auth/logout', {
-      method: 'POST',
-      credentials: 'include',
-    }).catch(console.error);
+    apiClient.post('/auth/logout', {}).catch(console.error);
 
     setAuthState({
       user: null,
@@ -99,23 +87,18 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
 
   const refreshToken = async () => {
     try {
-      const response = await fetch('/api/v1/auth/refresh', {
-        method: 'POST',
-        credentials: 'include',
-      });
+      const refreshTokenValue = localStorage.getItem('refresh_token');
+      const response = await apiClient.post('/auth/refresh', { refresh_token: refreshTokenValue });
 
-      if (!response.ok) {
-        throw new Error('Token refresh failed');
-      }
-
-      const data = await response.json();
-
-      if (data.success) {
-        localStorage.setItem('access_token', data.data.access_token);
+      if (response.success) {
+        localStorage.setItem('access_token', response.data.access_token);
+        if (response.data.refresh_token) {
+          localStorage.setItem('refresh_token', response.data.refresh_token);
+        }
 
         setAuthState({
-          user: data.data.user,
-          permissions: data.data.user.role?.permissions?.map((p: any) => p.name) || [],
+          user: response.data.user,
+          permissions: response.data.user.permissions || [],
           isAuthenticated: true,
           isLoading: false,
         });

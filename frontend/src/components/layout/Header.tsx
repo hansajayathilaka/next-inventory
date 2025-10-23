@@ -15,7 +15,7 @@ export function Header() {
           {authState.isAuthenticated && (
             <>
               <span className="text-sm text-muted-foreground">
-                Welcome, {authState.user?.full_name || authState.user?.username}
+                Welcome, {authState.user?.first_name} {authState.user?.last_name || authState.user?.username}
               </span>
               <Button variant="outline" size="sm" onClick={logout}>
                 Logout

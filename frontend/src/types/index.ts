@@ -23,12 +23,16 @@ export interface Meta {
 export interface User {
   id: number;
   username: string;
-  full_name: string;
+  first_name: string;
+  last_name: string;
+  email: string;
   role_id: number;
+  role_name: string;
+  permissions: string[];
   role?: Role;
-  is_active: boolean;
-  created_at: string;
-  updated_at: string;
+  is_active?: boolean;
+  created_at?: string;
+  updated_at?: string;
 }
 
 export interface Role {
