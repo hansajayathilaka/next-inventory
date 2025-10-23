@@ -3,9 +3,12 @@ import { AuthProvider } from '@/contexts/authContext';
 import { Layout } from '@/components/layout/Layout';
 import { ProtectedRoute } from '@/components/auth/ProtectedRoute';
 import { LoginPage } from './pages/LoginPage';
+import { POSPage } from './pages/POSPage';
 import { RolesPage } from './pages/RolesPage';
 import { StaffPage } from './pages/StaffPage';
 import { useAuth } from '@/contexts/authContext';
+import { usePOSAutoSave } from '@/hooks/usePOSAutoSave';
+import { useSessionTimeout } from '@/hooks/useSessionTimeout';
 
 // Dashboard Page - Simple dashboard showing user info
 function DashboardPage() {
@@ -54,8 +57,13 @@ function DashboardPage() {
   );
 }
 
-function POSPage() {
-  return <div className="p-8">POS System - To be implemented</div>;
+// POS App Component with hooks
+function POSAppWithHooks() {
+  // Initialize auto-save and timeout hooks
+  usePOSAutoSave(30000); // Auto-save every 30 seconds
+  useSessionTimeout(5 * 60 * 60 * 1000); // 5 hour timeout
+
+  return <POSPage />;
 }
 
 function App() {
@@ -76,7 +84,7 @@ function App() {
 
             <Route path="pos" element={
               <ProtectedRoute requiredPermission="create_sale">
-                <POSPage />
+                <POSAppWithHooks />
               </ProtectedRoute>
             } />
 

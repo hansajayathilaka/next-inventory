@@ -125,15 +125,15 @@
 - [x] T052 [US9] Implement POS service with multi-session logic in backend/internal/services/pos_service.go
 - [x] T053 [US9] Create POS session handlers in backend/internal/handlers/pos_handler.go
 - [x] T054 [US9] Add POS routes to router in backend/cmd/server/main.go
-- [ ] T055 [P] [US9] Create Zustand POS store in frontend/src/stores/posStore.ts
-- [ ] T056 [P] [US9] Create session management components in frontend/src/components/pos/SessionManager.tsx
-- [ ] T057 [P] [US9] Create cart components in frontend/src/components/pos/Cart.tsx
-- [ ] T058 [P] [US9] Create product selector components in frontend/src/components/pos/ProductSelector.tsx
-- [ ] T059 [US9] Create POS page in frontend/src/pages/POSPage.tsx
-- [ ] T060 [US9] Create POS API service in frontend/src/services/pos.service.ts
-- [ ] T061 [US9] Implement session auto-save functionality in frontend/src/hooks/usePOSAutoSave.ts
-- [ ] T062 [US9] Implement session timeout handling in frontend/src/hooks/useSessionTimeout.ts
-- [ ] T063 [US9] Add POS route to frontend routing in frontend/src/App.tsx
+- [x] T055 [P] [US9] Create Zustand POS store in frontend/src/stores/posStore.ts
+- [x] T056 [P] [US9] Create session management components in frontend/src/components/pos/SessionManager.tsx
+- [x] T057 [P] [US9] Create cart components in frontend/src/components/pos/Cart.tsx
+- [x] T058 [P] [US9] Create product selector components in frontend/src/components/pos/ProductSelector.tsx
+- [x] T059 [US9] Create POS page in frontend/src/pages/POSPage.tsx
+- [x] T060 [US9] Create POS API service in frontend/src/services/pos.service.ts
+- [x] T061 [US9] Implement session auto-save functionality in frontend/src/hooks/usePOSAutoSave.ts
+- [x] T062 [US9] Implement session timeout handling in frontend/src/hooks/useSessionTimeout.ts
+- [x] T063 [US9] Add POS route to frontend routing in frontend/src/App.tsx
 
 **Checkpoint**: At this point, basic POS functionality should work with mock data
 
