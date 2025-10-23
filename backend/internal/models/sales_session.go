@@ -1,11 +1,8 @@
 package models
 
 import (
-	"database/sql"
 	"database/sql/driver"
 	"time"
-
-	"gorm.io/datatypes"
 )
 
 // SalesSession represents an active or held POS transaction

@@ -33,7 +33,7 @@ func NewPOSService(
 // CreateSession creates a new POS session
 func (s *POSService) CreateSession(staffID uint, customerID *uint) (*models.SalesSession, error) {
 	// Verify staff exists and is active
-	staff, err := s.staffRepo.GetStaffByID(staffID)
+	staff, err := s.staffRepo.GetByID(staffID)
 	if err != nil {
 		return nil, fmt.Errorf("failed to fetch staff: %w", err)
 	}
