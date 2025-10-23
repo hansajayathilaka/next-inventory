@@ -37,6 +37,11 @@ func main() {
 	}
 	defer database.CloseDB()
 
+	// Run database migrations (create tables if they don't exist)
+	if err := database.AutoMigrate(db); err != nil {
+		log.Fatalf("Failed to run migrations: %v", err)
+	}
+
 	// Initialize JWT service
 	jwtService := auth.NewJWTService(
 		getEnv("JWT_ACCESS_SECRET", "your-secret-access-key"),

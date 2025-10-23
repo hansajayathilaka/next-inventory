@@ -10,6 +10,7 @@ import (
 	"github.com/hardware-store/pos-backend/internal/logger"
 	"github.com/hardware-store/pos-backend/internal/repositories"
 	"github.com/hardware-store/pos-backend/internal/services"
+	"gorm.io/gorm"
 )
 
 func main() {
@@ -41,13 +42,15 @@ func main() {
 	// If fresh flag is set, drop all data
 	if *fresh {
 		log.Println("⚠️  Dropping all data...")
-		err := db.Migrator().DropTable(
-			&tables{},
-		)
-		if err != nil {
+		if err := dropAllTables(db); err != nil {
 			log.Fatalf("Failed to drop tables: %v", err)
 		}
 		log.Println("✓ All tables dropped")
+	}
+
+	// Run database migrations (create tables if they don't exist)
+	if err := database.AutoMigrate(db); err != nil {
+		log.Fatalf("Failed to run migrations: %v", err)
 	}
 
 	// Initialize repositories
@@ -93,5 +96,30 @@ func getEnv(key, defaultValue string) string {
 	return defaultValue
 }
 
-// Placeholder struct for table dropping
-type tables struct{}
+// dropAllTables drops all application tables
+func dropAllTables(db *gorm.DB) error {
+	// Import models package to access models
+	tables := []string{
+		"sale_items",
+		"sales_sessions",
+		"sales_session_items",
+		"sales",
+		"inventory_batches",
+		"products",
+		"categories",
+		"customers",
+		"suppliers",
+		"staff",
+		"role_permissions",
+		"permissions",
+		"roles",
+	}
+
+	for _, table := range tables {
+		if err := db.Migrator().DropTable(table); err != nil {
+			log.Printf("Warning: failed to drop table %s: %v\n", table, err)
+		}
+	}
+
+	return nil
+}
