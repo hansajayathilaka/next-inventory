@@ -1,0 +1,82 @@
+[
+  {
+    "name": "Bike Parts",
+    "parentId": null,
+    "description": "Complete bike parts and accessories"
+  },
+  {
+    "name": "Wheels & Tires",
+    "parentId": 1,
+    "description": "Wheels, tires, tubes, and rims for bikes"
+  },
+  {
+    "name": "Brakes & Cables",
+    "parentId": 1,
+    "description": "Brake systems, cables, and levers"
+  },
+  {
+    "name": "Drivetrain",
+    "parentId": 1,
+    "description": "Chains, gears, pedals, and cranksets"
+  },
+  {
+    "name": "Frame & Fork",
+    "parentId": 1,
+    "description": "Frames, forks, and frame components"
+  },
+  {
+    "name": "Handlebars & Stem",
+    "parentId": 1,
+    "description": "Handlebars, stems, and grips"
+  },
+  {
+    "name": "Three-Wheel Parts",
+    "parentId": null,
+    "description": "Parts for tricycles and three-wheel vehicles"
+  },
+  {
+    "name": "Trike Wheels",
+    "parentId": 7,
+    "description": "Wheels and tires for tricycles"
+  },
+  {
+    "name": "Trike Brakes",
+    "parentId": 7,
+    "description": "Brake systems for tricycles"
+  },
+  {
+    "name": "Tools & Maintenance",
+    "parentId": null,
+    "description": "Tools and maintenance supplies"
+  },
+  {
+    "name": "Repair Tools",
+    "parentId": 10,
+    "description": "Wrenches, screwdrivers, and repair tools"
+  },
+  {
+    "name": "Cleaning & Lubrication",
+    "parentId": 10,
+    "description": "Cleaners, lubricants, and polishes"
+  },
+  {
+    "name": "Accessories",
+    "parentId": null,
+    "description": "Bike and trike accessories"
+  },
+  {
+    "name": "Lights & Reflectors",
+    "parentId": 13,
+    "description": "Lights, reflectors, and visibility accessories"
+  },
+  {
+    "name": "Locks & Security",
+    "parentId": 13,
+    "description": "Locks, cables, and security devices"
+  },
+  {
+    "name": "Bags & Carriers",
+    "parentId": 13,
+    "description": "Baskets, bags, and cargo carriers"
+  }
+]

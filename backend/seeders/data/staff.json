@@ -1,0 +1,56 @@
+[
+  {
+    "username": "admin",
+    "password": "Admin@123456",
+    "firstName": "System",
+    "lastName": "Administrator",
+    "email": "admin@hardware-store.local",
+    "roleId": 1,
+    "isActive": true
+  },
+  {
+    "username": "manager1",
+    "password": "Manager@123456",
+    "firstName": "John",
+    "lastName": "Manager",
+    "email": "john.manager@hardware-store.local",
+    "roleId": 2,
+    "isActive": true
+  },
+  {
+    "username": "cashier1",
+    "password": "Cashier@123456",
+    "firstName": "Sarah",
+    "lastName": "Jones",
+    "email": "sarah.jones@hardware-store.local",
+    "roleId": 3,
+    "isActive": true
+  },
+  {
+    "username": "cashier2",
+    "password": "Cashier@123456",
+    "firstName": "Mike",
+    "lastName": "Smith",
+    "email": "mike.smith@hardware-store.local",
+    "roleId": 3,
+    "isActive": true
+  },
+  {
+    "username": "stockmgr1",
+    "password": "Stock@123456",
+    "firstName": "David",
+    "lastName": "Brown",
+    "email": "david.brown@hardware-store.local",
+    "roleId": 4,
+    "isActive": true
+  },
+  {
+    "username": "associate1",
+    "password": "Sales@123456",
+    "firstName": "Emily",
+    "lastName": "Davis",
+    "email": "emily.davis@hardware-store.local",
+    "roleId": 5,
+    "isActive": true
+  }
+]

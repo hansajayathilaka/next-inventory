@@ -1,0 +1,72 @@
+[
+  {
+    "name": "Shimano Components Co.",
+    "email": "sales@shimano-parts.com",
+    "phone": "+1-800-SHIMANO",
+    "address": "123 Component Way, Japan",
+    "isActive": true
+  },
+  {
+    "name": "Continental Tire Company",
+    "email": "wholesale@continental-tires.com",
+    "phone": "+1-800-TIRES",
+    "address": "456 Rubber Road, Germany",
+    "isActive": true
+  },
+  {
+    "name": "SRAM Bike Parts",
+    "email": "b2b@sram.com",
+    "phone": "+1-888-SRAM-911",
+    "address": "789 Drivetrain Drive, USA",
+    "isActive": true
+  },
+  {
+    "name": "Campagnolo Wheels",
+    "email": "supply@campagnolo.it",
+    "phone": "+39-123-456-7890",
+    "address": "321 Wheel Street, Italy",
+    "isActive": true
+  },
+  {
+    "name": "Hayes Brakes International",
+    "email": "orders@hayes-brakes.com",
+    "phone": "+1-866-HAYES-1",
+    "address": "654 Brake Lane, USA",
+    "isActive": true
+  },
+  {
+    "name": "Pro Cycling Accessories",
+    "email": "bulk@proaccessories.com",
+    "phone": "+1-855-PRO-BIKE",
+    "address": "987 Accessory Ave, USA",
+    "isActive": true
+  },
+  {
+    "name": "KMC Chain Manufacturer",
+    "email": "wholesale@kmcchain.com",
+    "phone": "+886-123-456-789",
+    "address": "147 Chain Plaza, Taiwan",
+    "isActive": true
+  },
+  {
+    "name": "VP Components",
+    "email": "sales@vpcomponents.tw",
+    "phone": "+886-987-654-321",
+    "address": "258 Pedal Park, Taiwan",
+    "isActive": true
+  },
+  {
+    "name": "Spoke Distribution Center",
+    "email": "orders@spokedist.com",
+    "phone": "+1-800-SPOKES",
+    "address": "369 Distribution Dr, USA",
+    "isActive": true
+  },
+  {
+    "name": "Eastern Bike Parts Ltd",
+    "email": "wholesale@easternbike.cn",
+    "phone": "+86-10-123456",
+    "address": "741 Eastern Way, China",
+    "isActive": true
+  }
+]

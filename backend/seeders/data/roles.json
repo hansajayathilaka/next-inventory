@@ -1,0 +1,116 @@
+[
+  {
+    "name": "Admin",
+    "description": "Full system access - can manage all features",
+    "permissions": [
+      "create_role",
+      "read_role",
+      "update_role",
+      "delete_role",
+      "assign_permission",
+      "create_staff",
+      "read_staff",
+      "update_staff",
+      "deactivate_staff",
+      "create_customer",
+      "read_customer",
+      "update_customer",
+      "create_supplier",
+      "read_supplier",
+      "update_supplier",
+      "create_category",
+      "read_category",
+      "update_category",
+      "delete_category",
+      "create_product",
+      "read_product",
+      "update_product",
+      "delete_product",
+      "view_inventory",
+      "manage_inventory",
+      "create_purchase",
+      "read_purchase",
+      "create_sale",
+      "read_sale",
+      "process_return",
+      "approve_return",
+      "view_credit",
+      "manage_credit",
+      "view_reports"
+    ]
+  },
+  {
+    "name": "Manager",
+    "description": "Can manage staff, view reports, and approve returns",
+    "permissions": [
+      "read_role",
+      "create_staff",
+      "read_staff",
+      "update_staff",
+      "deactivate_staff",
+      "create_customer",
+      "read_customer",
+      "update_customer",
+      "create_supplier",
+      "read_supplier",
+      "update_supplier",
+      "create_category",
+      "read_category",
+      "update_category",
+      "create_product",
+      "read_product",
+      "update_product",
+      "view_inventory",
+      "manage_inventory",
+      "create_purchase",
+      "read_purchase",
+      "create_sale",
+      "read_sale",
+      "process_return",
+      "approve_return",
+      "view_credit",
+      "manage_credit",
+      "view_reports"
+    ]
+  },
+  {
+    "name": "Cashier",
+    "description": "Can create sales, process returns, and manage customer credit",
+    "permissions": [
+      "read_customer",
+      "create_customer",
+      "read_product",
+      "view_inventory",
+      "create_sale",
+      "read_sale",
+      "process_return",
+      "view_credit",
+      "manage_credit"
+    ]
+  },
+  {
+    "name": "Stock Manager",
+    "description": "Can manage inventory, create purchases, and view products",
+    "permissions": [
+      "read_product",
+      "view_inventory",
+      "manage_inventory",
+      "create_purchase",
+      "read_purchase",
+      "read_supplier",
+      "create_supplier",
+      "update_supplier"
+    ]
+  },
+  {
+    "name": "Sales Associate",
+    "description": "Can view products and create sales",
+    "permissions": [
+      "read_product",
+      "view_inventory",
+      "read_customer",
+      "create_sale",
+      "read_sale"
+    ]
+  }
+]

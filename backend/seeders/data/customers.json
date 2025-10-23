@@ -1,0 +1,98 @@
+[
+  {
+    "name": "Local Bike Shop",
+    "email": "owner@localbikeshow.com",
+    "phone": "+1-555-0101",
+    "address": "123 Main Street, Downtown",
+    "creditLimit": 5000.00,
+    "isActive": true
+  },
+  {
+    "name": "Mountain Biking Club",
+    "email": "purchases@mtbclub.org",
+    "phone": "+1-555-0102",
+    "address": "456 Trail Road, North Valley",
+    "creditLimit": 3000.00,
+    "isActive": true
+  },
+  {
+    "name": "City Cycle Rentals",
+    "email": "fleet@citycyclerentals.com",
+    "phone": "+1-555-0103",
+    "address": "789 Commerce Ave, Downtown",
+    "creditLimit": 8000.00,
+    "isActive": true
+  },
+  {
+    "name": "Community Repair Collective",
+    "email": "repairs@communitybikeshop.org",
+    "phone": "+1-555-0104",
+    "address": "321 Repair Way, East Side",
+    "creditLimit": 2000.00,
+    "isActive": true
+  },
+  {
+    "name": "Family Cycles Store",
+    "email": "info@familycycles.com",
+    "phone": "+1-555-0105",
+    "address": "654 Retail Row, West Plaza",
+    "creditLimit": 4500.00,
+    "isActive": true
+  },
+  {
+    "name": "Professional Racing Team",
+    "email": "logistics@pro-racing.team",
+    "phone": "+1-555-0106",
+    "address": "147 Sports Complex, Stadium Way",
+    "creditLimit": 12000.00,
+    "isActive": true
+  },
+  {
+    "name": "University Bike Program",
+    "email": "procurement@uni-bikes.edu",
+    "phone": "+1-555-0107",
+    "address": "258 Campus Drive, University",
+    "creditLimit": 6000.00,
+    "isActive": true
+  },
+  {
+    "name": "Tricycle Enthusiasts Co-op",
+    "email": "orders@trikeco-op.com",
+    "phone": "+1-555-0108",
+    "address": "369 Specialty Lane, Collector District",
+    "creditLimit": 2500.00,
+    "isActive": true
+  },
+  {
+    "name": "School Transportation Program",
+    "email": "fleet@schooltransport.edu",
+    "phone": "+1-555-0109",
+    "address": "741 Education Blvd, School Zone",
+    "creditLimit": 7000.00,
+    "isActive": true
+  },
+  {
+    "name": "Park & Recreation Department",
+    "email": "procurement@parks.gov",
+    "phone": "+1-555-0110",
+    "address": "852 Park Lane, City Center",
+    "creditLimit": 5500.00,
+    "isActive": true
+  },
+  {
+    "name": "Corporate Wellness Program",
+    "email": "bikes@corpwellness.com",
+    "phone": "+1-555-0111",
+    "address": "963 Business Tower, Financial District",
+    "creditLimit": 9000.00,
+    "isActive": true
+  },
+  {
+    "name": "Hospital Medical Equipment",
+    "email": "supplies@hospitalequip.com",
+    "phone": "+1-555-0112",
+    "address": "147 Medical Plaza, Health District",
+    "creditLimit": 3500.00,
+    "isActive": true
+  }
+]

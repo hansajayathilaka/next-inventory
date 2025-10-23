@@ -1,0 +1,245 @@
+[
+  {
+    "productCode": "WHEEL-26-ROAD",
+    "supplierId": 1,
+    "batchNumber": "SHIMANO-WHEEL-26-001",
+    "quantityInStock": 50,
+    "costPrice": 35.00,
+    "salePrice": 85.00,
+    "expiryDate": null
+  },
+  {
+    "productCode": "WHEEL-27-HYBRID",
+    "supplierId": 4,
+    "batchNumber": "CAMPAGNOLO-WHEEL-27-001",
+    "quantityInStock": 35,
+    "costPrice": 42.00,
+    "salePrice": 98.00,
+    "expiryDate": null
+  },
+  {
+    "productCode": "TIRE-700C-ROAD",
+    "supplierId": 2,
+    "batchNumber": "CONTINENTAL-TIRE-700C-001",
+    "quantityInStock": 80,
+    "costPrice": 18.00,
+    "salePrice": 45.00,
+    "expiryDate": "2026-12-31"
+  },
+  {
+    "productCode": "TIRE-26-MTB",
+    "supplierId": 2,
+    "batchNumber": "CONTINENTAL-TIRE-26-001",
+    "quantityInStock": 60,
+    "costPrice": 22.00,
+    "salePrice": 55.00,
+    "expiryDate": "2026-12-31"
+  },
+  {
+    "productCode": "CHAIN-11SP",
+    "supplierId": 7,
+    "batchNumber": "KMC-CHAIN-11SP-001",
+    "quantityInStock": 120,
+    "costPrice": 8.50,
+    "salePrice": 22.00,
+    "expiryDate": null
+  },
+  {
+    "productCode": "GEAR-CRANKSET-50-34",
+    "supplierId": 1,
+    "batchNumber": "SHIMANO-CRANK-50-34-001",
+    "quantityInStock": 25,
+    "costPrice": 65.00,
+    "salePrice": 155.00,
+    "expiryDate": null
+  },
+  {
+    "productCode": "PEDAL-PLATFORM",
+    "supplierId": 8,
+    "batchNumber": "VP-PEDAL-PLATFORM-001",
+    "quantityInStock": 100,
+    "costPrice": 12.00,
+    "salePrice": 28.00,
+    "expiryDate": null
+  },
+  {
+    "productCode": "BRAKE-DISC-MECH",
+    "supplierId": 5,
+    "batchNumber": "HAYES-BRAKE-DISC-001",
+    "quantityInStock": 40,
+    "costPrice": 35.00,
+    "salePrice": 89.00,
+    "expiryDate": null
+  },
+  {
+    "productCode": "BRAKE-RIM",
+    "supplierId": 3,
+    "batchNumber": "SRAM-BRAKE-RIM-001",
+    "quantityInStock": 50,
+    "costPrice": 20.00,
+    "salePrice": 52.00,
+    "expiryDate": null
+  },
+  {
+    "productCode": "CABLE-BRAKE",
+    "supplierId": 1,
+    "batchNumber": "SHIMANO-CABLE-BRAKE-001",
+    "quantityInStock": 150,
+    "costPrice": 2.50,
+    "salePrice": 6.99,
+    "expiryDate": null
+  },
+  {
+    "productCode": "HANDLEBAR-DROP",
+    "supplierId": 1,
+    "batchNumber": "SHIMANO-HANDLEBAR-DROP-001",
+    "quantityInStock": 35,
+    "costPrice": 18.00,
+    "salePrice": 45.00,
+    "expiryDate": null
+  },
+  {
+    "productCode": "HANDLEBAR-FLAT",
+    "supplierId": 3,
+    "batchNumber": "SRAM-HANDLEBAR-FLAT-001",
+    "quantityInStock": 45,
+    "costPrice": 15.00,
+    "salePrice": 38.00,
+    "expiryDate": null
+  },
+  {
+    "productCode": "STEM-90MM",
+    "supplierId": 1,
+    "batchNumber": "SHIMANO-STEM-90MM-001",
+    "quantityInStock": 60,
+    "costPrice": 12.00,
+    "salePrice": 32.00,
+    "expiryDate": null
+  },
+  {
+    "productCode": "GRIP-CORK",
+    "supplierId": 6,
+    "batchNumber": "PRO-GRIP-CORK-001",
+    "quantityInStock": 80,
+    "costPrice": 5.00,
+    "salePrice": 14.99,
+    "expiryDate": null
+  },
+  {
+    "productCode": "TRIKE-WHEEL-20",
+    "supplierId": 4,
+    "batchNumber": "CAMPAGNOLO-TRIKE-20-001",
+    "quantityInStock": 30,
+    "costPrice": 28.00,
+    "salePrice": 75.00,
+    "expiryDate": null
+  },
+  {
+    "productCode": "TRIKE-BRAKE-COASTER",
+    "supplierId": 5,
+    "batchNumber": "HAYES-TRIKE-COASTER-001",
+    "quantityInStock": 20,
+    "costPrice": 25.00,
+    "salePrice": 65.00,
+    "expiryDate": null
+  },
+  {
+    "productCode": "TOOL-WRENCH-15",
+    "supplierId": 9,
+    "batchNumber": "SPOKE-TOOL-WRENCH-15-001",
+    "quantityInStock": 100,
+    "costPrice": 3.50,
+    "salePrice": 9.99,
+    "expiryDate": null
+  },
+  {
+    "productCode": "TOOL-SCREWDRIVER-SET",
+    "supplierId": 9,
+    "batchNumber": "SPOKE-TOOL-DRIVER-SET-001",
+    "quantityInStock": 50,
+    "costPrice": 8.00,
+    "salePrice": 19.99,
+    "expiryDate": null
+  },
+  {
+    "productCode": "CLEAN-DEGREASER",
+    "supplierId": 6,
+    "batchNumber": "PRO-CLEAN-DEGREASER-001",
+    "quantityInStock": 200,
+    "costPrice": 4.00,
+    "salePrice": 11.99,
+    "expiryDate": "2025-12-31"
+  },
+  {
+    "productCode": "LUBE-CHAIN",
+    "supplierId": 6,
+    "batchNumber": "PRO-LUBE-CHAIN-001",
+    "quantityInStock": 180,
+    "costPrice": 3.50,
+    "salePrice": 10.99,
+    "expiryDate": "2026-06-30"
+  },
+  {
+    "productCode": "LIGHT-FRONT-LED",
+    "supplierId": 10,
+    "batchNumber": "EASTERN-LIGHT-FRONT-001",
+    "quantityInStock": 70,
+    "costPrice": 12.00,
+    "salePrice": 35.00,
+    "expiryDate": null
+  },
+  {
+    "productCode": "LIGHT-REAR-LED",
+    "supplierId": 10,
+    "batchNumber": "EASTERN-LIGHT-REAR-001",
+    "quantityInStock": 90,
+    "costPrice": 6.00,
+    "salePrice": 18.00,
+    "expiryDate": null
+  },
+  {
+    "productCode": "REFLECTOR-SPOKE",
+    "supplierId": 6,
+    "batchNumber": "PRO-REFLECTOR-SPOKE-001",
+    "quantityInStock": 150,
+    "costPrice": 1.50,
+    "salePrice": 4.99,
+    "expiryDate": null
+  },
+  {
+    "productCode": "LOCK-U-BOLT",
+    "supplierId": 6,
+    "batchNumber": "PRO-LOCK-UBOLT-001",
+    "quantityInStock": 40,
+    "costPrice": 15.00,
+    "salePrice": 42.00,
+    "expiryDate": null
+  },
+  {
+    "productCode": "LOCK-COMBINATION",
+    "supplierId": 6,
+    "batchNumber": "PRO-LOCK-COMBINATION-001",
+    "quantityInStock": 60,
+    "costPrice": 8.00,
+    "salePrice": 22.00,
+    "expiryDate": null
+  },
+  {
+    "productCode": "BAG-CARGO-BASKET",
+    "supplierId": 6,
+    "batchNumber": "PRO-BAG-BASKET-001",
+    "quantityInStock": 35,
+    "costPrice": 18.00,
+    "salePrice": 48.00,
+    "expiryDate": null
+  },
+  {
+    "productCode": "BAG-PANNIERS",
+    "supplierId": 6,
+    "batchNumber": "PRO-BAG-PANNIERS-001",
+    "quantityInStock": 25,
+    "costPrice": 28.00,
+    "salePrice": 75.00,
+    "expiryDate": null
+  }
+]

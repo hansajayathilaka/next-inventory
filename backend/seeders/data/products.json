@@ -1,0 +1,271 @@
+[
+  {
+    "code": "WHEEL-26-ROAD",
+    "description": "26 inch road bike wheel",
+    "categoryId": 2,
+    "attributes": {
+      "size": "26 inch",
+      "type": "road",
+      "material": "aluminum alloy"
+    }
+  },
+  {
+    "code": "WHEEL-27-HYBRID",
+    "description": "27.5 inch hybrid wheel",
+    "categoryId": 2,
+    "attributes": {
+      "size": "27.5 inch",
+      "type": "hybrid",
+      "material": "aluminum alloy"
+    }
+  },
+  {
+    "code": "TIRE-700C-ROAD",
+    "description": "700c road bike tire - 25mm",
+    "categoryId": 2,
+    "attributes": {
+      "size": "700c x 25mm",
+      "type": "road",
+      "material": "rubber compound"
+    }
+  },
+  {
+    "code": "TIRE-26-MTB",
+    "description": "26 inch mountain bike tire",
+    "categoryId": 2,
+    "attributes": {
+      "size": "26 inch",
+      "type": "mountain",
+      "tread": "knobby"
+    }
+  },
+  {
+    "code": "CHAIN-11SP",
+    "description": "11-speed bike chain",
+    "categoryId": 4,
+    "attributes": {
+      "speeds": "11",
+      "length": "114 links",
+      "material": "steel"
+    }
+  },
+  {
+    "code": "GEAR-CRANKSET-50-34",
+    "description": "Compact crankset 50/34 teeth",
+    "categoryId": 4,
+    "attributes": {
+      "teeth": "50/34",
+      "type": "compact",
+      "material": "aluminum"
+    }
+  },
+  {
+    "code": "PEDAL-PLATFORM",
+    "description": "Platform pedals - standard bike",
+    "categoryId": 4,
+    "attributes": {
+      "type": "platform",
+      "material": "plastic/metal",
+      "color": "black"
+    }
+  },
+  {
+    "code": "BRAKE-DISC-MECH",
+    "description": "Mechanical disc brake - 160mm rotor",
+    "categoryId": 3,
+    "attributes": {
+      "type": "mechanical disc",
+      "rotor": "160mm",
+      "material": "aluminum"
+    }
+  },
+  {
+    "code": "BRAKE-RIM",
+    "description": "Rim brake caliper",
+    "categoryId": 3,
+    "attributes": {
+      "type": "rim brake",
+      "material": "aluminum alloy"
+    }
+  },
+  {
+    "code": "CABLE-BRAKE",
+    "description": "Brake cable and housing",
+    "categoryId": 3,
+    "attributes": {
+      "type": "brake",
+      "length": "2m",
+      "material": "steel"
+    }
+  },
+  {
+    "code": "HANDLEBAR-DROP",
+    "description": "Drop handlebars - road bike",
+    "categoryId": 6,
+    "attributes": {
+      "type": "drop",
+      "material": "aluminum",
+      "width": "40cm"
+    }
+  },
+  {
+    "code": "HANDLEBAR-FLAT",
+    "description": "Flat handlebars - mountain/hybrid",
+    "categoryId": 6,
+    "attributes": {
+      "type": "flat",
+      "material": "aluminum",
+      "width": "66cm"
+    }
+  },
+  {
+    "code": "STEM-90MM",
+    "description": "Bike stem - 90mm",
+    "categoryId": 6,
+    "attributes": {
+      "length": "90mm",
+      "angle": "6 degrees",
+      "material": "aluminum"
+    }
+  },
+  {
+    "code": "GRIP-CORK",
+    "description": "Cork handlebar grips",
+    "categoryId": 6,
+    "attributes": {
+      "material": "cork",
+      "color": "natural",
+      "length": "130mm"
+    }
+  },
+  {
+    "code": "TRIKE-WHEEL-20",
+    "description": "20 inch tricycle wheel",
+    "categoryId": 8,
+    "attributes": {
+      "size": "20 inch",
+      "type": "tricycle",
+      "material": "steel"
+    }
+  },
+  {
+    "code": "TRIKE-BRAKE-COASTER",
+    "description": "Coaster brake for tricycle",
+    "categoryId": 9,
+    "attributes": {
+      "type": "coaster",
+      "wheelSize": "20 inch"
+    }
+  },
+  {
+    "code": "TOOL-WRENCH-15",
+    "description": "15mm adjustable wrench",
+    "categoryId": 11,
+    "attributes": {
+      "size": "15mm",
+      "type": "adjustable",
+      "material": "chrome steel"
+    }
+  },
+  {
+    "code": "TOOL-SCREWDRIVER-SET",
+    "description": "Screwdriver set - 6 pieces",
+    "categoryId": 11,
+    "attributes": {
+      "pieces": 6,
+      "types": "phillips and flathead"
+    }
+  },
+  {
+    "code": "CLEAN-DEGREASER",
+    "description": "Bike chain degreaser - 500ml",
+    "categoryId": 12,
+    "attributes": {
+      "volume": "500ml",
+      "type": "degreaser",
+      "eco_friendly": true
+    }
+  },
+  {
+    "code": "LUBE-CHAIN",
+    "description": "Dry chain lubricant - 100ml",
+    "categoryId": 12,
+    "attributes": {
+      "volume": "100ml",
+      "type": "dry lube",
+      "weather": "all conditions"
+    }
+  },
+  {
+    "code": "LIGHT-FRONT-LED",
+    "description": "LED front light - 500 lumens",
+    "categoryId": 14,
+    "attributes": {
+      "lumens": 500,
+      "type": "LED",
+      "mounting": "handlebar",
+      "battery": "USB rechargeable"
+    }
+  },
+  {
+    "code": "LIGHT-REAR-LED",
+    "description": "LED rear light - 100 lumens",
+    "categoryId": 14,
+    "attributes": {
+      "lumens": 100,
+      "type": "LED",
+      "mounting": "seat post",
+      "battery": "coin cell"
+    }
+  },
+  {
+    "code": "REFLECTOR-SPOKE",
+    "description": "Spoke reflectors - set of 12",
+    "categoryId": 14,
+    "attributes": {
+      "quantity": 12,
+      "material": "plastic",
+      "color": "silver"
+    }
+  },
+  {
+    "code": "LOCK-U-BOLT",
+    "description": "U-bolt lock with cable",
+    "categoryId": 15,
+    "attributes": {
+      "type": "U-bolt",
+      "cable": "1.5m included",
+      "security": "high"
+    }
+  },
+  {
+    "code": "LOCK-COMBINATION",
+    "description": "Combination cable lock",
+    "categoryId": 15,
+    "attributes": {
+      "type": "cable",
+      "length": "1.8m",
+      "security": "medium"
+    }
+  },
+  {
+    "code": "BAG-CARGO-BASKET",
+    "description": "Front cargo basket",
+    "categoryId": 16,
+    "attributes": {
+      "capacity": "10L",
+      "material": "plastic coated wire",
+      "mounting": "handlebar"
+    }
+  },
+  {
+    "code": "BAG-PANNIERS",
+    "description": "Rear panniers - pair",
+    "categoryId": 16,
+    "attributes": {
+      "capacity": "20L total",
+      "material": "nylon",
+      "attachment": "rack mount"
+    }
+  }
+]

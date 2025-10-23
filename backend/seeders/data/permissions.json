@@ -1,0 +1,206 @@
+[
+  {
+    "name": "create_role",
+    "resource": "roles",
+    "action": "create",
+    "description": "Create new roles"
+  },
+  {
+    "name": "read_role",
+    "resource": "roles",
+    "action": "read",
+    "description": "View role details"
+  },
+  {
+    "name": "update_role",
+    "resource": "roles",
+    "action": "update",
+    "description": "Edit existing roles"
+  },
+  {
+    "name": "delete_role",
+    "resource": "roles",
+    "action": "delete",
+    "description": "Delete roles"
+  },
+  {
+    "name": "assign_permission",
+    "resource": "roles",
+    "action": "assign_permission",
+    "description": "Assign permissions to roles"
+  },
+  {
+    "name": "create_staff",
+    "resource": "staff",
+    "action": "create",
+    "description": "Create new staff members"
+  },
+  {
+    "name": "read_staff",
+    "resource": "staff",
+    "action": "read",
+    "description": "View staff details"
+  },
+  {
+    "name": "update_staff",
+    "resource": "staff",
+    "action": "update",
+    "description": "Edit staff members"
+  },
+  {
+    "name": "deactivate_staff",
+    "resource": "staff",
+    "action": "deactivate",
+    "description": "Deactivate staff members"
+  },
+  {
+    "name": "create_customer",
+    "resource": "customers",
+    "action": "create",
+    "description": "Create new customers"
+  },
+  {
+    "name": "read_customer",
+    "resource": "customers",
+    "action": "read",
+    "description": "View customer details"
+  },
+  {
+    "name": "update_customer",
+    "resource": "customers",
+    "action": "update",
+    "description": "Edit customer information"
+  },
+  {
+    "name": "create_supplier",
+    "resource": "suppliers",
+    "action": "create",
+    "description": "Create new suppliers"
+  },
+  {
+    "name": "read_supplier",
+    "resource": "suppliers",
+    "action": "read",
+    "description": "View supplier details"
+  },
+  {
+    "name": "update_supplier",
+    "resource": "suppliers",
+    "action": "update",
+    "description": "Edit supplier information"
+  },
+  {
+    "name": "create_category",
+    "resource": "categories",
+    "action": "create",
+    "description": "Create product categories"
+  },
+  {
+    "name": "read_category",
+    "resource": "categories",
+    "action": "read",
+    "description": "View category details"
+  },
+  {
+    "name": "update_category",
+    "resource": "categories",
+    "action": "update",
+    "description": "Edit categories"
+  },
+  {
+    "name": "delete_category",
+    "resource": "categories",
+    "action": "delete",
+    "description": "Delete categories"
+  },
+  {
+    "name": "create_product",
+    "resource": "products",
+    "action": "create",
+    "description": "Create new products"
+  },
+  {
+    "name": "read_product",
+    "resource": "products",
+    "action": "read",
+    "description": "View product details"
+  },
+  {
+    "name": "update_product",
+    "resource": "products",
+    "action": "update",
+    "description": "Edit product information"
+  },
+  {
+    "name": "delete_product",
+    "resource": "products",
+    "action": "delete",
+    "description": "Delete products"
+  },
+  {
+    "name": "view_inventory",
+    "resource": "inventory",
+    "action": "read",
+    "description": "View inventory levels"
+  },
+  {
+    "name": "manage_inventory",
+    "resource": "inventory",
+    "action": "update",
+    "description": "Adjust inventory"
+  },
+  {
+    "name": "create_purchase",
+    "resource": "purchases",
+    "action": "create",
+    "description": "Create purchase orders"
+  },
+  {
+    "name": "read_purchase",
+    "resource": "purchases",
+    "action": "read",
+    "description": "View purchase orders"
+  },
+  {
+    "name": "create_sale",
+    "resource": "sales",
+    "action": "create",
+    "description": "Create sales transactions"
+  },
+  {
+    "name": "read_sale",
+    "resource": "sales",
+    "action": "read",
+    "description": "View sales transactions"
+  },
+  {
+    "name": "process_return",
+    "resource": "returns",
+    "action": "create",
+    "description": "Process product returns"
+  },
+  {
+    "name": "approve_return",
+    "resource": "returns",
+    "action": "approve",
+    "description": "Approve returns (manager only)"
+  },
+  {
+    "name": "view_credit",
+    "resource": "credits",
+    "action": "read",
+    "description": "View customer credits"
+  },
+  {
+    "name": "manage_credit",
+    "resource": "credits",
+    "action": "update",
+    "description": "Manage customer credit"
+  },
+  {
+    "name": "view_reports",
+    "resource": "reports",
+    "action": "read",
+    "description": "View sales and inventory reports"
+  }
+]
