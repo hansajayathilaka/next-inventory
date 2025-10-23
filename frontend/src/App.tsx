@@ -2,26 +2,17 @@ import { BrowserRouter as Router, Routes, Route, Navigate } from 'react-router-d
 import { AuthProvider } from '@/contexts/authContext';
 import { Layout } from '@/components/layout/Layout';
 import { ProtectedRoute } from '@/components/auth/ProtectedRoute';
+import { LoginPage } from './pages/LoginPage';
+import { RolesPage } from './pages/RolesPage';
+import { StaffPage } from './pages/StaffPage';
 
 // Placeholder pages - these will be created in later phases
-function LoginPage() {
-  return <div className="p-8">Login Page - To be implemented</div>;
-}
-
 function DashboardPage() {
   return <div className="p-8">Dashboard - To be implemented</div>;
 }
 
 function POSPage() {
   return <div className="p-8">POS System - To be implemented</div>;
-}
-
-function RolesPage() {
-  return <div className="p-8">Roles Management - To be implemented</div>;
-}
-
-function StaffPage() {
-  return <div className="p-8">Staff Management - To be implemented</div>;
 }
 
 function App() {

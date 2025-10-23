@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import { staffService, Staff } from '@/services/staff.service';
+import { staffService, type Staff } from '@/services/staff.service';
 
 export function StaffPage() {
   const [staff, setStaff] = useState<Staff[]>([]);

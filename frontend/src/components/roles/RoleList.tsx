@@ -1,4 +1,4 @@
-import { Role } from '@/services/roles.service';
+import type { Role } from '@/services/roles.service';
 
 interface RoleListProps {
   roles: Role[];

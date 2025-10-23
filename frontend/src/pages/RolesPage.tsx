@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import { roleService, Role } from '@/services/roles.service';
+import { roleService, type Role } from '@/services/roles.service';
 import { RoleForm } from '@/components/roles/RoleForm';
 import { RoleList } from '@/components/roles/RoleList';
 
