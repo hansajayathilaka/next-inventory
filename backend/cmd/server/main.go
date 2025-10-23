@@ -15,6 +15,9 @@ import (
 	"github.com/hardware-store/pos-backend/internal/database"
 	"github.com/hardware-store/pos-backend/internal/logger"
 	"github.com/hardware-store/pos-backend/internal/middleware"
+	"github.com/hardware-store/pos-backend/internal/repositories"
+	"github.com/hardware-store/pos-backend/internal/services"
+	"github.com/hardware-store/pos-backend/internal/handlers"
 )
 
 func main() {
@@ -83,6 +86,21 @@ func setupRouter(db *gorm.DB, jwtService *auth.JWTService) *gin.Engine {
 		c.File(filepath.Join(staticPath, "index.html"))
 	})
 
+	// Initialize repositories and services
+	roleRepo := repositories.NewRoleRepository(db)
+	permissionRepo := repositories.NewPermissionRepository(db)
+	staffRepo := repositories.NewStaffRepository(db)
+
+	roleService := services.NewRoleService(roleRepo, permissionRepo)
+	staffService := services.NewStaffService(staffRepo, roleRepo)
+	authService := services.NewAuthService(staffRepo, staffService, roleService, jwtService)
+
+	// Initialize handlers
+	roleHandler := handlers.NewRoleHandler(roleService)
+	permissionHandler := handlers.NewPermissionHandler(roleService)
+	staffHandler := handlers.NewStaffHandler(staffService)
+	authHandler := handlers.NewAuthHandler(authService)
+
 	// API v1 routes
 	v1 := router.Group("/api/v1")
 	{
@@ -96,18 +114,50 @@ func setupRouter(db *gorm.DB, jwtService *auth.JWTService) *gin.Engine {
 		})
 
 		// Authentication routes (no auth required)
-		auth := v1.Group("/auth")
+		authGroup := v1.Group("/auth")
 		{
-			// TODO: Add auth handlers
-			_ = auth
+			authGroup.POST("/login", authHandler.Login)
+			authGroup.POST("/refresh", authHandler.RefreshToken)
+			authGroup.POST("/logout", authHandler.Logout)
 		}
 
 		// Protected routes (auth required)
 		protected := v1.Group("/")
 		protected.Use(middleware.JWTAuth(jwtService))
 		{
-			// TODO: Add protected route groups
-			_ = protected
+			// User session route (get current user)
+			protected.GET("/auth/session", authHandler.GetSession)
+
+			// Role management routes
+			roles := protected.Group("/roles")
+			{
+				roles.POST("", roleHandler.CreateRole)
+				roles.GET("", roleHandler.ListRoles)
+				roles.GET("/:id", roleHandler.GetRole)
+				roles.PUT("/:id", roleHandler.UpdateRole)
+				roles.DELETE("/:id", roleHandler.DeleteRole)
+				roles.GET("/:id/permissions", roleHandler.GetRolePermissions)
+				roles.POST("/:id/permissions", roleHandler.AssignPermission)
+				roles.DELETE("/:id/permissions/:permissionId", roleHandler.RemovePermission)
+			}
+
+			// Permission management routes
+			permissions := protected.Group("/permissions")
+			{
+				permissions.POST("", permissionHandler.CreatePermission)
+				permissions.GET("", permissionHandler.ListPermissions)
+				permissions.GET("/:id", permissionHandler.GetPermission)
+			}
+
+			// Staff management routes
+			staff := protected.Group("/staff")
+			{
+				staff.POST("", staffHandler.CreateStaff)
+				staff.GET("", staffHandler.ListStaff)
+				staff.GET("/:id", staffHandler.GetStaff)
+				staff.PUT("/:id", staffHandler.UpdateStaff)
+				staff.PUT("/:id/deactivate", staffHandler.DeactivateStaff)
+			}
 		}
 	}
 

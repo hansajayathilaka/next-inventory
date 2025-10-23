@@ -1,0 +1,43 @@
+Initial pos system
+Use vite with react and shadcn for the UI for the frontend and go for the backend with gin framework. use gorm for the ORM and sqlite for the database.
+no need to be fancy. need very minimal UI.
+Need to create a inventory with a simple pos system.
+This is not for a multiple shop. This is for a single shop with a single cashier.
+This is a hardware store with bike & three weel spair parts.
+I need to have fallowing features.
+customer management,
+supplier management,
+staff management,
+product management and inventory management.
+I need simple purchacing management as well.
+for the customer name is enought. you may have other nessussary fields as optional.
+same for the supplier.
+for the staff management we should have a username and password firstname and last name and a role.
+need a seperate role management. just a role name is enough.
+for a each operation create a seperate permission. so I can assign permissions to each role seperately.
+need a category management as well. just a name for a category enough. Create highrachical category.
+for the products we need a description, code, category and few needed attributes. code should be unique. maintain a seperate id as well.
+for the inventory side i need fallowing feature.
+same product can be supply by the different suppliers in different prices. should maintain stocks for each one seperately.
+in the pos system I want to have multiple sessions at the same time. it means I should be able to serve multiple customers at the same time.
+when selecting a product I should be able to select from diferent stocks. it means we may have same item in different prices. I should be able to select the correct one from the prompted stock list.
+I should be able to give item level discount and I should be able to give bill level discounts as well.
+No need to handle actual transactions throught payment gateways. Just need to record the data. should be able to pay in cache, card or credit.
+credit should be calculated for each customer with details. should be able to extract credits for each customer and should be able to settle each one fully or partialy.
+Need to return a sold items. no return fee needed. just cache backs only.
+need to print a bill. after each transaction sale or return.
+When implementing fallow agile methodology. after each feature I need to see the demo and then only move to the next feature. for each feature I need to have full functional frontend and backend.
+First finalize the database design and share the ER diagram with me.
+Then implement each feature one by one.
+First implement the role and permission management.
+Then staff management.
+Then customer management.
+Then supplier management.
+Then category management.
+Then product management.
+Then inventory management.
+Then purchacing management.
+Then the pos system with sales and return management.
+For each feature I need to have full functional frontend and backend.
+After each feature I need to see the demo and then only move to the next feature.
+
