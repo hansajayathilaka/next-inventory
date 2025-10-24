@@ -179,14 +179,14 @@
 
 ### Implementation for User Story 12
 
-- [ ] T083 [US12] Implement receipt service with PDF generation in backend/internal/services/receipt_service.go
-- [ ] T084 [US12] Create receipt handlers in backend/internal/handlers/receipt_handler.go
-- [ ] T085 [US12] Add receipt routes to router in backend/cmd/server/main.go
-- [ ] T086 [P] [US12] Create receipt viewer component in frontend/src/components/receipts/ReceiptViewer.tsx
-- [ ] T087 [P] [US12] Create print functionality in frontend/src/components/receipts/PrintReceipt.tsx
-- [ ] T088 [US12] Create receipt API service in frontend/src/services/receipts.service.ts
-- [ ] T089 [US12] Integrate receipt generation into POS flow in frontend/src/components/pos/
-- [ ] T090 [US12] Add receipt printing to payment confirmation in frontend/src/components/pos/PaymentConfirmation.tsx
+- [x] T083 [US12] Implement receipt service with PDF generation in backend/internal/services/receipt_service.go
+- [x] T084 [US12] Create receipt handlers in backend/internal/handlers/receipt_handler.go
+- [x] T085 [US12] Add receipt routes to router in backend/cmd/server/main.go
+- [x] T086 [P] [US12] Create receipt viewer component in frontend/src/components/receipts/ReceiptViewer.tsx
+- [x] T087 [P] [US12] Create print functionality in frontend/src/components/receipts/PrintReceipt.tsx
+- [x] T088 [US12] Create receipt API service in frontend/src/services/receipts.service.ts
+- [x] T089 [US12] Integrate receipt generation into POS flow in frontend/src/components/pos/
+- [x] T090 [US12] Add receipt printing to payment confirmation in frontend/src/components/pos/PaymentConfirmation.tsx
 
 **Checkpoint**: At this point, MVP POS system is complete with core functionality
 

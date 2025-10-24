@@ -105,6 +105,7 @@ func setupRouter(db *gorm.DB, jwtService *auth.JWTService) *gin.Engine {
 	posService := services.NewPOSService(sessionRepo, saleRepo, staffRepo)
 	paymentService := services.NewPaymentService(saleRepo, creditRepo, sessionRepo)
 	creditService := services.NewCreditService(creditRepo)
+	receiptService := services.NewReceiptService(saleRepo)
 
 	// Initialize handlers
 	roleHandler := handlers.NewRoleHandler(roleService)
@@ -114,6 +115,7 @@ func setupRouter(db *gorm.DB, jwtService *auth.JWTService) *gin.Engine {
 	posHandler := handlers.NewPOSHandler(posService)
 	paymentHandler := handlers.NewPaymentHandler(paymentService)
 	creditHandler := handlers.NewCreditHandler(creditService)
+	receiptHandler := handlers.NewReceiptHandler(receiptService)
 
 	// API v1 routes
 	v1 := router.Group("/api/v1")
@@ -219,6 +221,15 @@ func setupRouter(db *gorm.DB, jwtService *auth.JWTService) *gin.Engine {
 			{
 				settlements.GET("/:settlementId", creditHandler.GetCreditSettlement)
 				settlements.GET("/stats", creditHandler.GetSettlementStats)
+			}
+
+			// Receipt routes
+			receipts := protected.Group("/sales/:saleId/receipt")
+			{
+				receipts.GET("", receiptHandler.GetSaleReceipt)
+				receipts.GET("/text", receiptHandler.GetTextReceipt)
+				receipts.GET("/html", receiptHandler.GetHTMLReceipt)
+				receipts.GET("/download", receiptHandler.DownloadReceipt)
 			}
 		}
 	}
