@@ -97,11 +97,14 @@ func setupRouter(db *gorm.DB, jwtService *auth.JWTService) *gin.Engine {
 	staffRepo := repositories.NewStaffRepository(db)
 	sessionRepo := repositories.NewSalesSessionRepository(db)
 	saleRepo := repositories.NewSaleRepository(db)
+	creditRepo := repositories.NewCreditRepository(db)
 
 	roleService := services.NewRoleService(roleRepo, permissionRepo)
 	staffService := services.NewStaffService(staffRepo, roleRepo)
 	authService := services.NewAuthService(staffRepo, staffService, roleService, jwtService)
 	posService := services.NewPOSService(sessionRepo, saleRepo, staffRepo)
+	paymentService := services.NewPaymentService(saleRepo, creditRepo, sessionRepo)
+	creditService := services.NewCreditService(creditRepo)
 
 	// Initialize handlers
 	roleHandler := handlers.NewRoleHandler(roleService)
@@ -109,6 +112,8 @@ func setupRouter(db *gorm.DB, jwtService *auth.JWTService) *gin.Engine {
 	staffHandler := handlers.NewStaffHandler(staffService)
 	authHandler := handlers.NewAuthHandler(authService)
 	posHandler := handlers.NewPOSHandler(posService)
+	paymentHandler := handlers.NewPaymentHandler(paymentService)
+	creditHandler := handlers.NewCreditHandler(creditService)
 
 	// API v1 routes
 	v1 := router.Group("/api/v1")
@@ -182,6 +187,38 @@ func setupRouter(db *gorm.DB, jwtService *auth.JWTService) *gin.Engine {
 				pos.POST("/sessions/:sessionId/discount", posHandler.ApplyBillDiscount)
 				pos.POST("/sessions/:sessionId/complete", posHandler.CompleteSession)
 				pos.POST("/sessions/:sessionId/abandon", posHandler.AbandonSession)
+			}
+
+			// Payment management routes
+			payments := protected.Group("/payments")
+			{
+				payments.POST("/process", paymentHandler.ProcessPayment)
+				payments.GET("/:transactionId", paymentHandler.GetPayment)
+				payments.GET("/stats", paymentHandler.GetPaymentStats)
+			}
+
+			// Customer payment and credit routes
+			customers := protected.Group("/customers")
+			{
+				customers.GET("/:customerId/payments", paymentHandler.ListCustomerPayments)
+				customers.GET("/:customerId/credits", creditHandler.ListCustomerCredits)
+				customers.GET("/:customerId/credits/status", creditHandler.GetCustomerCreditStatus)
+				customers.GET("/:customerId/settlements", creditHandler.ListCustomerSettlements)
+			}
+
+			// Credit management routes
+			credits := protected.Group("/credits")
+			{
+				credits.GET("/:creditId", creditHandler.GetCreditTransaction)
+				credits.POST("/:creditId/settle", creditHandler.SettleCredit)
+				credits.GET("/:creditId/settlements", creditHandler.ListCreditTransactionSettlements)
+			}
+
+			// Settlement routes
+			settlements := protected.Group("/settlements")
+			{
+				settlements.GET("/:settlementId", creditHandler.GetCreditSettlement)
+				settlements.GET("/stats", creditHandler.GetSettlementStats)
 			}
 		}
 	}

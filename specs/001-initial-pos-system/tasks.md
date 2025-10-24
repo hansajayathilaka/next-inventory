@@ -147,25 +147,25 @@
 
 ### Implementation for User Story 10
 
-- [ ] T064 [P] [US10] Create Sale model in backend/internal/models/sale.go
-- [ ] T065 [P] [US10] Create SaleItem model in backend/internal/models/sale_item.go
-- [ ] T066 [P] [US10] Create CreditTransaction model in backend/internal/models/credit_transaction.go
-- [ ] T067 [P] [US10] Create CreditSettlement model in backend/internal/models/credit_settlement.go
-- [ ] T068 [US10] Implement sale repository in backend/internal/repositories/sale_repository.go
-- [ ] T069 [US10] Implement credit repository in backend/internal/repositories/credit_repository.go
-- [ ] T070 [US10] Implement payment service in backend/internal/services/payment_service.go
-- [ ] T071 [US10] Implement credit service in backend/internal/services/credit_service.go
-- [ ] T072 [US10] Create payment handlers in backend/internal/handlers/payment_handler.go
-- [ ] T073 [US10] Create credit handlers in backend/internal/handlers/credit_handler.go
-- [ ] T074 [US10] Add payment and credit routes to router in backend/cmd/server/main.go
-- [ ] T075 [P] [US10] Create payment method components in frontend/src/components/pos/PaymentMethods.tsx
-- [ ] T076 [P] [US10] Create payment confirmation components in frontend/src/components/pos/PaymentConfirmation.tsx
-- [ ] T077 [P] [US10] Create credit management components in frontend/src/components/credits/
-- [ ] T078 [US10] Create credits page in frontend/src/pages/CreditsPage.tsx
-- [ ] T079 [US10] Create payment API service in frontend/src/services/payments.service.ts
-- [ ] T080 [US10] Create credits API service in frontend/src/services/credits.service.ts
-- [ ] T081 [US10] Update POS store with payment processing in frontend/src/stores/posStore.ts
-- [ ] T082 [US10] Add credit limit warning logic in frontend/src/components/pos/CreditWarning.tsx
+- [x] T064 [P] [US10] Create Sale model in backend/internal/models/sale.go
+- [x] T065 [P] [US10] Create SaleItem model in backend/internal/models/sale_item.go
+- [x] T066 [P] [US10] Create CreditTransaction model in backend/internal/models/credit_transaction.go
+- [x] T067 [P] [US10] Create CreditSettlement model in backend/internal/models/credit_settlement.go
+- [x] T068 [US10] Implement sale repository in backend/internal/repositories/sale_repository.go
+- [x] T069 [US10] Implement credit repository in backend/internal/repositories/credit_repository.go
+- [x] T070 [US10] Implement payment service in backend/internal/services/payment_service.go
+- [x] T071 [US10] Implement credit service in backend/internal/services/credit_service.go
+- [x] T072 [US10] Create payment handlers in backend/internal/handlers/payment_handler.go
+- [x] T073 [US10] Create credit handlers in backend/internal/handlers/credit_handler.go
+- [x] T074 [US10] Add payment and credit routes to router in backend/cmd/server/main.go
+- [x] T075 [P] [US10] Create payment method components in frontend/src/components/pos/PaymentMethods.tsx
+- [x] T076 [P] [US10] Create payment confirmation components in frontend/src/components/pos/PaymentConfirmation.tsx
+- [x] T077 [P] [US10] Create credit management components in frontend/src/components/credits/
+- [x] T078 [US10] Create credits page in frontend/src/pages/CreditsPage.tsx
+- [x] T079 [US10] Create payment API service in frontend/src/services/payments.service.ts
+- [x] T080 [US10] Create credits API service in frontend/src/services/credits.service.ts
+- [x] T081 [US10] Update POS store with payment processing in frontend/src/stores/posStore.ts
+- [x] T082 [US10] Add credit limit warning logic in frontend/src/components/pos/CreditWarning.tsx
 
 **Checkpoint**: At this point, complete sales flow should work with payment processing
 
