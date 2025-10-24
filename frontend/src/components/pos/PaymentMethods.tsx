@@ -95,7 +95,7 @@ export function PaymentMethods({ total, onPaymentSelect, isLoading = false }: Pa
                 id="amountPaid"
                 type="number"
                 value={amountPaid}
-                onChange={(e) => setAmountPaid(parseFloat(e.target.value) || 0)}
+                onChange={(e: React.ChangeEvent<HTMLInputElement>) => setAmountPaid(parseFloat(e.target.value) || 0)}
                 step="0.01"
                 min={total}
                 className="text-lg font-semibold"
@@ -124,7 +124,7 @@ export function PaymentMethods({ total, onPaymentSelect, isLoading = false }: Pa
                 type="number"
                 placeholder="Enter customer ID"
                 value={selectedCustomerId || ''}
-                onChange={(e) => setSelectedCustomerId(e.target.value ? parseInt(e.target.value) : null)}
+                onChange={(e: React.ChangeEvent<HTMLInputElement>) => setSelectedCustomerId(e.target.value ? parseInt(e.target.value) : null)}
               />
               <div className="text-sm text-gray-600 mt-1">Customer ID is required for credit payments</div>
             </div>

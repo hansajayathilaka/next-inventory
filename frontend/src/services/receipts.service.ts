@@ -1,4 +1,4 @@
-import { api } from './api';
+import { apiClient } from './api';
 
 export interface ReceiptItem {
   description: string;
@@ -32,7 +32,7 @@ class ReceiptsService {
    * Get receipt data for a sale
    */
   async getSaleReceipt(saleId: number): Promise<Receipt> {
-    const response = await api.get(`/sales/${saleId}/receipt`);
+    const response = await apiClient.get(`/sales/${saleId}/receipt`);
     return response.data;
   }
 
@@ -40,7 +40,7 @@ class ReceiptsService {
    * Get receipt as plain text
    */
   async getTextReceipt(saleId: number): Promise<string> {
-    const response = await api.get(`/sales/${saleId}/receipt/text`);
+    const response = await apiClient.get(`/sales/${saleId}/receipt/text`);
     return response.data;
   }
 
@@ -48,7 +48,7 @@ class ReceiptsService {
    * Get receipt as HTML
    */
   async getHTMLReceipt(saleId: number): Promise<string> {
-    const response = await api.get(`/sales/${saleId}/receipt/html`);
+    const response = await apiClient.get(`/sales/${saleId}/receipt/html`);
     return response.data;
   }
 
@@ -56,7 +56,7 @@ class ReceiptsService {
    * Download receipt as a file
    */
   async downloadReceipt(saleId: number): Promise<Blob> {
-    const response = await api.get(`/sales/${saleId}/receipt/download`, {
+    const response = await apiClient.get(`/sales/${saleId}/receipt/download`, {
       responseType: 'blob',
     });
     return response.data;

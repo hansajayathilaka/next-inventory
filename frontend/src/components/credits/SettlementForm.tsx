@@ -76,7 +76,7 @@ export function SettlementForm({
                 id="amount"
                 type="number"
                 value={amount}
-                onChange={(e) => setAmount(parseFloat(e.target.value) || 0)}
+                onChange={(e: React.ChangeEvent<HTMLInputElement>) => setAmount(parseFloat(e.target.value) || 0)}
                 step="0.01"
                 min="0.01"
                 max={remainingBalance}
@@ -138,7 +138,7 @@ export function SettlementForm({
             id="notes"
             placeholder="Add any notes about this settlement..."
             value={notes}
-            onChange={(e) => setNotes(e.target.value)}
+            onChange={(e: React.ChangeEvent<HTMLTextAreaElement>) => setNotes(e.target.value)}
             disabled={isLoading}
             rows={3}
           />

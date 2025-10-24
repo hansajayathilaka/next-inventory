@@ -1,4 +1,4 @@
-import { api } from './api';
+import { apiClient } from './api';
 
 export interface PaymentDetails {
   session_id: string;
@@ -36,7 +36,7 @@ class PaymentsService {
    * Process a payment for a sales session
    */
   async processPayment(details: PaymentDetails): Promise<Sale> {
-    const response = await api.post('/payments/process', details);
+    const response = await apiClient.post('/payments/process', details);
     return response.data;
   }
 
@@ -44,7 +44,7 @@ class PaymentsService {
    * Get payment details by transaction ID
    */
   async getPaymentByTransactionId(transactionId: string): Promise<Sale> {
-    const response = await api.get(`/payments/${transactionId}`);
+    const response = await apiClient.get(`/payments/${transactionId}`);
     return response.data;
   }
 
@@ -56,7 +56,7 @@ class PaymentsService {
     limit: number = 20,
     offset: number = 0
   ): Promise<Sale[]> {
-    const response = await api.get(`/customers/${customerId}/payments`, {
+    const response = await apiClient.get(`/customers/${customerId}/payments`, {
       params: { limit, offset },
     });
     return response.data.payments || [];
@@ -73,7 +73,7 @@ class PaymentsService {
     if (dateFrom) params.date_from = dateFrom;
     if (dateTo) params.date_to = dateTo;
 
-    const response = await api.get('/payments/stats', { params });
+    const response = await apiClient.get('/payments/stats', { params });
     return response.data;
   }
 
@@ -81,7 +81,7 @@ class PaymentsService {
    * Generate receipt for a payment
    */
   async getReceipt(saleId: number): Promise<Blob> {
-    const response = await api.get(`/sales/${saleId}/receipt`, {
+    const response = await apiClient.get(`/sales/${saleId}/receipt`, {
       responseType: 'blob',
     });
     return response.data;

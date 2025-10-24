@@ -5,7 +5,7 @@ import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Input } from '@/components/ui/input';
 import { CreditStatusCard } from '@/components/credits/CreditStatusCard';
 import { SettlementForm } from '@/components/credits/SettlementForm';
-import { creditsService, CreditTransaction, CreditStatus } from '@/services/credits.service';
+import { creditsService, type CreditTransaction, type CreditStatus } from '@/services/credits.service';
 import { AlertCircle, ChevronLeft } from 'lucide-react';
 
 export function CreditsPage() {
@@ -15,9 +15,6 @@ export function CreditsPage() {
 
   const [customerId, setCustomerId] = useState<number | null>(
     customerIdParam ? parseInt(customerIdParam) : null
-  );
-  const [creditId, setCreditId] = useState<number | null>(
-    creditIdParam ? parseInt(creditIdParam) : null
   );
 
   const [creditStatus, setCreditStatus] = useState<CreditStatus | null>(null);
@@ -114,8 +111,8 @@ export function CreditsPage() {
                 type="number"
                 placeholder="Enter customer ID"
                 value={searchInput}
-                onChange={(e) => setSearchInput(e.target.value)}
-                onKeyPress={(e) => e.key === 'Enter' && handleSearchCustomer()}
+                onChange={(e: React.ChangeEvent<HTMLInputElement>) => setSearchInput(e.target.value)}
+                onKeyPress={(e: React.KeyboardEvent<HTMLInputElement>) => e.key === 'Enter' && handleSearchCustomer()}
               />
               <Button onClick={handleSearchCustomer}>Search</Button>
             </div>

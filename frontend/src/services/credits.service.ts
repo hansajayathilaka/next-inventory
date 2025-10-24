@@ -1,4 +1,4 @@
-import { api } from './api';
+import { apiClient } from './api';
 
 export interface CreditTransaction {
   id: number;
@@ -50,7 +50,7 @@ class CreditsService {
    * Get credit status for a customer
    */
   async getCustomerCreditStatus(customerId: number): Promise<CreditStatus> {
-    const response = await api.get(`/customers/${customerId}/credits/status`);
+    const response = await apiClient.get(`/customers/${customerId}/credits/status`);
     return response.data;
   }
 
@@ -58,7 +58,7 @@ class CreditsService {
    * Get a specific credit transaction
    */
   async getCreditTransaction(creditId: number): Promise<CreditTransaction> {
-    const response = await api.get(`/credits/${creditId}`);
+    const response = await apiClient.get(`/credits/${creditId}`);
     return response.data;
   }
 
@@ -66,7 +66,7 @@ class CreditsService {
    * List all credit transactions for a customer
    */
   async listCustomerCredits(customerId: number): Promise<CreditTransaction[]> {
-    const response = await api.get(`/customers/${customerId}/credits`);
+    const response = await apiClient.get(`/customers/${customerId}/credits`);
     return response.data.credits || [];
   }
 
@@ -77,7 +77,7 @@ class CreditsService {
     creditId: number,
     settlement: SettlementRequest
   ): Promise<CreditSettlement> {
-    const response = await api.post(`/credits/${creditId}/settle`, settlement);
+    const response = await apiClient.post(`/credits/${creditId}/settle`, settlement);
     return response.data;
   }
 
@@ -85,7 +85,7 @@ class CreditsService {
    * Get a specific settlement
    */
   async getSettlement(settlementId: number): Promise<CreditSettlement> {
-    const response = await api.get(`/settlements/${settlementId}`);
+    const response = await apiClient.get(`/settlements/${settlementId}`);
     return response.data;
   }
 
@@ -97,7 +97,7 @@ class CreditsService {
     limit: number = 20,
     offset: number = 0
   ): Promise<CreditSettlement[]> {
-    const response = await api.get(`/customers/${customerId}/settlements`, {
+    const response = await apiClient.get(`/customers/${customerId}/settlements`, {
       params: { limit, offset },
     });
     return response.data.settlements || [];
@@ -107,7 +107,7 @@ class CreditsService {
    * List all settlements for a credit transaction
    */
   async listCreditSettlements(creditId: number): Promise<CreditSettlement[]> {
-    const response = await api.get(`/credits/${creditId}/settlements`);
+    const response = await apiClient.get(`/credits/${creditId}/settlements`);
     return response.data.settlements || [];
   }
 
@@ -122,7 +122,7 @@ class CreditsService {
     if (dateFrom) params.date_from = dateFrom;
     if (dateTo) params.date_to = dateTo;
 
-    const response = await api.get('/settlements/stats', { params });
+    const response = await apiClient.get('/settlements/stats', { params });
     return response.data;
   }
 }
