@@ -1,0 +1,29 @@
+
+> next-inventory-e2e-tests@1.0.0 test
+> playwright test
+
+
+Running 72 tests using 3 workers
+
+  ✓   1 [chromium] › specs/login.spec.ts:17:3 › Login Functionality › should display login form elements (453ms)
+  ✓   4 [chromium] › specs/login.spec.ts:27:3 › Login Functionality › should successfully login with valid credentials (316ms)
+  ✓   5 [chromium] › specs/login.spec.ts:39:3 › Login Functionality › should login as cashier user (276ms)
+  ✘   6 [chromium] › specs/login.spec.ts:49:3 › Login Functionality › should display error on invalid username (758ms)
+  ✘   7 [chromium] › specs/login.spec.ts:59:3 › Login Functionality › should display error on invalid password (813ms)
+  ✓   8 [chromium] › specs/login.spec.ts:69:3 › Login Functionality › should display error on empty credentials (757ms)
+  ✓   9 [chromium] › specs/login.spec.ts:81:3 › Login Functionality › should clear form fields (237ms)
+  ✓  10 [chromium] › specs/login.spec.ts:100:3 › Login Functionality › should submit form by pressing Enter (249ms)
+  ✓  11 [chromium] › specs/login.spec.ts:114:3 › Login Functionality › should show loading state during login (326ms)
+  ✓  12 [chromium] › specs/login.spec.ts:127:3 › Login Functionality › should maintain form values on validation error (742ms)
+  ✘  13 [chromium] › specs/login.spec.ts:140:3 › Login Functionality › should be case-sensitive for username (778ms)
+  ✘  14 [chromium] › specs/login.spec.ts:150:3 › Login Functionality › should redirect to login if accessing protected routes (389ms)
+  ✓  15 [chromium] › specs/login.spec.ts:161:3 › Login Security › should not display password in input (228ms)
+  ✓  16 [chromium] › specs/login.spec.ts:176:3 › Login Security › should not expose credentials in URL (278ms)
+  ✘  17 [chromium] › specs/login.spec.ts:192:3 › Login Security › should not allow access with invalid session token (69ms)
+  ✓  18 [chromium] › specs/login.spec.ts:212:3 › Login Form Validation › should validate empty username (304ms)
+  ✓  19 [chromium] › specs/login.spec.ts:222:3 › Login Form Validation › should validate empty password (220ms)
+  ✓  20 [chromium] › specs/login.spec.ts:232:3 › Login Form Validation › should trim whitespace from inputs (173ms)
+  ✘   3 [chromium] › specs/pos.spec.ts:17:5 › POS System › Session Management › should create a new session (11.0s)
+  ✘   2 [chromium] › specs/credits.spec.ts:17:5 › Credits Management › Customer Credit Search › should search customer by ID (11.0s)
+  ✘  21 [chromium] › specs/pos.spec.ts:26:5 › POS System › Session Management › should switch between sessions (10.8s)
+  ✘  22 [chromium] › specs/credits.spec.ts:29:5 › Credits Management › Customer Credit Search › should clear search results (10.8s)

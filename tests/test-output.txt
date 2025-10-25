@@ -1,0 +1,1936 @@
+
+> next-inventory-e2e-tests@1.0.0 test
+> playwright test
+
+
+Running 72 tests using 3 workers
+
+  ✓   2 [chromium] › specs/login.spec.ts:17:3 › Login Functionality › should display login form elements (349ms)
+  ✓   4 [chromium] › specs/login.spec.ts:27:3 › Login Functionality › should successfully login with valid credentials (292ms)
+  ✓   5 [chromium] › specs/login.spec.ts:39:3 › Login Functionality › should login as cashier user (252ms)
+  ✘   6 [chromium] › specs/login.spec.ts:49:3 › Login Functionality › should display error on invalid username (733ms)
+  ✘   7 [chromium] › specs/login.spec.ts:59:3 › Login Functionality › should display error on invalid password (796ms)
+  ✓   8 [chromium] › specs/login.spec.ts:69:3 › Login Functionality › should display error on empty credentials (744ms)
+  ✓   9 [chromium] › specs/login.spec.ts:81:3 › Login Functionality › should clear form fields (227ms)
+  ✓  10 [chromium] › specs/login.spec.ts:100:3 › Login Functionality › should submit form by pressing Enter (245ms)
+  ✓  11 [chromium] › specs/login.spec.ts:114:3 › Login Functionality › should show loading state during login (305ms)
+  ✓  12 [chromium] › specs/login.spec.ts:127:3 › Login Functionality › should maintain form values on validation error (708ms)
+  ✘  13 [chromium] › specs/login.spec.ts:140:3 › Login Functionality › should be case-sensitive for username (759ms)
+  ✘  14 [chromium] › specs/login.spec.ts:150:3 › Login Functionality › should redirect to login if accessing protected routes (309ms)
+  ✓  15 [chromium] › specs/login.spec.ts:161:3 › Login Security › should not display password in input (283ms)
+  ✓  16 [chromium] › specs/login.spec.ts:176:3 › Login Security › should not expose credentials in URL (286ms)
+  ✘  17 [chromium] › specs/login.spec.ts:192:3 › Login Security › should not allow access with invalid session token (79ms)
+  ✓  18 [chromium] › specs/login.spec.ts:212:3 › Login Form Validation › should validate empty username (282ms)
+  ✓  19 [chromium] › specs/login.spec.ts:222:3 › Login Form Validation › should validate empty password (208ms)
+  ✓  20 [chromium] › specs/login.spec.ts:232:3 › Login Form Validation › should trim whitespace from inputs (172ms)
+  ✘   3 [chromium] › specs/credits.spec.ts:17:5 › Credits Management › Customer Credit Search › should search customer by ID (10.8s)
+  ✘   1 [chromium] › specs/pos.spec.ts:17:5 › POS System › Session Management › should create a new session (10.9s)
+  ✘  22 [chromium] › specs/pos.spec.ts:26:5 › POS System › Session Management › should switch between sessions (10.8s)
+  ✘  21 [chromium] › specs/credits.spec.ts:29:5 › Credits Management › Customer Credit Search › should clear search results (10.8s)
+  ✘  24 [chromium] › specs/credits.spec.ts:43:5 › Credits Management › Customer Credit Search › should show empty state when no results (10.8s)
+  ✘  23 [chromium] › specs/pos.spec.ts:46:5 › POS System › Session Management › should maintain separate carts for different sessions (10.9s)
+  ✘  26 [chromium] › specs/pos.spec.ts:71:5 › POS System › Product Selection and Cart › should add product to cart (10.9s)
+  ✘  25 [chromium] › specs/credits.spec.ts:53:5 › Credits Management › Customer Credit Search › should handle multiple searches (10.9s)
+  ✘  27 [chromium] › specs/pos.spec.ts:80:5 › POS System › Product Selection and Cart › should add multiple products to cart (10.7s)
+  ✘  28 [chromium] › specs/credits.spec.ts:74:5 › Credits Management › Credit Status Display › should display credit status card (10.7s)
+  ✘  29 [chromium] › specs/pos.spec.ts:92:5 › POS System › Product Selection and Cart › should update product quantity in cart (10.8s)
+  ✘  30 [chromium] › specs/credits.spec.ts:84:5 › Credits Management › Credit Status Display › should display outstanding balance (10.8s)
+  ✘  31 [chromium] › specs/pos.spec.ts:104:5 › POS System › Product Selection and Cart › should remove product from cart (10.7s)
+  ✘  32 [chromium] › specs/credits.spec.ts:95:5 › Credits Management › Credit Status Display › should display total credit (10.7s)
+  ✘  33 [chromium] › specs/pos.spec.ts:118:5 › POS System › Product Selection and Cart › should calculate cart totals correctly (10.7s)
+  ✘  34 [chromium] › specs/credits.spec.ts:105:5 › Credits Management › Credit Status Display › should display total settled amount (10.7s)
+  ✘  35 [chromium] › specs/pos.spec.ts:131:5 › POS System › Product Selection and Cart › should display cart is empty message when no items (10.8s)
+  ✘  36 [chromium] › specs/credits.spec.ts:115:5 › Credits Management › Credit Status Display › should display transaction count (10.8s)
+  ✘  37 [chromium] › specs/pos.spec.ts:139:5 › POS System › Discounts › should apply fixed discount (10.8s)
+  ✘  38 [chromium] › specs/credits.spec.ts:125:5 › Credits Management › Credit Status Display › should display settlement progress (10.7s)
+  ✘  39 [chromium] › specs/pos.spec.ts:156:5 › POS System › Discounts › should apply percentage discount (10.9s)
+  ✘  40 [chromium] › specs/credits.spec.ts:135:5 › Credits Management › Credit Status Display › should display credit status text (10.8s)
+  ✘  41 [chromium] › specs/pos.spec.ts:170:5 › POS System › Payment Processing - Cash › should complete cash payment (10.8s)
+  ✘  42 [chromium] › specs/credits.spec.ts:149:5 › Credits Management › Credit Transactions List › should display credit transactions (10.7s)
+  ✘  43 [chromium] › specs/pos.spec.ts:186:5 › POS System › Payment Processing - Cash › should calculate change correctly (11.1s)
+  ✘  44 [chromium] › specs/credits.spec.ts:159:5 › Credits Management › Credit Transactions List › should count transactions (11.0s)
+  ✘  45 [chromium] › specs/pos.spec.ts:199:5 › POS System › Payment Processing - Cash › should warn when paid amount is insufficient (10.8s)
+  ✘  46 [chromium] › specs/credits.spec.ts:169:5 › Credits Management › Credit Transactions List › should display transaction details (10.8s)
+  ✘  47 [chromium] › specs/pos.spec.ts:214:5 › POS System › Payment Processing - Card › should complete card payment (10.8s)
+  ✘  48 [chromium] › specs/credits.spec.ts:189:5 › Credits Management › Credit Transactions List › should select transaction (10.7s)
+  ✘  49 [chromium] › specs/pos.spec.ts:229:5 › POS System › Payment Processing - Credit › should complete credit payment (10.7s)
+  ✘  50 [chromium] › specs/credits.spec.ts:207:5 › Credits Management › Settlement Form › should display settlement form (10.7s)
+  ✘  51 [chromium] › specs/pos.spec.ts:242:5 › POS System › Payment Processing - Credit › should show credit warning for high balance (10.9s)
+  ✘  52 [chromium] › specs/credits.spec.ts:217:5 › Credits Management › Settlement Form › should enter settlement amount (10.9s)
+  ✘  53 [chromium] › specs/pos.spec.ts:259:5 › POS System › Receipt Management › should display receipt after successful payment (10.8s)
+  ✘  54 [chromium] › specs/credits.spec.ts:229:5 › Credits Management › Settlement Form › should select payment method (10.7s)
+  ✘  55 [chromium] › specs/pos.spec.ts:271:5 › POS System › Receipt Management › should print receipt (10.8s)
+  ✘  56 [chromium] › specs/credits.spec.ts:240:5 › Credits Management › Settlement Form › should enter settlement notes (10.8s)
+  ✘  57 [chromium] › specs/pos.spec.ts:282:5 › POS System › Receipt Management › should download receipt (10.8s)
+  ✘  58 [chromium] › specs/credits.spec.ts:253:5 › Credits Management › Settlement Operations › should complete full settlement with cash (10.7s)
+  ✘  59 [chromium] › specs/pos.spec.ts:293:5 › POS System › Receipt Management › should start new transaction after receipt (10.7s)
+  ✘  60 [chromium] › specs/credits.spec.ts:267:5 › Credits Management › Settlement Operations › should complete full settlement with card (10.7s)
+  ✘  61 [chromium] › specs/pos.spec.ts:308:5 › POS System › Warnings and Alerts › should show low stock warning (10.9s)
+  ✘  62 [chromium] › specs/credits.spec.ts:281:5 › Credits Management › Settlement Operations › should complete partial settlement (10.9s)
+  ✘  63 [chromium] › specs/pos.spec.ts:317:5 › POS System › Warnings and Alerts › should show credit limit warning (10.8s)
+  ✘  64 [chromium] › specs/credits.spec.ts:295:5 › Credits Management › Settlement Operations › should handle settlement with different payment methods (10.7s)
+  ✘  65 [chromium] › specs/pos.spec.ts:331:5 › POS System › POS Workflow - Complete Transaction › should complete full sales transaction workflow (10.7s)
+  ✘  66 [chromium] › specs/credits.spec.ts:309:5 › Credits Management › Settlement Operations › should prevent settlement with invalid amount (10.7s)
+  ✘  67 [chromium] › specs/credits.spec.ts:325:5 › Credits Management › Tab Navigation › should switch to outstanding tab (10.7s)
+  ✘  68 [chromium] › specs/credits.spec.ts:336:5 › Credits Management › Tab Navigation › should switch to all transactions tab (10.6s)
+  ✘  69 [chromium] › specs/credits.spec.ts:347:5 › Credits Management › Tab Navigation › should switch to settled tab (10.9s)
+  ✘  70 [chromium] › specs/credits.spec.ts:360:5 › Credits Management › Messages and Alerts › should show success message after settlement (10.8s)
+  ✘  71 [chromium] › specs/credits.spec.ts:374:5 › Credits Management › Messages and Alerts › should handle loading state (10.8s)
+  ✘  72 [chromium] › specs/credits.spec.ts:385:5 › Credits Management › Credits Workflow - Complete Settlement › should complete full credit settlement workflow (10.8s)
+
+
+  1) [chromium] › specs/credits.spec.ts:17:5 › Credits Management › Customer Credit Search › should search customer by ID 
+
+    TimeoutError: page.waitForSelector: Timeout 10000ms exceeded.
+    Call log:
+    [2m  - waiting for locator('[role="main"]') to be visible[22m
+
+
+       at ../pom/BasePage.ts:95
+
+      93 |    */
+      94 |   async waitForElement(selector: string, timeout: number = 10000): Promise<void> {
+    > 95 |     await this.page.waitForSelector(selector, { timeout });
+         |                     ^
+      96 |   }
+      97 |
+      98 |   /**
+        at CreditsPage.waitForElement (/home/hansa/Work/hansa/next-inventory/tests/pom/BasePage.ts:95:21)
+        at CreditsPage.verifyPageLoaded (/home/hansa/Work/hansa/next-inventory/tests/pom/CreditsPage.ts:26:16)
+        at CreditsPage.goto (/home/hansa/Work/hansa/next-inventory/tests/pom/CreditsPage.ts:19:16)
+        at /home/hansa/Work/hansa/next-inventory/tests/specs/credits.spec.ts:13:5
+
+    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+    test-results/credits-Credits-Management-2f06d-hould-search-customer-by-ID-chromium/test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    attachment #2: video (video/webm) ──────────────────────────────────────────────────────────────
+    test-results/credits-Credits-Management-2f06d-hould-search-customer-by-ID-chromium/video.webm
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: test-results/credits-Credits-Management-2f06d-hould-search-customer-by-ID-chromium/error-context.md
+
+  2) [chromium] › specs/credits.spec.ts:29:5 › Credits Management › Customer Credit Search › should clear search results 
+
+    TimeoutError: page.waitForSelector: Timeout 10000ms exceeded.
+    Call log:
+    [2m  - waiting for locator('[role="main"]') to be visible[22m
+
+
+       at ../pom/BasePage.ts:95
+
+      93 |    */
+      94 |   async waitForElement(selector: string, timeout: number = 10000): Promise<void> {
+    > 95 |     await this.page.waitForSelector(selector, { timeout });
+         |                     ^
+      96 |   }
+      97 |
+      98 |   /**
+        at CreditsPage.waitForElement (/home/hansa/Work/hansa/next-inventory/tests/pom/BasePage.ts:95:21)
+        at CreditsPage.verifyPageLoaded (/home/hansa/Work/hansa/next-inventory/tests/pom/CreditsPage.ts:26:16)
+        at CreditsPage.goto (/home/hansa/Work/hansa/next-inventory/tests/pom/CreditsPage.ts:19:16)
+        at /home/hansa/Work/hansa/next-inventory/tests/specs/credits.spec.ts:13:5
+
+    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+    test-results/credits-Credits-Management-3d0f5-should-clear-search-results-chromium/test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    attachment #2: video (video/webm) ──────────────────────────────────────────────────────────────
+    test-results/credits-Credits-Management-3d0f5-should-clear-search-results-chromium/video.webm
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: test-results/credits-Credits-Management-3d0f5-should-clear-search-results-chromium/error-context.md
+
+  3) [chromium] › specs/credits.spec.ts:43:5 › Credits Management › Customer Credit Search › should show empty state when no results 
+
+    TimeoutError: page.waitForSelector: Timeout 10000ms exceeded.
+    Call log:
+    [2m  - waiting for locator('[role="main"]') to be visible[22m
+
+
+       at ../pom/BasePage.ts:95
+
+      93 |    */
+      94 |   async waitForElement(selector: string, timeout: number = 10000): Promise<void> {
+    > 95 |     await this.page.waitForSelector(selector, { timeout });
+         |                     ^
+      96 |   }
+      97 |
+      98 |   /**
+        at CreditsPage.waitForElement (/home/hansa/Work/hansa/next-inventory/tests/pom/BasePage.ts:95:21)
+        at CreditsPage.verifyPageLoaded (/home/hansa/Work/hansa/next-inventory/tests/pom/CreditsPage.ts:26:16)
+        at CreditsPage.goto (/home/hansa/Work/hansa/next-inventory/tests/pom/CreditsPage.ts:19:16)
+        at /home/hansa/Work/hansa/next-inventory/tests/specs/credits.spec.ts:13:5
+
+    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+    test-results/credits-Credits-Management-3d3dd-empty-state-when-no-results-chromium/test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    attachment #2: video (video/webm) ──────────────────────────────────────────────────────────────
+    test-results/credits-Credits-Management-3d3dd-empty-state-when-no-results-chromium/video.webm
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: test-results/credits-Credits-Management-3d3dd-empty-state-when-no-results-chromium/error-context.md
+
+  4) [chromium] › specs/credits.spec.ts:53:5 › Credits Management › Customer Credit Search › should handle multiple searches 
+
+    TimeoutError: page.waitForSelector: Timeout 10000ms exceeded.
+    Call log:
+    [2m  - waiting for locator('[role="main"]') to be visible[22m
+
+
+       at ../pom/BasePage.ts:95
+
+      93 |    */
+      94 |   async waitForElement(selector: string, timeout: number = 10000): Promise<void> {
+    > 95 |     await this.page.waitForSelector(selector, { timeout });
+         |                     ^
+      96 |   }
+      97 |
+      98 |   /**
+        at CreditsPage.waitForElement (/home/hansa/Work/hansa/next-inventory/tests/pom/BasePage.ts:95:21)
+        at CreditsPage.verifyPageLoaded (/home/hansa/Work/hansa/next-inventory/tests/pom/CreditsPage.ts:26:16)
+        at CreditsPage.goto (/home/hansa/Work/hansa/next-inventory/tests/pom/CreditsPage.ts:19:16)
+        at /home/hansa/Work/hansa/next-inventory/tests/specs/credits.spec.ts:13:5
+
+    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+    test-results/credits-Credits-Management-95f62-ld-handle-multiple-searches-chromium/test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    attachment #2: video (video/webm) ──────────────────────────────────────────────────────────────
+    test-results/credits-Credits-Management-95f62-ld-handle-multiple-searches-chromium/video.webm
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: test-results/credits-Credits-Management-95f62-ld-handle-multiple-searches-chromium/error-context.md
+
+  5) [chromium] › specs/credits.spec.ts:74:5 › Credits Management › Credit Status Display › should display credit status card 
+
+    TimeoutError: page.waitForSelector: Timeout 10000ms exceeded.
+    Call log:
+    [2m  - waiting for locator('[role="main"]') to be visible[22m
+
+
+       at ../pom/BasePage.ts:95
+
+      93 |    */
+      94 |   async waitForElement(selector: string, timeout: number = 10000): Promise<void> {
+    > 95 |     await this.page.waitForSelector(selector, { timeout });
+         |                     ^
+      96 |   }
+      97 |
+      98 |   /**
+        at CreditsPage.waitForElement (/home/hansa/Work/hansa/next-inventory/tests/pom/BasePage.ts:95:21)
+        at CreditsPage.verifyPageLoaded (/home/hansa/Work/hansa/next-inventory/tests/pom/CreditsPage.ts:26:16)
+        at CreditsPage.goto (/home/hansa/Work/hansa/next-inventory/tests/pom/CreditsPage.ts:19:16)
+        at /home/hansa/Work/hansa/next-inventory/tests/specs/credits.spec.ts:13:5
+
+    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+    test-results/credits-Credits-Management-23d10--display-credit-status-card-chromium/test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    attachment #2: video (video/webm) ──────────────────────────────────────────────────────────────
+    test-results/credits-Credits-Management-23d10--display-credit-status-card-chromium/video.webm
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: test-results/credits-Credits-Management-23d10--display-credit-status-card-chromium/error-context.md
+
+  6) [chromium] › specs/credits.spec.ts:84:5 › Credits Management › Credit Status Display › should display outstanding balance 
+
+    TimeoutError: page.waitForSelector: Timeout 10000ms exceeded.
+    Call log:
+    [2m  - waiting for locator('[role="main"]') to be visible[22m
+
+
+       at ../pom/BasePage.ts:95
+
+      93 |    */
+      94 |   async waitForElement(selector: string, timeout: number = 10000): Promise<void> {
+    > 95 |     await this.page.waitForSelector(selector, { timeout });
+         |                     ^
+      96 |   }
+      97 |
+      98 |   /**
+        at CreditsPage.waitForElement (/home/hansa/Work/hansa/next-inventory/tests/pom/BasePage.ts:95:21)
+        at CreditsPage.verifyPageLoaded (/home/hansa/Work/hansa/next-inventory/tests/pom/CreditsPage.ts:26:16)
+        at CreditsPage.goto (/home/hansa/Work/hansa/next-inventory/tests/pom/CreditsPage.ts:19:16)
+        at /home/hansa/Work/hansa/next-inventory/tests/specs/credits.spec.ts:13:5
+
+    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+    test-results/credits-Credits-Management-ffbe2-display-outstanding-balance-chromium/test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    attachment #2: video (video/webm) ──────────────────────────────────────────────────────────────
+    test-results/credits-Credits-Management-ffbe2-display-outstanding-balance-chromium/video.webm
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: test-results/credits-Credits-Management-ffbe2-display-outstanding-balance-chromium/error-context.md
+
+  7) [chromium] › specs/credits.spec.ts:95:5 › Credits Management › Credit Status Display › should display total credit 
+
+    TimeoutError: page.waitForSelector: Timeout 10000ms exceeded.
+    Call log:
+    [2m  - waiting for locator('[role="main"]') to be visible[22m
+
+
+       at ../pom/BasePage.ts:95
+
+      93 |    */
+      94 |   async waitForElement(selector: string, timeout: number = 10000): Promise<void> {
+    > 95 |     await this.page.waitForSelector(selector, { timeout });
+         |                     ^
+      96 |   }
+      97 |
+      98 |   /**
+        at CreditsPage.waitForElement (/home/hansa/Work/hansa/next-inventory/tests/pom/BasePage.ts:95:21)
+        at CreditsPage.verifyPageLoaded (/home/hansa/Work/hansa/next-inventory/tests/pom/CreditsPage.ts:26:16)
+        at CreditsPage.goto (/home/hansa/Work/hansa/next-inventory/tests/pom/CreditsPage.ts:19:16)
+        at /home/hansa/Work/hansa/next-inventory/tests/specs/credits.spec.ts:13:5
+
+    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+    test-results/credits-Credits-Management-ca553-should-display-total-credit-chromium/test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    attachment #2: video (video/webm) ──────────────────────────────────────────────────────────────
+    test-results/credits-Credits-Management-ca553-should-display-total-credit-chromium/video.webm
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: test-results/credits-Credits-Management-ca553-should-display-total-credit-chromium/error-context.md
+
+  8) [chromium] › specs/credits.spec.ts:105:5 › Credits Management › Credit Status Display › should display total settled amount 
+
+    TimeoutError: page.waitForSelector: Timeout 10000ms exceeded.
+    Call log:
+    [2m  - waiting for locator('[role="main"]') to be visible[22m
+
+
+       at ../pom/BasePage.ts:95
+
+      93 |    */
+      94 |   async waitForElement(selector: string, timeout: number = 10000): Promise<void> {
+    > 95 |     await this.page.waitForSelector(selector, { timeout });
+         |                     ^
+      96 |   }
+      97 |
+      98 |   /**
+        at CreditsPage.waitForElement (/home/hansa/Work/hansa/next-inventory/tests/pom/BasePage.ts:95:21)
+        at CreditsPage.verifyPageLoaded (/home/hansa/Work/hansa/next-inventory/tests/pom/CreditsPage.ts:26:16)
+        at CreditsPage.goto (/home/hansa/Work/hansa/next-inventory/tests/pom/CreditsPage.ts:19:16)
+        at /home/hansa/Work/hansa/next-inventory/tests/specs/credits.spec.ts:13:5
+
+    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+    test-results/credits-Credits-Management-04ef0-isplay-total-settled-amount-chromium/test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    attachment #2: video (video/webm) ──────────────────────────────────────────────────────────────
+    test-results/credits-Credits-Management-04ef0-isplay-total-settled-amount-chromium/video.webm
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: test-results/credits-Credits-Management-04ef0-isplay-total-settled-amount-chromium/error-context.md
+
+  9) [chromium] › specs/credits.spec.ts:115:5 › Credits Management › Credit Status Display › should display transaction count 
+
+    TimeoutError: page.waitForSelector: Timeout 10000ms exceeded.
+    Call log:
+    [2m  - waiting for locator('[role="main"]') to be visible[22m
+
+
+       at ../pom/BasePage.ts:95
+
+      93 |    */
+      94 |   async waitForElement(selector: string, timeout: number = 10000): Promise<void> {
+    > 95 |     await this.page.waitForSelector(selector, { timeout });
+         |                     ^
+      96 |   }
+      97 |
+      98 |   /**
+        at CreditsPage.waitForElement (/home/hansa/Work/hansa/next-inventory/tests/pom/BasePage.ts:95:21)
+        at CreditsPage.verifyPageLoaded (/home/hansa/Work/hansa/next-inventory/tests/pom/CreditsPage.ts:26:16)
+        at CreditsPage.goto (/home/hansa/Work/hansa/next-inventory/tests/pom/CreditsPage.ts:19:16)
+        at /home/hansa/Work/hansa/next-inventory/tests/specs/credits.spec.ts:13:5
+
+    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+    test-results/credits-Credits-Management-696a9-d-display-transaction-count-chromium/test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    attachment #2: video (video/webm) ──────────────────────────────────────────────────────────────
+    test-results/credits-Credits-Management-696a9-d-display-transaction-count-chromium/video.webm
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: test-results/credits-Credits-Management-696a9-d-display-transaction-count-chromium/error-context.md
+
+  10) [chromium] › specs/credits.spec.ts:125:5 › Credits Management › Credit Status Display › should display settlement progress 
+
+    TimeoutError: page.waitForSelector: Timeout 10000ms exceeded.
+    Call log:
+    [2m  - waiting for locator('[role="main"]') to be visible[22m
+
+
+       at ../pom/BasePage.ts:95
+
+      93 |    */
+      94 |   async waitForElement(selector: string, timeout: number = 10000): Promise<void> {
+    > 95 |     await this.page.waitForSelector(selector, { timeout });
+         |                     ^
+      96 |   }
+      97 |
+      98 |   /**
+        at CreditsPage.waitForElement (/home/hansa/Work/hansa/next-inventory/tests/pom/BasePage.ts:95:21)
+        at CreditsPage.verifyPageLoaded (/home/hansa/Work/hansa/next-inventory/tests/pom/CreditsPage.ts:26:16)
+        at CreditsPage.goto (/home/hansa/Work/hansa/next-inventory/tests/pom/CreditsPage.ts:19:16)
+        at /home/hansa/Work/hansa/next-inventory/tests/specs/credits.spec.ts:13:5
+
+    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+    test-results/credits-Credits-Management-ab8af-display-settlement-progress-chromium/test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    attachment #2: video (video/webm) ──────────────────────────────────────────────────────────────
+    test-results/credits-Credits-Management-ab8af-display-settlement-progress-chromium/video.webm
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: test-results/credits-Credits-Management-ab8af-display-settlement-progress-chromium/error-context.md
+
+  11) [chromium] › specs/credits.spec.ts:135:5 › Credits Management › Credit Status Display › should display credit status text 
+
+    TimeoutError: page.waitForSelector: Timeout 10000ms exceeded.
+    Call log:
+    [2m  - waiting for locator('[role="main"]') to be visible[22m
+
+
+       at ../pom/BasePage.ts:95
+
+      93 |    */
+      94 |   async waitForElement(selector: string, timeout: number = 10000): Promise<void> {
+    > 95 |     await this.page.waitForSelector(selector, { timeout });
+         |                     ^
+      96 |   }
+      97 |
+      98 |   /**
+        at CreditsPage.waitForElement (/home/hansa/Work/hansa/next-inventory/tests/pom/BasePage.ts:95:21)
+        at CreditsPage.verifyPageLoaded (/home/hansa/Work/hansa/next-inventory/tests/pom/CreditsPage.ts:26:16)
+        at CreditsPage.goto (/home/hansa/Work/hansa/next-inventory/tests/pom/CreditsPage.ts:19:16)
+        at /home/hansa/Work/hansa/next-inventory/tests/specs/credits.spec.ts:13:5
+
+    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+    test-results/credits-Credits-Management-182c9--display-credit-status-text-chromium/test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    attachment #2: video (video/webm) ──────────────────────────────────────────────────────────────
+    test-results/credits-Credits-Management-182c9--display-credit-status-text-chromium/video.webm
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: test-results/credits-Credits-Management-182c9--display-credit-status-text-chromium/error-context.md
+
+  12) [chromium] › specs/credits.spec.ts:149:5 › Credits Management › Credit Transactions List › should display credit transactions 
+
+    TimeoutError: page.waitForSelector: Timeout 10000ms exceeded.
+    Call log:
+    [2m  - waiting for locator('[role="main"]') to be visible[22m
+
+
+       at ../pom/BasePage.ts:95
+
+      93 |    */
+      94 |   async waitForElement(selector: string, timeout: number = 10000): Promise<void> {
+    > 95 |     await this.page.waitForSelector(selector, { timeout });
+         |                     ^
+      96 |   }
+      97 |
+      98 |   /**
+        at CreditsPage.waitForElement (/home/hansa/Work/hansa/next-inventory/tests/pom/BasePage.ts:95:21)
+        at CreditsPage.verifyPageLoaded (/home/hansa/Work/hansa/next-inventory/tests/pom/CreditsPage.ts:26:16)
+        at CreditsPage.goto (/home/hansa/Work/hansa/next-inventory/tests/pom/CreditsPage.ts:19:16)
+        at /home/hansa/Work/hansa/next-inventory/tests/specs/credits.spec.ts:13:5
+
+    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+    test-results/credits-Credits-Management-3a8ff-display-credit-transactions-chromium/test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    attachment #2: video (video/webm) ──────────────────────────────────────────────────────────────
+    test-results/credits-Credits-Management-3a8ff-display-credit-transactions-chromium/video.webm
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: test-results/credits-Credits-Management-3a8ff-display-credit-transactions-chromium/error-context.md
+
+  13) [chromium] › specs/credits.spec.ts:159:5 › Credits Management › Credit Transactions List › should count transactions 
+
+    TimeoutError: page.waitForSelector: Timeout 10000ms exceeded.
+    Call log:
+    [2m  - waiting for locator('[role="main"]') to be visible[22m
+
+
+       at ../pom/BasePage.ts:95
+
+      93 |    */
+      94 |   async waitForElement(selector: string, timeout: number = 10000): Promise<void> {
+    > 95 |     await this.page.waitForSelector(selector, { timeout });
+         |                     ^
+      96 |   }
+      97 |
+      98 |   /**
+        at CreditsPage.waitForElement (/home/hansa/Work/hansa/next-inventory/tests/pom/BasePage.ts:95:21)
+        at CreditsPage.verifyPageLoaded (/home/hansa/Work/hansa/next-inventory/tests/pom/CreditsPage.ts:26:16)
+        at CreditsPage.goto (/home/hansa/Work/hansa/next-inventory/tests/pom/CreditsPage.ts:19:16)
+        at /home/hansa/Work/hansa/next-inventory/tests/specs/credits.spec.ts:13:5
+
+    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+    test-results/credits-Credits-Management-be544-t-should-count-transactions-chromium/test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    attachment #2: video (video/webm) ──────────────────────────────────────────────────────────────
+    test-results/credits-Credits-Management-be544-t-should-count-transactions-chromium/video.webm
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: test-results/credits-Credits-Management-be544-t-should-count-transactions-chromium/error-context.md
+
+  14) [chromium] › specs/credits.spec.ts:169:5 › Credits Management › Credit Transactions List › should display transaction details 
+
+    TimeoutError: page.waitForSelector: Timeout 10000ms exceeded.
+    Call log:
+    [2m  - waiting for locator('[role="main"]') to be visible[22m
+
+
+       at ../pom/BasePage.ts:95
+
+      93 |    */
+      94 |   async waitForElement(selector: string, timeout: number = 10000): Promise<void> {
+    > 95 |     await this.page.waitForSelector(selector, { timeout });
+         |                     ^
+      96 |   }
+      97 |
+      98 |   /**
+        at CreditsPage.waitForElement (/home/hansa/Work/hansa/next-inventory/tests/pom/BasePage.ts:95:21)
+        at CreditsPage.verifyPageLoaded (/home/hansa/Work/hansa/next-inventory/tests/pom/CreditsPage.ts:26:16)
+        at CreditsPage.goto (/home/hansa/Work/hansa/next-inventory/tests/pom/CreditsPage.ts:19:16)
+        at /home/hansa/Work/hansa/next-inventory/tests/specs/credits.spec.ts:13:5
+
+    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+    test-results/credits-Credits-Management-d8d06-display-transaction-details-chromium/test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    attachment #2: video (video/webm) ──────────────────────────────────────────────────────────────
+    test-results/credits-Credits-Management-d8d06-display-transaction-details-chromium/video.webm
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: test-results/credits-Credits-Management-d8d06-display-transaction-details-chromium/error-context.md
+
+  15) [chromium] › specs/credits.spec.ts:189:5 › Credits Management › Credit Transactions List › should select transaction 
+
+    TimeoutError: page.waitForSelector: Timeout 10000ms exceeded.
+    Call log:
+    [2m  - waiting for locator('[role="main"]') to be visible[22m
+
+
+       at ../pom/BasePage.ts:95
+
+      93 |    */
+      94 |   async waitForElement(selector: string, timeout: number = 10000): Promise<void> {
+    > 95 |     await this.page.waitForSelector(selector, { timeout });
+         |                     ^
+      96 |   }
+      97 |
+      98 |   /**
+        at CreditsPage.waitForElement (/home/hansa/Work/hansa/next-inventory/tests/pom/BasePage.ts:95:21)
+        at CreditsPage.verifyPageLoaded (/home/hansa/Work/hansa/next-inventory/tests/pom/CreditsPage.ts:26:16)
+        at CreditsPage.goto (/home/hansa/Work/hansa/next-inventory/tests/pom/CreditsPage.ts:19:16)
+        at /home/hansa/Work/hansa/next-inventory/tests/specs/credits.spec.ts:13:5
+
+    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+    test-results/credits-Credits-Management-426e2-t-should-select-transaction-chromium/test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    attachment #2: video (video/webm) ──────────────────────────────────────────────────────────────
+    test-results/credits-Credits-Management-426e2-t-should-select-transaction-chromium/video.webm
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: test-results/credits-Credits-Management-426e2-t-should-select-transaction-chromium/error-context.md
+
+  16) [chromium] › specs/credits.spec.ts:207:5 › Credits Management › Settlement Form › should display settlement form 
+
+    TimeoutError: page.waitForSelector: Timeout 10000ms exceeded.
+    Call log:
+    [2m  - waiting for locator('[role="main"]') to be visible[22m
+
+
+       at ../pom/BasePage.ts:95
+
+      93 |    */
+      94 |   async waitForElement(selector: string, timeout: number = 10000): Promise<void> {
+    > 95 |     await this.page.waitForSelector(selector, { timeout });
+         |                     ^
+      96 |   }
+      97 |
+      98 |   /**
+        at CreditsPage.waitForElement (/home/hansa/Work/hansa/next-inventory/tests/pom/BasePage.ts:95:21)
+        at CreditsPage.verifyPageLoaded (/home/hansa/Work/hansa/next-inventory/tests/pom/CreditsPage.ts:26:16)
+        at CreditsPage.goto (/home/hansa/Work/hansa/next-inventory/tests/pom/CreditsPage.ts:19:16)
+        at /home/hansa/Work/hansa/next-inventory/tests/specs/credits.spec.ts:13:5
+
+    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+    test-results/credits-Credits-Management-f3359-uld-display-settlement-form-chromium/test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    attachment #2: video (video/webm) ──────────────────────────────────────────────────────────────
+    test-results/credits-Credits-Management-f3359-uld-display-settlement-form-chromium/video.webm
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: test-results/credits-Credits-Management-f3359-uld-display-settlement-form-chromium/error-context.md
+
+  17) [chromium] › specs/credits.spec.ts:217:5 › Credits Management › Settlement Form › should enter settlement amount 
+
+    TimeoutError: page.waitForSelector: Timeout 10000ms exceeded.
+    Call log:
+    [2m  - waiting for locator('[role="main"]') to be visible[22m
+
+
+       at ../pom/BasePage.ts:95
+
+      93 |    */
+      94 |   async waitForElement(selector: string, timeout: number = 10000): Promise<void> {
+    > 95 |     await this.page.waitForSelector(selector, { timeout });
+         |                     ^
+      96 |   }
+      97 |
+      98 |   /**
+        at CreditsPage.waitForElement (/home/hansa/Work/hansa/next-inventory/tests/pom/BasePage.ts:95:21)
+        at CreditsPage.verifyPageLoaded (/home/hansa/Work/hansa/next-inventory/tests/pom/CreditsPage.ts:26:16)
+        at CreditsPage.goto (/home/hansa/Work/hansa/next-inventory/tests/pom/CreditsPage.ts:19:16)
+        at /home/hansa/Work/hansa/next-inventory/tests/specs/credits.spec.ts:13:5
+
+    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+    test-results/credits-Credits-Management-f4afe-uld-enter-settlement-amount-chromium/test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    attachment #2: video (video/webm) ──────────────────────────────────────────────────────────────
+    test-results/credits-Credits-Management-f4afe-uld-enter-settlement-amount-chromium/video.webm
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: test-results/credits-Credits-Management-f4afe-uld-enter-settlement-amount-chromium/error-context.md
+
+  18) [chromium] › specs/credits.spec.ts:229:5 › Credits Management › Settlement Form › should select payment method 
+
+    TimeoutError: page.waitForSelector: Timeout 10000ms exceeded.
+    Call log:
+    [2m  - waiting for locator('[role="main"]') to be visible[22m
+
+
+       at ../pom/BasePage.ts:95
+
+      93 |    */
+      94 |   async waitForElement(selector: string, timeout: number = 10000): Promise<void> {
+    > 95 |     await this.page.waitForSelector(selector, { timeout });
+         |                     ^
+      96 |   }
+      97 |
+      98 |   /**
+        at CreditsPage.waitForElement (/home/hansa/Work/hansa/next-inventory/tests/pom/BasePage.ts:95:21)
+        at CreditsPage.verifyPageLoaded (/home/hansa/Work/hansa/next-inventory/tests/pom/CreditsPage.ts:26:16)
+        at CreditsPage.goto (/home/hansa/Work/hansa/next-inventory/tests/pom/CreditsPage.ts:19:16)
+        at /home/hansa/Work/hansa/next-inventory/tests/specs/credits.spec.ts:13:5
+
+    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+    test-results/credits-Credits-Management-6d3ab-hould-select-payment-method-chromium/test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    attachment #2: video (video/webm) ──────────────────────────────────────────────────────────────
+    test-results/credits-Credits-Management-6d3ab-hould-select-payment-method-chromium/video.webm
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: test-results/credits-Credits-Management-6d3ab-hould-select-payment-method-chromium/error-context.md
+
+  19) [chromium] › specs/credits.spec.ts:240:5 › Credits Management › Settlement Form › should enter settlement notes 
+
+    TimeoutError: page.waitForSelector: Timeout 10000ms exceeded.
+    Call log:
+    [2m  - waiting for locator('[role="main"]') to be visible[22m
+
+
+       at ../pom/BasePage.ts:95
+
+      93 |    */
+      94 |   async waitForElement(selector: string, timeout: number = 10000): Promise<void> {
+    > 95 |     await this.page.waitForSelector(selector, { timeout });
+         |                     ^
+      96 |   }
+      97 |
+      98 |   /**
+        at CreditsPage.waitForElement (/home/hansa/Work/hansa/next-inventory/tests/pom/BasePage.ts:95:21)
+        at CreditsPage.verifyPageLoaded (/home/hansa/Work/hansa/next-inventory/tests/pom/CreditsPage.ts:26:16)
+        at CreditsPage.goto (/home/hansa/Work/hansa/next-inventory/tests/pom/CreditsPage.ts:19:16)
+        at /home/hansa/Work/hansa/next-inventory/tests/specs/credits.spec.ts:13:5
+
+    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+    test-results/credits-Credits-Management-b797b-ould-enter-settlement-notes-chromium/test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    attachment #2: video (video/webm) ──────────────────────────────────────────────────────────────
+    test-results/credits-Credits-Management-b797b-ould-enter-settlement-notes-chromium/video.webm
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: test-results/credits-Credits-Management-b797b-ould-enter-settlement-notes-chromium/error-context.md
+
+  20) [chromium] › specs/credits.spec.ts:253:5 › Credits Management › Settlement Operations › should complete full settlement with cash 
+
+    TimeoutError: page.waitForSelector: Timeout 10000ms exceeded.
+    Call log:
+    [2m  - waiting for locator('[role="main"]') to be visible[22m
+
+
+       at ../pom/BasePage.ts:95
+
+      93 |    */
+      94 |   async waitForElement(selector: string, timeout: number = 10000): Promise<void> {
+    > 95 |     await this.page.waitForSelector(selector, { timeout });
+         |                     ^
+      96 |   }
+      97 |
+      98 |   /**
+        at CreditsPage.waitForElement (/home/hansa/Work/hansa/next-inventory/tests/pom/BasePage.ts:95:21)
+        at CreditsPage.verifyPageLoaded (/home/hansa/Work/hansa/next-inventory/tests/pom/CreditsPage.ts:26:16)
+        at CreditsPage.goto (/home/hansa/Work/hansa/next-inventory/tests/pom/CreditsPage.ts:19:16)
+        at /home/hansa/Work/hansa/next-inventory/tests/specs/credits.spec.ts:13:5
+
+    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+    test-results/credits-Credits-Management-747a9-e-full-settlement-with-cash-chromium/test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    attachment #2: video (video/webm) ──────────────────────────────────────────────────────────────
+    test-results/credits-Credits-Management-747a9-e-full-settlement-with-cash-chromium/video.webm
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: test-results/credits-Credits-Management-747a9-e-full-settlement-with-cash-chromium/error-context.md
+
+  21) [chromium] › specs/credits.spec.ts:267:5 › Credits Management › Settlement Operations › should complete full settlement with card 
+
+    TimeoutError: page.waitForSelector: Timeout 10000ms exceeded.
+    Call log:
+    [2m  - waiting for locator('[role="main"]') to be visible[22m
+
+
+       at ../pom/BasePage.ts:95
+
+      93 |    */
+      94 |   async waitForElement(selector: string, timeout: number = 10000): Promise<void> {
+    > 95 |     await this.page.waitForSelector(selector, { timeout });
+         |                     ^
+      96 |   }
+      97 |
+      98 |   /**
+        at CreditsPage.waitForElement (/home/hansa/Work/hansa/next-inventory/tests/pom/BasePage.ts:95:21)
+        at CreditsPage.verifyPageLoaded (/home/hansa/Work/hansa/next-inventory/tests/pom/CreditsPage.ts:26:16)
+        at CreditsPage.goto (/home/hansa/Work/hansa/next-inventory/tests/pom/CreditsPage.ts:19:16)
+        at /home/hansa/Work/hansa/next-inventory/tests/specs/credits.spec.ts:13:5
+
+    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+    test-results/credits-Credits-Management-84bdc-e-full-settlement-with-card-chromium/test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    attachment #2: video (video/webm) ──────────────────────────────────────────────────────────────
+    test-results/credits-Credits-Management-84bdc-e-full-settlement-with-card-chromium/video.webm
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: test-results/credits-Credits-Management-84bdc-e-full-settlement-with-card-chromium/error-context.md
+
+  22) [chromium] › specs/credits.spec.ts:281:5 › Credits Management › Settlement Operations › should complete partial settlement 
+
+    TimeoutError: page.waitForSelector: Timeout 10000ms exceeded.
+    Call log:
+    [2m  - waiting for locator('[role="main"]') to be visible[22m
+
+
+       at ../pom/BasePage.ts:95
+
+      93 |    */
+      94 |   async waitForElement(selector: string, timeout: number = 10000): Promise<void> {
+    > 95 |     await this.page.waitForSelector(selector, { timeout });
+         |                     ^
+      96 |   }
+      97 |
+      98 |   /**
+        at CreditsPage.waitForElement (/home/hansa/Work/hansa/next-inventory/tests/pom/BasePage.ts:95:21)
+        at CreditsPage.verifyPageLoaded (/home/hansa/Work/hansa/next-inventory/tests/pom/CreditsPage.ts:26:16)
+        at CreditsPage.goto (/home/hansa/Work/hansa/next-inventory/tests/pom/CreditsPage.ts:19:16)
+        at /home/hansa/Work/hansa/next-inventory/tests/specs/credits.spec.ts:13:5
+
+    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+    test-results/credits-Credits-Management-5b545-complete-partial-settlement-chromium/test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    attachment #2: video (video/webm) ──────────────────────────────────────────────────────────────
+    test-results/credits-Credits-Management-5b545-complete-partial-settlement-chromium/video.webm
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: test-results/credits-Credits-Management-5b545-complete-partial-settlement-chromium/error-context.md
+
+  23) [chromium] › specs/credits.spec.ts:295:5 › Credits Management › Settlement Operations › should handle settlement with different payment methods 
+
+    TimeoutError: page.waitForSelector: Timeout 10000ms exceeded.
+    Call log:
+    [2m  - waiting for locator('[role="main"]') to be visible[22m
+
+
+       at ../pom/BasePage.ts:95
+
+      93 |    */
+      94 |   async waitForElement(selector: string, timeout: number = 10000): Promise<void> {
+    > 95 |     await this.page.waitForSelector(selector, { timeout });
+         |                     ^
+      96 |   }
+      97 |
+      98 |   /**
+        at CreditsPage.waitForElement (/home/hansa/Work/hansa/next-inventory/tests/pom/BasePage.ts:95:21)
+        at CreditsPage.verifyPageLoaded (/home/hansa/Work/hansa/next-inventory/tests/pom/CreditsPage.ts:26:16)
+        at CreditsPage.goto (/home/hansa/Work/hansa/next-inventory/tests/pom/CreditsPage.ts:19:16)
+        at /home/hansa/Work/hansa/next-inventory/tests/specs/credits.spec.ts:13:5
+
+    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+    test-results/credits-Credits-Management-28595-h-different-payment-methods-chromium/test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    attachment #2: video (video/webm) ──────────────────────────────────────────────────────────────
+    test-results/credits-Credits-Management-28595-h-different-payment-methods-chromium/video.webm
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: test-results/credits-Credits-Management-28595-h-different-payment-methods-chromium/error-context.md
+
+  24) [chromium] › specs/credits.spec.ts:309:5 › Credits Management › Settlement Operations › should prevent settlement with invalid amount 
+
+    TimeoutError: page.waitForSelector: Timeout 10000ms exceeded.
+    Call log:
+    [2m  - waiting for locator('[role="main"]') to be visible[22m
+
+
+       at ../pom/BasePage.ts:95
+
+      93 |    */
+      94 |   async waitForElement(selector: string, timeout: number = 10000): Promise<void> {
+    > 95 |     await this.page.waitForSelector(selector, { timeout });
+         |                     ^
+      96 |   }
+      97 |
+      98 |   /**
+        at CreditsPage.waitForElement (/home/hansa/Work/hansa/next-inventory/tests/pom/BasePage.ts:95:21)
+        at CreditsPage.verifyPageLoaded (/home/hansa/Work/hansa/next-inventory/tests/pom/CreditsPage.ts:26:16)
+        at CreditsPage.goto (/home/hansa/Work/hansa/next-inventory/tests/pom/CreditsPage.ts:19:16)
+        at /home/hansa/Work/hansa/next-inventory/tests/specs/credits.spec.ts:13:5
+
+    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+    test-results/credits-Credits-Management-e684b-tlement-with-invalid-amount-chromium/test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    attachment #2: video (video/webm) ──────────────────────────────────────────────────────────────
+    test-results/credits-Credits-Management-e684b-tlement-with-invalid-amount-chromium/video.webm
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: test-results/credits-Credits-Management-e684b-tlement-with-invalid-amount-chromium/error-context.md
+
+  25) [chromium] › specs/credits.spec.ts:325:5 › Credits Management › Tab Navigation › should switch to outstanding tab 
+
+    TimeoutError: page.waitForSelector: Timeout 10000ms exceeded.
+    Call log:
+    [2m  - waiting for locator('[role="main"]') to be visible[22m
+
+
+       at ../pom/BasePage.ts:95
+
+      93 |    */
+      94 |   async waitForElement(selector: string, timeout: number = 10000): Promise<void> {
+    > 95 |     await this.page.waitForSelector(selector, { timeout });
+         |                     ^
+      96 |   }
+      97 |
+      98 |   /**
+        at CreditsPage.waitForElement (/home/hansa/Work/hansa/next-inventory/tests/pom/BasePage.ts:95:21)
+        at CreditsPage.verifyPageLoaded (/home/hansa/Work/hansa/next-inventory/tests/pom/CreditsPage.ts:26:16)
+        at CreditsPage.goto (/home/hansa/Work/hansa/next-inventory/tests/pom/CreditsPage.ts:19:16)
+        at /home/hansa/Work/hansa/next-inventory/tests/specs/credits.spec.ts:13:5
+
+    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+    test-results/credits-Credits-Management-f4ebf-d-switch-to-outstanding-tab-chromium/test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    attachment #2: video (video/webm) ──────────────────────────────────────────────────────────────
+    test-results/credits-Credits-Management-f4ebf-d-switch-to-outstanding-tab-chromium/video.webm
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: test-results/credits-Credits-Management-f4ebf-d-switch-to-outstanding-tab-chromium/error-context.md
+
+  26) [chromium] › specs/credits.spec.ts:336:5 › Credits Management › Tab Navigation › should switch to all transactions tab 
+
+    TimeoutError: page.waitForSelector: Timeout 10000ms exceeded.
+    Call log:
+    [2m  - waiting for locator('[role="main"]') to be visible[22m
+
+
+       at ../pom/BasePage.ts:95
+
+      93 |    */
+      94 |   async waitForElement(selector: string, timeout: number = 10000): Promise<void> {
+    > 95 |     await this.page.waitForSelector(selector, { timeout });
+         |                     ^
+      96 |   }
+      97 |
+      98 |   /**
+        at CreditsPage.waitForElement (/home/hansa/Work/hansa/next-inventory/tests/pom/BasePage.ts:95:21)
+        at CreditsPage.verifyPageLoaded (/home/hansa/Work/hansa/next-inventory/tests/pom/CreditsPage.ts:26:16)
+        at CreditsPage.goto (/home/hansa/Work/hansa/next-inventory/tests/pom/CreditsPage.ts:19:16)
+        at /home/hansa/Work/hansa/next-inventory/tests/specs/credits.spec.ts:13:5
+
+    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+    test-results/credits-Credits-Management-6716d-tch-to-all-transactions-tab-chromium/test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    attachment #2: video (video/webm) ──────────────────────────────────────────────────────────────
+    test-results/credits-Credits-Management-6716d-tch-to-all-transactions-tab-chromium/video.webm
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: test-results/credits-Credits-Management-6716d-tch-to-all-transactions-tab-chromium/error-context.md
+
+  27) [chromium] › specs/credits.spec.ts:347:5 › Credits Management › Tab Navigation › should switch to settled tab 
+
+    TimeoutError: page.waitForSelector: Timeout 10000ms exceeded.
+    Call log:
+    [2m  - waiting for locator('[role="main"]') to be visible[22m
+
+
+       at ../pom/BasePage.ts:95
+
+      93 |    */
+      94 |   async waitForElement(selector: string, timeout: number = 10000): Promise<void> {
+    > 95 |     await this.page.waitForSelector(selector, { timeout });
+         |                     ^
+      96 |   }
+      97 |
+      98 |   /**
+        at CreditsPage.waitForElement (/home/hansa/Work/hansa/next-inventory/tests/pom/BasePage.ts:95:21)
+        at CreditsPage.verifyPageLoaded (/home/hansa/Work/hansa/next-inventory/tests/pom/CreditsPage.ts:26:16)
+        at CreditsPage.goto (/home/hansa/Work/hansa/next-inventory/tests/pom/CreditsPage.ts:19:16)
+        at /home/hansa/Work/hansa/next-inventory/tests/specs/credits.spec.ts:13:5
+
+    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+    test-results/credits-Credits-Management-cb884-hould-switch-to-settled-tab-chromium/test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    attachment #2: video (video/webm) ──────────────────────────────────────────────────────────────
+    test-results/credits-Credits-Management-cb884-hould-switch-to-settled-tab-chromium/video.webm
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: test-results/credits-Credits-Management-cb884-hould-switch-to-settled-tab-chromium/error-context.md
+
+  28) [chromium] › specs/credits.spec.ts:360:5 › Credits Management › Messages and Alerts › should show success message after settlement 
+
+    TimeoutError: page.waitForSelector: Timeout 10000ms exceeded.
+    Call log:
+    [2m  - waiting for locator('[role="main"]') to be visible[22m
+
+
+       at ../pom/BasePage.ts:95
+
+      93 |    */
+      94 |   async waitForElement(selector: string, timeout: number = 10000): Promise<void> {
+    > 95 |     await this.page.waitForSelector(selector, { timeout });
+         |                     ^
+      96 |   }
+      97 |
+      98 |   /**
+        at CreditsPage.waitForElement (/home/hansa/Work/hansa/next-inventory/tests/pom/BasePage.ts:95:21)
+        at CreditsPage.verifyPageLoaded (/home/hansa/Work/hansa/next-inventory/tests/pom/CreditsPage.ts:26:16)
+        at CreditsPage.goto (/home/hansa/Work/hansa/next-inventory/tests/pom/CreditsPage.ts:19:16)
+        at /home/hansa/Work/hansa/next-inventory/tests/specs/credits.spec.ts:13:5
+
+    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+    test-results/credits-Credits-Management-ba2b0-ss-message-after-settlement-chromium/test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    attachment #2: video (video/webm) ──────────────────────────────────────────────────────────────
+    test-results/credits-Credits-Management-ba2b0-ss-message-after-settlement-chromium/video.webm
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: test-results/credits-Credits-Management-ba2b0-ss-message-after-settlement-chromium/error-context.md
+
+  29) [chromium] › specs/credits.spec.ts:374:5 › Credits Management › Messages and Alerts › should handle loading state 
+
+    TimeoutError: page.waitForSelector: Timeout 10000ms exceeded.
+    Call log:
+    [2m  - waiting for locator('[role="main"]') to be visible[22m
+
+
+       at ../pom/BasePage.ts:95
+
+      93 |    */
+      94 |   async waitForElement(selector: string, timeout: number = 10000): Promise<void> {
+    > 95 |     await this.page.waitForSelector(selector, { timeout });
+         |                     ^
+      96 |   }
+      97 |
+      98 |   /**
+        at CreditsPage.waitForElement (/home/hansa/Work/hansa/next-inventory/tests/pom/BasePage.ts:95:21)
+        at CreditsPage.verifyPageLoaded (/home/hansa/Work/hansa/next-inventory/tests/pom/CreditsPage.ts:26:16)
+        at CreditsPage.goto (/home/hansa/Work/hansa/next-inventory/tests/pom/CreditsPage.ts:19:16)
+        at /home/hansa/Work/hansa/next-inventory/tests/specs/credits.spec.ts:13:5
+
+    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+    test-results/credits-Credits-Management-6e7e2-should-handle-loading-state-chromium/test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    attachment #2: video (video/webm) ──────────────────────────────────────────────────────────────
+    test-results/credits-Credits-Management-6e7e2-should-handle-loading-state-chromium/video.webm
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: test-results/credits-Credits-Management-6e7e2-should-handle-loading-state-chromium/error-context.md
+
+  30) [chromium] › specs/credits.spec.ts:385:5 › Credits Management › Credits Workflow - Complete Settlement › should complete full credit settlement workflow 
+
+    TimeoutError: page.waitForSelector: Timeout 10000ms exceeded.
+    Call log:
+    [2m  - waiting for locator('[role="main"]') to be visible[22m
+
+
+       at ../pom/BasePage.ts:95
+
+      93 |    */
+      94 |   async waitForElement(selector: string, timeout: number = 10000): Promise<void> {
+    > 95 |     await this.page.waitForSelector(selector, { timeout });
+         |                     ^
+      96 |   }
+      97 |
+      98 |   /**
+        at CreditsPage.waitForElement (/home/hansa/Work/hansa/next-inventory/tests/pom/BasePage.ts:95:21)
+        at CreditsPage.verifyPageLoaded (/home/hansa/Work/hansa/next-inventory/tests/pom/CreditsPage.ts:26:16)
+        at CreditsPage.goto (/home/hansa/Work/hansa/next-inventory/tests/pom/CreditsPage.ts:19:16)
+        at /home/hansa/Work/hansa/next-inventory/tests/specs/credits.spec.ts:13:5
+
+    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+    test-results/credits-Credits-Management-3432b--credit-settlement-workflow-chromium/test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    attachment #2: video (video/webm) ──────────────────────────────────────────────────────────────
+    test-results/credits-Credits-Management-3432b--credit-settlement-workflow-chromium/video.webm
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: test-results/credits-Credits-Management-3432b--credit-settlement-workflow-chromium/error-context.md
+
+  31) [chromium] › specs/login.spec.ts:49:3 › Login Functionality › should display error on invalid username 
+
+    Error: [2mexpect([22m[31mreceived[39m[2m).[22mtoBeTruthy[2m()[22m
+
+    Received: [31mfalse[39m
+
+      54 |     await loginPage.waitFor(500);
+      55 |     const isError = await loginPage.isErrorVisible();
+    > 56 |     expect(isError).toBeTruthy();
+         |                     ^
+      57 |   });
+      58 |
+      59 |   test('should display error on invalid password', async ({ loginPage }) => {
+        at /home/hansa/Work/hansa/next-inventory/tests/specs/login.spec.ts:56:21
+
+    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+    test-results/login-Login-Functionality--12477-y-error-on-invalid-username-chromium/test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    attachment #2: video (video/webm) ──────────────────────────────────────────────────────────────
+    test-results/login-Login-Functionality--12477-y-error-on-invalid-username-chromium/video.webm
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: test-results/login-Login-Functionality--12477-y-error-on-invalid-username-chromium/error-context.md
+
+  32) [chromium] › specs/login.spec.ts:59:3 › Login Functionality › should display error on invalid password 
+
+    Error: [2mexpect([22m[31mreceived[39m[2m).[22mtoBeTruthy[2m()[22m
+
+    Received: [31mfalse[39m
+
+      64 |     await loginPage.waitFor(500);
+      65 |     const isError = await loginPage.isErrorVisible();
+    > 66 |     expect(isError).toBeTruthy();
+         |                     ^
+      67 |   });
+      68 |
+      69 |   test('should display error on empty credentials', async ({ loginPage }) => {
+        at /home/hansa/Work/hansa/next-inventory/tests/specs/login.spec.ts:66:21
+
+    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+    test-results/login-Login-Functionality--2079f-y-error-on-invalid-password-chromium/test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    attachment #2: video (video/webm) ──────────────────────────────────────────────────────────────
+    test-results/login-Login-Functionality--2079f-y-error-on-invalid-password-chromium/video.webm
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: test-results/login-Login-Functionality--2079f-y-error-on-invalid-password-chromium/error-context.md
+
+  33) [chromium] › specs/login.spec.ts:140:3 › Login Functionality › should be case-sensitive for username 
+
+    Error: [2mexpect([22m[31mreceived[39m[2m).[22mtoBeTruthy[2m()[22m
+
+    Received: [31mfalse[39m
+
+      145 |     await loginPage.waitFor(500);
+      146 |     const isError = await loginPage.isErrorVisible();
+    > 147 |     expect(isError).toBeTruthy();
+          |                     ^
+      148 |   });
+      149 |
+      150 |   test('should redirect to login if accessing protected routes', async ({ page, loginPage }) => {
+        at /home/hansa/Work/hansa/next-inventory/tests/specs/login.spec.ts:147:21
+
+    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+    test-results/login-Login-Functionality--81406-case-sensitive-for-username-chromium/test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    attachment #2: video (video/webm) ──────────────────────────────────────────────────────────────
+    test-results/login-Login-Functionality--81406-case-sensitive-for-username-chromium/video.webm
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: test-results/login-Login-Functionality--81406-case-sensitive-for-username-chromium/error-context.md
+
+  34) [chromium] › specs/login.spec.ts:150:3 › Login Functionality › should redirect to login if accessing protected routes 
+
+    Error: [2mexpect([22m[31mreceived[39m[2m).[22mtoContain[2m([22m[32mexpected[39m[2m) // indexOf[22m
+
+    Expected substring: [32m"/login"[39m
+    Received string:    [31m"http://localhost:5173/pos"[39m
+
+      154 |     // Should redirect to login
+      155 |     const url = await page.url();
+    > 156 |     expect(url).toContain('/login');
+          |                 ^
+      157 |   });
+      158 | });
+      159 |
+        at /home/hansa/Work/hansa/next-inventory/tests/specs/login.spec.ts:156:17
+
+    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+    test-results/login-Login-Functionality--f6b36--accessing-protected-routes-chromium/test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    attachment #2: video (video/webm) ──────────────────────────────────────────────────────────────
+    test-results/login-Login-Functionality--f6b36--accessing-protected-routes-chromium/video.webm
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: test-results/login-Login-Functionality--f6b36--accessing-protected-routes-chromium/error-context.md
+
+  35) [chromium] › specs/login.spec.ts:192:3 › Login Security › should not allow access with invalid session token 
+
+    Error: page.evaluate: SecurityError: Failed to read the 'localStorage' property from 'Window': Access is denied for this document.
+        at UtilityScript.evaluate (<anonymous>:292:16)
+        at UtilityScript.<anonymous> (<anonymous>:1:44)
+        at UtilityScript.evaluate (<anonymous>:292:16)
+        at UtilityScript.<anonymous> (<anonymous>:1:44)
+        at /home/hansa/Work/hansa/next-inventory/tests/specs/login.spec.ts:194:16
+
+    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+    test-results/login-Login-Security-shoul-8b92b--with-invalid-session-token-chromium/test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    attachment #2: video (video/webm) ──────────────────────────────────────────────────────────────
+    test-results/login-Login-Security-shoul-8b92b--with-invalid-session-token-chromium/video.webm
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+  36) [chromium] › specs/pos.spec.ts:17:5 › POS System › Session Management › should create a new session 
+
+    TimeoutError: page.waitForSelector: Timeout 10000ms exceeded.
+    Call log:
+    [2m  - waiting for locator('[role="main"]') to be visible[22m
+
+
+       at ../pom/BasePage.ts:95
+
+      93 |    */
+      94 |   async waitForElement(selector: string, timeout: number = 10000): Promise<void> {
+    > 95 |     await this.page.waitForSelector(selector, { timeout });
+         |                     ^
+      96 |   }
+      97 |
+      98 |   /**
+        at POSPage.waitForElement (/home/hansa/Work/hansa/next-inventory/tests/pom/BasePage.ts:95:21)
+        at POSPage.verifyPageLoaded (/home/hansa/Work/hansa/next-inventory/tests/pom/POSPage.ts:26:16)
+        at POSPage.goto (/home/hansa/Work/hansa/next-inventory/tests/pom/POSPage.ts:19:16)
+        at /home/hansa/Work/hansa/next-inventory/tests/specs/pos.spec.ts:13:5
+
+    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+    test-results/pos-POS-System-Session-Man-0ba00-should-create-a-new-session-chromium/test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    attachment #2: video (video/webm) ──────────────────────────────────────────────────────────────
+    test-results/pos-POS-System-Session-Man-0ba00-should-create-a-new-session-chromium/video.webm
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: test-results/pos-POS-System-Session-Man-0ba00-should-create-a-new-session-chromium/error-context.md
+
+  37) [chromium] › specs/pos.spec.ts:26:5 › POS System › Session Management › should switch between sessions 
+
+    TimeoutError: page.waitForSelector: Timeout 10000ms exceeded.
+    Call log:
+    [2m  - waiting for locator('[role="main"]') to be visible[22m
+
+
+       at ../pom/BasePage.ts:95
+
+      93 |    */
+      94 |   async waitForElement(selector: string, timeout: number = 10000): Promise<void> {
+    > 95 |     await this.page.waitForSelector(selector, { timeout });
+         |                     ^
+      96 |   }
+      97 |
+      98 |   /**
+        at POSPage.waitForElement (/home/hansa/Work/hansa/next-inventory/tests/pom/BasePage.ts:95:21)
+        at POSPage.verifyPageLoaded (/home/hansa/Work/hansa/next-inventory/tests/pom/POSPage.ts:26:16)
+        at POSPage.goto (/home/hansa/Work/hansa/next-inventory/tests/pom/POSPage.ts:19:16)
+        at /home/hansa/Work/hansa/next-inventory/tests/specs/pos.spec.ts:13:5
+
+    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+    test-results/pos-POS-System-Session-Man-7df8a-uld-switch-between-sessions-chromium/test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    attachment #2: video (video/webm) ──────────────────────────────────────────────────────────────
+    test-results/pos-POS-System-Session-Man-7df8a-uld-switch-between-sessions-chromium/video.webm
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: test-results/pos-POS-System-Session-Man-7df8a-uld-switch-between-sessions-chromium/error-context.md
+
+  38) [chromium] › specs/pos.spec.ts:46:5 › POS System › Session Management › should maintain separate carts for different sessions 
+
+    TimeoutError: page.waitForSelector: Timeout 10000ms exceeded.
+    Call log:
+    [2m  - waiting for locator('[role="main"]') to be visible[22m
+
+
+       at ../pom/BasePage.ts:95
+
+      93 |    */
+      94 |   async waitForElement(selector: string, timeout: number = 10000): Promise<void> {
+    > 95 |     await this.page.waitForSelector(selector, { timeout });
+         |                     ^
+      96 |   }
+      97 |
+      98 |   /**
+        at POSPage.waitForElement (/home/hansa/Work/hansa/next-inventory/tests/pom/BasePage.ts:95:21)
+        at POSPage.verifyPageLoaded (/home/hansa/Work/hansa/next-inventory/tests/pom/POSPage.ts:26:16)
+        at POSPage.goto (/home/hansa/Work/hansa/next-inventory/tests/pom/POSPage.ts:19:16)
+        at /home/hansa/Work/hansa/next-inventory/tests/specs/pos.spec.ts:13:5
+
+    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+    test-results/pos-POS-System-Session-Man-d5229-arts-for-different-sessions-chromium/test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    attachment #2: video (video/webm) ──────────────────────────────────────────────────────────────
+    test-results/pos-POS-System-Session-Man-d5229-arts-for-different-sessions-chromium/video.webm
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: test-results/pos-POS-System-Session-Man-d5229-arts-for-different-sessions-chromium/error-context.md
+
+  39) [chromium] › specs/pos.spec.ts:71:5 › POS System › Product Selection and Cart › should add product to cart 
+
+    TimeoutError: page.waitForSelector: Timeout 10000ms exceeded.
+    Call log:
+    [2m  - waiting for locator('[role="main"]') to be visible[22m
+
+
+       at ../pom/BasePage.ts:95
+
+      93 |    */
+      94 |   async waitForElement(selector: string, timeout: number = 10000): Promise<void> {
+    > 95 |     await this.page.waitForSelector(selector, { timeout });
+         |                     ^
+      96 |   }
+      97 |
+      98 |   /**
+        at POSPage.waitForElement (/home/hansa/Work/hansa/next-inventory/tests/pom/BasePage.ts:95:21)
+        at POSPage.verifyPageLoaded (/home/hansa/Work/hansa/next-inventory/tests/pom/POSPage.ts:26:16)
+        at POSPage.goto (/home/hansa/Work/hansa/next-inventory/tests/pom/POSPage.ts:19:16)
+        at /home/hansa/Work/hansa/next-inventory/tests/specs/pos.spec.ts:13:5
+
+    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+    test-results/pos-POS-System-Product-Sel-dc544--should-add-product-to-cart-chromium/test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    attachment #2: video (video/webm) ──────────────────────────────────────────────────────────────
+    test-results/pos-POS-System-Product-Sel-dc544--should-add-product-to-cart-chromium/video.webm
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: test-results/pos-POS-System-Product-Sel-dc544--should-add-product-to-cart-chromium/error-context.md
+
+  40) [chromium] › specs/pos.spec.ts:80:5 › POS System › Product Selection and Cart › should add multiple products to cart 
+
+    TimeoutError: page.waitForSelector: Timeout 10000ms exceeded.
+    Call log:
+    [2m  - waiting for locator('[role="main"]') to be visible[22m
+
+
+       at ../pom/BasePage.ts:95
+
+      93 |    */
+      94 |   async waitForElement(selector: string, timeout: number = 10000): Promise<void> {
+    > 95 |     await this.page.waitForSelector(selector, { timeout });
+         |                     ^
+      96 |   }
+      97 |
+      98 |   /**
+        at POSPage.waitForElement (/home/hansa/Work/hansa/next-inventory/tests/pom/BasePage.ts:95:21)
+        at POSPage.verifyPageLoaded (/home/hansa/Work/hansa/next-inventory/tests/pom/POSPage.ts:26:16)
+        at POSPage.goto (/home/hansa/Work/hansa/next-inventory/tests/pom/POSPage.ts:19:16)
+        at /home/hansa/Work/hansa/next-inventory/tests/specs/pos.spec.ts:13:5
+
+    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+    test-results/pos-POS-System-Product-Sel-1b1ab-d-multiple-products-to-cart-chromium/test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    attachment #2: video (video/webm) ──────────────────────────────────────────────────────────────
+    test-results/pos-POS-System-Product-Sel-1b1ab-d-multiple-products-to-cart-chromium/video.webm
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: test-results/pos-POS-System-Product-Sel-1b1ab-d-multiple-products-to-cart-chromium/error-context.md
+
+  41) [chromium] › specs/pos.spec.ts:92:5 › POS System › Product Selection and Cart › should update product quantity in cart 
+
+    TimeoutError: page.waitForSelector: Timeout 10000ms exceeded.
+    Call log:
+    [2m  - waiting for locator('[role="main"]') to be visible[22m
+
+
+       at ../pom/BasePage.ts:95
+
+      93 |    */
+      94 |   async waitForElement(selector: string, timeout: number = 10000): Promise<void> {
+    > 95 |     await this.page.waitForSelector(selector, { timeout });
+         |                     ^
+      96 |   }
+      97 |
+      98 |   /**
+        at POSPage.waitForElement (/home/hansa/Work/hansa/next-inventory/tests/pom/BasePage.ts:95:21)
+        at POSPage.verifyPageLoaded (/home/hansa/Work/hansa/next-inventory/tests/pom/POSPage.ts:26:16)
+        at POSPage.goto (/home/hansa/Work/hansa/next-inventory/tests/pom/POSPage.ts:19:16)
+        at /home/hansa/Work/hansa/next-inventory/tests/specs/pos.spec.ts:13:5
+
+    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+    test-results/pos-POS-System-Product-Sel-57098-te-product-quantity-in-cart-chromium/test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    attachment #2: video (video/webm) ──────────────────────────────────────────────────────────────
+    test-results/pos-POS-System-Product-Sel-57098-te-product-quantity-in-cart-chromium/video.webm
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: test-results/pos-POS-System-Product-Sel-57098-te-product-quantity-in-cart-chromium/error-context.md
+
+  42) [chromium] › specs/pos.spec.ts:104:5 › POS System › Product Selection and Cart › should remove product from cart 
+
+    TimeoutError: page.waitForSelector: Timeout 10000ms exceeded.
+    Call log:
+    [2m  - waiting for locator('[role="main"]') to be visible[22m
+
+
+       at ../pom/BasePage.ts:95
+
+      93 |    */
+      94 |   async waitForElement(selector: string, timeout: number = 10000): Promise<void> {
+    > 95 |     await this.page.waitForSelector(selector, { timeout });
+         |                     ^
+      96 |   }
+      97 |
+      98 |   /**
+        at POSPage.waitForElement (/home/hansa/Work/hansa/next-inventory/tests/pom/BasePage.ts:95:21)
+        at POSPage.verifyPageLoaded (/home/hansa/Work/hansa/next-inventory/tests/pom/POSPage.ts:26:16)
+        at POSPage.goto (/home/hansa/Work/hansa/next-inventory/tests/pom/POSPage.ts:19:16)
+        at /home/hansa/Work/hansa/next-inventory/tests/specs/pos.spec.ts:13:5
+
+    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+    test-results/pos-POS-System-Product-Sel-3e4fb-ld-remove-product-from-cart-chromium/test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    attachment #2: video (video/webm) ──────────────────────────────────────────────────────────────
+    test-results/pos-POS-System-Product-Sel-3e4fb-ld-remove-product-from-cart-chromium/video.webm
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: test-results/pos-POS-System-Product-Sel-3e4fb-ld-remove-product-from-cart-chromium/error-context.md
+
+  43) [chromium] › specs/pos.spec.ts:118:5 › POS System › Product Selection and Cart › should calculate cart totals correctly 
+
+    TimeoutError: page.waitForSelector: Timeout 10000ms exceeded.
+    Call log:
+    [2m  - waiting for locator('[role="main"]') to be visible[22m
+
+
+       at ../pom/BasePage.ts:95
+
+      93 |    */
+      94 |   async waitForElement(selector: string, timeout: number = 10000): Promise<void> {
+    > 95 |     await this.page.waitForSelector(selector, { timeout });
+         |                     ^
+      96 |   }
+      97 |
+      98 |   /**
+        at POSPage.waitForElement (/home/hansa/Work/hansa/next-inventory/tests/pom/BasePage.ts:95:21)
+        at POSPage.verifyPageLoaded (/home/hansa/Work/hansa/next-inventory/tests/pom/POSPage.ts:26:16)
+        at POSPage.goto (/home/hansa/Work/hansa/next-inventory/tests/pom/POSPage.ts:19:16)
+        at /home/hansa/Work/hansa/next-inventory/tests/specs/pos.spec.ts:13:5
+
+    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+    test-results/pos-POS-System-Product-Sel-c5640-ulate-cart-totals-correctly-chromium/test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    attachment #2: video (video/webm) ──────────────────────────────────────────────────────────────
+    test-results/pos-POS-System-Product-Sel-c5640-ulate-cart-totals-correctly-chromium/video.webm
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: test-results/pos-POS-System-Product-Sel-c5640-ulate-cart-totals-correctly-chromium/error-context.md
+
+  44) [chromium] › specs/pos.spec.ts:131:5 › POS System › Product Selection and Cart › should display cart is empty message when no items 
+
+    TimeoutError: page.waitForSelector: Timeout 10000ms exceeded.
+    Call log:
+    [2m  - waiting for locator('[role="main"]') to be visible[22m
+
+
+       at ../pom/BasePage.ts:95
+
+      93 |    */
+      94 |   async waitForElement(selector: string, timeout: number = 10000): Promise<void> {
+    > 95 |     await this.page.waitForSelector(selector, { timeout });
+         |                     ^
+      96 |   }
+      97 |
+      98 |   /**
+        at POSPage.waitForElement (/home/hansa/Work/hansa/next-inventory/tests/pom/BasePage.ts:95:21)
+        at POSPage.verifyPageLoaded (/home/hansa/Work/hansa/next-inventory/tests/pom/POSPage.ts:26:16)
+        at POSPage.goto (/home/hansa/Work/hansa/next-inventory/tests/pom/POSPage.ts:19:16)
+        at /home/hansa/Work/hansa/next-inventory/tests/specs/pos.spec.ts:13:5
+
+    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+    test-results/pos-POS-System-Product-Sel-cee7a-empty-message-when-no-items-chromium/test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    attachment #2: video (video/webm) ──────────────────────────────────────────────────────────────
+    test-results/pos-POS-System-Product-Sel-cee7a-empty-message-when-no-items-chromium/video.webm
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: test-results/pos-POS-System-Product-Sel-cee7a-empty-message-when-no-items-chromium/error-context.md
+
+  45) [chromium] › specs/pos.spec.ts:139:5 › POS System › Discounts › should apply fixed discount ──
+
+    TimeoutError: page.waitForSelector: Timeout 10000ms exceeded.
+    Call log:
+    [2m  - waiting for locator('[role="main"]') to be visible[22m
+
+
+       at ../pom/BasePage.ts:95
+
+      93 |    */
+      94 |   async waitForElement(selector: string, timeout: number = 10000): Promise<void> {
+    > 95 |     await this.page.waitForSelector(selector, { timeout });
+         |                     ^
+      96 |   }
+      97 |
+      98 |   /**
+        at POSPage.waitForElement (/home/hansa/Work/hansa/next-inventory/tests/pom/BasePage.ts:95:21)
+        at POSPage.verifyPageLoaded (/home/hansa/Work/hansa/next-inventory/tests/pom/POSPage.ts:26:16)
+        at POSPage.goto (/home/hansa/Work/hansa/next-inventory/tests/pom/POSPage.ts:19:16)
+        at /home/hansa/Work/hansa/next-inventory/tests/specs/pos.spec.ts:13:5
+
+    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+    test-results/pos-POS-System-Discounts-should-apply-fixed-discount-chromium/test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    attachment #2: video (video/webm) ──────────────────────────────────────────────────────────────
+    test-results/pos-POS-System-Discounts-should-apply-fixed-discount-chromium/video.webm
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: test-results/pos-POS-System-Discounts-should-apply-fixed-discount-chromium/error-context.md
+
+  46) [chromium] › specs/pos.spec.ts:156:5 › POS System › Discounts › should apply percentage discount 
+
+    TimeoutError: page.waitForSelector: Timeout 10000ms exceeded.
+    Call log:
+    [2m  - waiting for locator('[role="main"]') to be visible[22m
+
+
+       at ../pom/BasePage.ts:95
+
+      93 |    */
+      94 |   async waitForElement(selector: string, timeout: number = 10000): Promise<void> {
+    > 95 |     await this.page.waitForSelector(selector, { timeout });
+         |                     ^
+      96 |   }
+      97 |
+      98 |   /**
+        at POSPage.waitForElement (/home/hansa/Work/hansa/next-inventory/tests/pom/BasePage.ts:95:21)
+        at POSPage.verifyPageLoaded (/home/hansa/Work/hansa/next-inventory/tests/pom/POSPage.ts:26:16)
+        at POSPage.goto (/home/hansa/Work/hansa/next-inventory/tests/pom/POSPage.ts:19:16)
+        at /home/hansa/Work/hansa/next-inventory/tests/specs/pos.spec.ts:13:5
+
+    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+    test-results/pos-POS-System-Discounts-should-apply-percentage-discount-chromium/test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    attachment #2: video (video/webm) ──────────────────────────────────────────────────────────────
+    test-results/pos-POS-System-Discounts-should-apply-percentage-discount-chromium/video.webm
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: test-results/pos-POS-System-Discounts-should-apply-percentage-discount-chromium/error-context.md
+
+  47) [chromium] › specs/pos.spec.ts:170:5 › POS System › Payment Processing - Cash › should complete cash payment 
+
+    TimeoutError: page.waitForSelector: Timeout 10000ms exceeded.
+    Call log:
+    [2m  - waiting for locator('[role="main"]') to be visible[22m
+
+
+       at ../pom/BasePage.ts:95
+
+      93 |    */
+      94 |   async waitForElement(selector: string, timeout: number = 10000): Promise<void> {
+    > 95 |     await this.page.waitForSelector(selector, { timeout });
+         |                     ^
+      96 |   }
+      97 |
+      98 |   /**
+        at POSPage.waitForElement (/home/hansa/Work/hansa/next-inventory/tests/pom/BasePage.ts:95:21)
+        at POSPage.verifyPageLoaded (/home/hansa/Work/hansa/next-inventory/tests/pom/POSPage.ts:26:16)
+        at POSPage.goto (/home/hansa/Work/hansa/next-inventory/tests/pom/POSPage.ts:19:16)
+        at /home/hansa/Work/hansa/next-inventory/tests/specs/pos.spec.ts:13:5
+
+    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+    test-results/pos-POS-System-Payment-Pro-11078-hould-complete-cash-payment-chromium/test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    attachment #2: video (video/webm) ──────────────────────────────────────────────────────────────
+    test-results/pos-POS-System-Payment-Pro-11078-hould-complete-cash-payment-chromium/video.webm
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: test-results/pos-POS-System-Payment-Pro-11078-hould-complete-cash-payment-chromium/error-context.md
+
+  48) [chromium] › specs/pos.spec.ts:186:5 › POS System › Payment Processing - Cash › should calculate change correctly 
+
+    TimeoutError: page.waitForSelector: Timeout 10000ms exceeded.
+    Call log:
+    [2m  - waiting for locator('[role="main"]') to be visible[22m
+
+
+       at ../pom/BasePage.ts:95
+
+      93 |    */
+      94 |   async waitForElement(selector: string, timeout: number = 10000): Promise<void> {
+    > 95 |     await this.page.waitForSelector(selector, { timeout });
+         |                     ^
+      96 |   }
+      97 |
+      98 |   /**
+        at POSPage.waitForElement (/home/hansa/Work/hansa/next-inventory/tests/pom/BasePage.ts:95:21)
+        at POSPage.verifyPageLoaded (/home/hansa/Work/hansa/next-inventory/tests/pom/POSPage.ts:26:16)
+        at POSPage.goto (/home/hansa/Work/hansa/next-inventory/tests/pom/POSPage.ts:19:16)
+        at /home/hansa/Work/hansa/next-inventory/tests/specs/pos.spec.ts:13:5
+
+    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+    test-results/pos-POS-System-Payment-Pro-edae7--calculate-change-correctly-chromium/test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    attachment #2: video (video/webm) ──────────────────────────────────────────────────────────────
+    test-results/pos-POS-System-Payment-Pro-edae7--calculate-change-correctly-chromium/video.webm
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: test-results/pos-POS-System-Payment-Pro-edae7--calculate-change-correctly-chromium/error-context.md
+
+  49) [chromium] › specs/pos.spec.ts:199:5 › POS System › Payment Processing - Cash › should warn when paid amount is insufficient 
+
+    TimeoutError: page.waitForSelector: Timeout 10000ms exceeded.
+    Call log:
+    [2m  - waiting for locator('[role="main"]') to be visible[22m
+
+
+       at ../pom/BasePage.ts:95
+
+      93 |    */
+      94 |   async waitForElement(selector: string, timeout: number = 10000): Promise<void> {
+    > 95 |     await this.page.waitForSelector(selector, { timeout });
+         |                     ^
+      96 |   }
+      97 |
+      98 |   /**
+        at POSPage.waitForElement (/home/hansa/Work/hansa/next-inventory/tests/pom/BasePage.ts:95:21)
+        at POSPage.verifyPageLoaded (/home/hansa/Work/hansa/next-inventory/tests/pom/POSPage.ts:26:16)
+        at POSPage.goto (/home/hansa/Work/hansa/next-inventory/tests/pom/POSPage.ts:19:16)
+        at /home/hansa/Work/hansa/next-inventory/tests/specs/pos.spec.ts:13:5
+
+    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+    test-results/pos-POS-System-Payment-Pro-99233-paid-amount-is-insufficient-chromium/test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    attachment #2: video (video/webm) ──────────────────────────────────────────────────────────────
+    test-results/pos-POS-System-Payment-Pro-99233-paid-amount-is-insufficient-chromium/video.webm
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: test-results/pos-POS-System-Payment-Pro-99233-paid-amount-is-insufficient-chromium/error-context.md
+
+  50) [chromium] › specs/pos.spec.ts:214:5 › POS System › Payment Processing - Card › should complete card payment 
+
+    TimeoutError: page.waitForSelector: Timeout 10000ms exceeded.
+    Call log:
+    [2m  - waiting for locator('[role="main"]') to be visible[22m
+
+
+       at ../pom/BasePage.ts:95
+
+      93 |    */
+      94 |   async waitForElement(selector: string, timeout: number = 10000): Promise<void> {
+    > 95 |     await this.page.waitForSelector(selector, { timeout });
+         |                     ^
+      96 |   }
+      97 |
+      98 |   /**
+        at POSPage.waitForElement (/home/hansa/Work/hansa/next-inventory/tests/pom/BasePage.ts:95:21)
+        at POSPage.verifyPageLoaded (/home/hansa/Work/hansa/next-inventory/tests/pom/POSPage.ts:26:16)
+        at POSPage.goto (/home/hansa/Work/hansa/next-inventory/tests/pom/POSPage.ts:19:16)
+        at /home/hansa/Work/hansa/next-inventory/tests/specs/pos.spec.ts:13:5
+
+    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+    test-results/pos-POS-System-Payment-Pro-54904-hould-complete-card-payment-chromium/test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    attachment #2: video (video/webm) ──────────────────────────────────────────────────────────────
+    test-results/pos-POS-System-Payment-Pro-54904-hould-complete-card-payment-chromium/video.webm
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: test-results/pos-POS-System-Payment-Pro-54904-hould-complete-card-payment-chromium/error-context.md
+
+  51) [chromium] › specs/pos.spec.ts:229:5 › POS System › Payment Processing - Credit › should complete credit payment 
+
+    TimeoutError: page.waitForSelector: Timeout 10000ms exceeded.
+    Call log:
+    [2m  - waiting for locator('[role="main"]') to be visible[22m
+
+
+       at ../pom/BasePage.ts:95
+
+      93 |    */
+      94 |   async waitForElement(selector: string, timeout: number = 10000): Promise<void> {
+    > 95 |     await this.page.waitForSelector(selector, { timeout });
+         |                     ^
+      96 |   }
+      97 |
+      98 |   /**
+        at POSPage.waitForElement (/home/hansa/Work/hansa/next-inventory/tests/pom/BasePage.ts:95:21)
+        at POSPage.verifyPageLoaded (/home/hansa/Work/hansa/next-inventory/tests/pom/POSPage.ts:26:16)
+        at POSPage.goto (/home/hansa/Work/hansa/next-inventory/tests/pom/POSPage.ts:19:16)
+        at /home/hansa/Work/hansa/next-inventory/tests/specs/pos.spec.ts:13:5
+
+    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+    test-results/pos-POS-System-Payment-Pro-f2281-uld-complete-credit-payment-chromium/test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    attachment #2: video (video/webm) ──────────────────────────────────────────────────────────────
+    test-results/pos-POS-System-Payment-Pro-f2281-uld-complete-credit-payment-chromium/video.webm
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: test-results/pos-POS-System-Payment-Pro-f2281-uld-complete-credit-payment-chromium/error-context.md
+
+  52) [chromium] › specs/pos.spec.ts:242:5 › POS System › Payment Processing - Credit › should show credit warning for high balance 
+
+    TimeoutError: page.waitForSelector: Timeout 10000ms exceeded.
+    Call log:
+    [2m  - waiting for locator('[role="main"]') to be visible[22m
+
+
+       at ../pom/BasePage.ts:95
+
+      93 |    */
+      94 |   async waitForElement(selector: string, timeout: number = 10000): Promise<void> {
+    > 95 |     await this.page.waitForSelector(selector, { timeout });
+         |                     ^
+      96 |   }
+      97 |
+      98 |   /**
+        at POSPage.waitForElement (/home/hansa/Work/hansa/next-inventory/tests/pom/BasePage.ts:95:21)
+        at POSPage.verifyPageLoaded (/home/hansa/Work/hansa/next-inventory/tests/pom/POSPage.ts:26:16)
+        at POSPage.goto (/home/hansa/Work/hansa/next-inventory/tests/pom/POSPage.ts:19:16)
+        at /home/hansa/Work/hansa/next-inventory/tests/specs/pos.spec.ts:13:5
+
+    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+    test-results/pos-POS-System-Payment-Pro-0211a-it-warning-for-high-balance-chromium/test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    attachment #2: video (video/webm) ──────────────────────────────────────────────────────────────
+    test-results/pos-POS-System-Payment-Pro-0211a-it-warning-for-high-balance-chromium/video.webm
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: test-results/pos-POS-System-Payment-Pro-0211a-it-warning-for-high-balance-chromium/error-context.md
+
+  53) [chromium] › specs/pos.spec.ts:259:5 › POS System › Receipt Management › should display receipt after successful payment 
+
+    TimeoutError: page.waitForSelector: Timeout 10000ms exceeded.
+    Call log:
+    [2m  - waiting for locator('[role="main"]') to be visible[22m
+
+
+       at ../pom/BasePage.ts:95
+
+      93 |    */
+      94 |   async waitForElement(selector: string, timeout: number = 10000): Promise<void> {
+    > 95 |     await this.page.waitForSelector(selector, { timeout });
+         |                     ^
+      96 |   }
+      97 |
+      98 |   /**
+        at POSPage.waitForElement (/home/hansa/Work/hansa/next-inventory/tests/pom/BasePage.ts:95:21)
+        at POSPage.verifyPageLoaded (/home/hansa/Work/hansa/next-inventory/tests/pom/POSPage.ts:26:16)
+        at POSPage.goto (/home/hansa/Work/hansa/next-inventory/tests/pom/POSPage.ts:19:16)
+        at /home/hansa/Work/hansa/next-inventory/tests/specs/pos.spec.ts:13:5
+
+    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+    test-results/pos-POS-System-Receipt-Man-4b0db-pt-after-successful-payment-chromium/test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    attachment #2: video (video/webm) ──────────────────────────────────────────────────────────────
+    test-results/pos-POS-System-Receipt-Man-4b0db-pt-after-successful-payment-chromium/video.webm
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: test-results/pos-POS-System-Receipt-Man-4b0db-pt-after-successful-payment-chromium/error-context.md
+
+  54) [chromium] › specs/pos.spec.ts:271:5 › POS System › Receipt Management › should print receipt 
+
+    TimeoutError: page.waitForSelector: Timeout 10000ms exceeded.
+    Call log:
+    [2m  - waiting for locator('[role="main"]') to be visible[22m
+
+
+       at ../pom/BasePage.ts:95
+
+      93 |    */
+      94 |   async waitForElement(selector: string, timeout: number = 10000): Promise<void> {
+    > 95 |     await this.page.waitForSelector(selector, { timeout });
+         |                     ^
+      96 |   }
+      97 |
+      98 |   /**
+        at POSPage.waitForElement (/home/hansa/Work/hansa/next-inventory/tests/pom/BasePage.ts:95:21)
+        at POSPage.verifyPageLoaded (/home/hansa/Work/hansa/next-inventory/tests/pom/POSPage.ts:26:16)
+        at POSPage.goto (/home/hansa/Work/hansa/next-inventory/tests/pom/POSPage.ts:19:16)
+        at /home/hansa/Work/hansa/next-inventory/tests/specs/pos.spec.ts:13:5
+
+    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+    test-results/pos-POS-System-Receipt-Management-should-print-receipt-chromium/test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    attachment #2: video (video/webm) ──────────────────────────────────────────────────────────────
+    test-results/pos-POS-System-Receipt-Management-should-print-receipt-chromium/video.webm
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: test-results/pos-POS-System-Receipt-Management-should-print-receipt-chromium/error-context.md
+
+  55) [chromium] › specs/pos.spec.ts:282:5 › POS System › Receipt Management › should download receipt 
+
+    TimeoutError: page.waitForSelector: Timeout 10000ms exceeded.
+    Call log:
+    [2m  - waiting for locator('[role="main"]') to be visible[22m
+
+
+       at ../pom/BasePage.ts:95
+
+      93 |    */
+      94 |   async waitForElement(selector: string, timeout: number = 10000): Promise<void> {
+    > 95 |     await this.page.waitForSelector(selector, { timeout });
+         |                     ^
+      96 |   }
+      97 |
+      98 |   /**
+        at POSPage.waitForElement (/home/hansa/Work/hansa/next-inventory/tests/pom/BasePage.ts:95:21)
+        at POSPage.verifyPageLoaded (/home/hansa/Work/hansa/next-inventory/tests/pom/POSPage.ts:26:16)
+        at POSPage.goto (/home/hansa/Work/hansa/next-inventory/tests/pom/POSPage.ts:19:16)
+        at /home/hansa/Work/hansa/next-inventory/tests/specs/pos.spec.ts:13:5
+
+    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+    test-results/pos-POS-System-Receipt-Management-should-download-receipt-chromium/test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    attachment #2: video (video/webm) ──────────────────────────────────────────────────────────────
+    test-results/pos-POS-System-Receipt-Management-should-download-receipt-chromium/video.webm
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: test-results/pos-POS-System-Receipt-Management-should-download-receipt-chromium/error-context.md
+
+  56) [chromium] › specs/pos.spec.ts:293:5 › POS System › Receipt Management › should start new transaction after receipt 
+
+    TimeoutError: page.waitForSelector: Timeout 10000ms exceeded.
+    Call log:
+    [2m  - waiting for locator('[role="main"]') to be visible[22m
+
+
+       at ../pom/BasePage.ts:95
+
+      93 |    */
+      94 |   async waitForElement(selector: string, timeout: number = 10000): Promise<void> {
+    > 95 |     await this.page.waitForSelector(selector, { timeout });
+         |                     ^
+      96 |   }
+      97 |
+      98 |   /**
+        at POSPage.waitForElement (/home/hansa/Work/hansa/next-inventory/tests/pom/BasePage.ts:95:21)
+        at POSPage.verifyPageLoaded (/home/hansa/Work/hansa/next-inventory/tests/pom/POSPage.ts:26:16)
+        at POSPage.goto (/home/hansa/Work/hansa/next-inventory/tests/pom/POSPage.ts:19:16)
+        at /home/hansa/Work/hansa/next-inventory/tests/specs/pos.spec.ts:13:5
+
+    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+    test-results/pos-POS-System-Receipt-Man-37dee-w-transaction-after-receipt-chromium/test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    attachment #2: video (video/webm) ──────────────────────────────────────────────────────────────
+    test-results/pos-POS-System-Receipt-Man-37dee-w-transaction-after-receipt-chromium/video.webm
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: test-results/pos-POS-System-Receipt-Man-37dee-w-transaction-after-receipt-chromium/error-context.md
+
+  57) [chromium] › specs/pos.spec.ts:308:5 › POS System › Warnings and Alerts › should show low stock warning 
+
+    TimeoutError: page.waitForSelector: Timeout 10000ms exceeded.
+    Call log:
+    [2m  - waiting for locator('[role="main"]') to be visible[22m
+
+
+       at ../pom/BasePage.ts:95
+
+      93 |    */
+      94 |   async waitForElement(selector: string, timeout: number = 10000): Promise<void> {
+    > 95 |     await this.page.waitForSelector(selector, { timeout });
+         |                     ^
+      96 |   }
+      97 |
+      98 |   /**
+        at POSPage.waitForElement (/home/hansa/Work/hansa/next-inventory/tests/pom/BasePage.ts:95:21)
+        at POSPage.verifyPageLoaded (/home/hansa/Work/hansa/next-inventory/tests/pom/POSPage.ts:26:16)
+        at POSPage.goto (/home/hansa/Work/hansa/next-inventory/tests/pom/POSPage.ts:19:16)
+        at /home/hansa/Work/hansa/next-inventory/tests/specs/pos.spec.ts:13:5
+
+    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+    test-results/pos-POS-System-Warnings-an-b6e7b-ould-show-low-stock-warning-chromium/test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    attachment #2: video (video/webm) ──────────────────────────────────────────────────────────────
+    test-results/pos-POS-System-Warnings-an-b6e7b-ould-show-low-stock-warning-chromium/video.webm
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: test-results/pos-POS-System-Warnings-an-b6e7b-ould-show-low-stock-warning-chromium/error-context.md
+
+  58) [chromium] › specs/pos.spec.ts:317:5 › POS System › Warnings and Alerts › should show credit limit warning 
+
+    TimeoutError: page.waitForSelector: Timeout 10000ms exceeded.
+    Call log:
+    [2m  - waiting for locator('[role="main"]') to be visible[22m
+
+
+       at ../pom/BasePage.ts:95
+
+      93 |    */
+      94 |   async waitForElement(selector: string, timeout: number = 10000): Promise<void> {
+    > 95 |     await this.page.waitForSelector(selector, { timeout });
+         |                     ^
+      96 |   }
+      97 |
+      98 |   /**
+        at POSPage.waitForElement (/home/hansa/Work/hansa/next-inventory/tests/pom/BasePage.ts:95:21)
+        at POSPage.verifyPageLoaded (/home/hansa/Work/hansa/next-inventory/tests/pom/POSPage.ts:26:16)
+        at POSPage.goto (/home/hansa/Work/hansa/next-inventory/tests/pom/POSPage.ts:19:16)
+        at /home/hansa/Work/hansa/next-inventory/tests/specs/pos.spec.ts:13:5
+
+    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+    test-results/pos-POS-System-Warnings-an-b1385-d-show-credit-limit-warning-chromium/test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    attachment #2: video (video/webm) ──────────────────────────────────────────────────────────────
+    test-results/pos-POS-System-Warnings-an-b1385-d-show-credit-limit-warning-chromium/video.webm
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: test-results/pos-POS-System-Warnings-an-b1385-d-show-credit-limit-warning-chromium/error-context.md
+
+  59) [chromium] › specs/pos.spec.ts:331:5 › POS System › POS Workflow - Complete Transaction › should complete full sales transaction workflow 
+
+    TimeoutError: page.waitForSelector: Timeout 10000ms exceeded.
+    Call log:
+    [2m  - waiting for locator('[role="main"]') to be visible[22m
+
+
+       at ../pom/BasePage.ts:95
+
+      93 |    */
+      94 |   async waitForElement(selector: string, timeout: number = 10000): Promise<void> {
+    > 95 |     await this.page.waitForSelector(selector, { timeout });
+         |                     ^
+      96 |   }
+      97 |
+      98 |   /**
+        at POSPage.waitForElement (/home/hansa/Work/hansa/next-inventory/tests/pom/BasePage.ts:95:21)
+        at POSPage.verifyPageLoaded (/home/hansa/Work/hansa/next-inventory/tests/pom/POSPage.ts:26:16)
+        at POSPage.goto (/home/hansa/Work/hansa/next-inventory/tests/pom/POSPage.ts:19:16)
+        at /home/hansa/Work/hansa/next-inventory/tests/specs/pos.spec.ts:13:5
+
+    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+    test-results/pos-POS-System-POS-Workflo-d005b--sales-transaction-workflow-chromium/test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    attachment #2: video (video/webm) ──────────────────────────────────────────────────────────────
+    test-results/pos-POS-System-POS-Workflo-d005b--sales-transaction-workflow-chromium/video.webm
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: test-results/pos-POS-System-POS-Workflo-d005b--sales-transaction-workflow-chromium/error-context.md
+
+  59 failed
+    [chromium] › specs/credits.spec.ts:17:5 › Credits Management › Customer Credit Search › should search customer by ID 
+    [chromium] › specs/credits.spec.ts:29:5 › Credits Management › Customer Credit Search › should clear search results 
+    [chromium] › specs/credits.spec.ts:43:5 › Credits Management › Customer Credit Search › should show empty state when no results 
+    [chromium] › specs/credits.spec.ts:53:5 › Credits Management › Customer Credit Search › should handle multiple searches 
+    [chromium] › specs/credits.spec.ts:74:5 › Credits Management › Credit Status Display › should display credit status card 
+    [chromium] › specs/credits.spec.ts:84:5 › Credits Management › Credit Status Display › should display outstanding balance 
+    [chromium] › specs/credits.spec.ts:95:5 › Credits Management › Credit Status Display › should display total credit 
+    [chromium] › specs/credits.spec.ts:105:5 › Credits Management › Credit Status Display › should display total settled amount 
+    [chromium] › specs/credits.spec.ts:115:5 › Credits Management › Credit Status Display › should display transaction count 
+    [chromium] › specs/credits.spec.ts:125:5 › Credits Management › Credit Status Display › should display settlement progress 
+    [chromium] › specs/credits.spec.ts:135:5 › Credits Management › Credit Status Display › should display credit status text 
+    [chromium] › specs/credits.spec.ts:149:5 › Credits Management › Credit Transactions List › should display credit transactions 
+    [chromium] › specs/credits.spec.ts:159:5 › Credits Management › Credit Transactions List › should count transactions 
+    [chromium] › specs/credits.spec.ts:169:5 › Credits Management › Credit Transactions List › should display transaction details 
+    [chromium] › specs/credits.spec.ts:189:5 › Credits Management › Credit Transactions List › should select transaction 
+    [chromium] › specs/credits.spec.ts:207:5 › Credits Management › Settlement Form › should display settlement form 
+    [chromium] › specs/credits.spec.ts:217:5 › Credits Management › Settlement Form › should enter settlement amount 
+    [chromium] › specs/credits.spec.ts:229:5 › Credits Management › Settlement Form › should select payment method 
+    [chromium] › specs/credits.spec.ts:240:5 › Credits Management › Settlement Form › should enter settlement notes 
+    [chromium] › specs/credits.spec.ts:253:5 › Credits Management › Settlement Operations › should complete full settlement with cash 
+    [chromium] › specs/credits.spec.ts:267:5 › Credits Management › Settlement Operations › should complete full settlement with card 
+    [chromium] › specs/credits.spec.ts:281:5 › Credits Management › Settlement Operations › should complete partial settlement 
+    [chromium] › specs/credits.spec.ts:295:5 › Credits Management › Settlement Operations › should handle settlement with different payment methods 
+    [chromium] › specs/credits.spec.ts:309:5 › Credits Management › Settlement Operations › should prevent settlement with invalid amount 
+    [chromium] › specs/credits.spec.ts:325:5 › Credits Management › Tab Navigation › should switch to outstanding tab 
+    [chromium] › specs/credits.spec.ts:336:5 › Credits Management › Tab Navigation › should switch to all transactions tab 
+    [chromium] › specs/credits.spec.ts:347:5 › Credits Management › Tab Navigation › should switch to settled tab 
+    [chromium] › specs/credits.spec.ts:360:5 › Credits Management › Messages and Alerts › should show success message after settlement 
+    [chromium] › specs/credits.spec.ts:374:5 › Credits Management › Messages and Alerts › should handle loading state 
+    [chromium] › specs/credits.spec.ts:385:5 › Credits Management › Credits Workflow - Complete Settlement › should complete full credit settlement workflow 
+    [chromium] › specs/login.spec.ts:49:3 › Login Functionality › should display error on invalid username 
+    [chromium] › specs/login.spec.ts:59:3 › Login Functionality › should display error on invalid password 
+    [chromium] › specs/login.spec.ts:140:3 › Login Functionality › should be case-sensitive for username 
+    [chromium] › specs/login.spec.ts:150:3 › Login Functionality › should redirect to login if accessing protected routes 
+    [chromium] › specs/login.spec.ts:192:3 › Login Security › should not allow access with invalid session token 
+    [chromium] › specs/pos.spec.ts:17:5 › POS System › Session Management › should create a new session 
+    [chromium] › specs/pos.spec.ts:26:5 › POS System › Session Management › should switch between sessions 
+    [chromium] › specs/pos.spec.ts:46:5 › POS System › Session Management › should maintain separate carts for different sessions 
+    [chromium] › specs/pos.spec.ts:71:5 › POS System › Product Selection and Cart › should add product to cart 
+    [chromium] › specs/pos.spec.ts:80:5 › POS System › Product Selection and Cart › should add multiple products to cart 
+    [chromium] › specs/pos.spec.ts:92:5 › POS System › Product Selection and Cart › should update product quantity in cart 
+    [chromium] › specs/pos.spec.ts:104:5 › POS System › Product Selection and Cart › should remove product from cart 
+    [chromium] › specs/pos.spec.ts:118:5 › POS System › Product Selection and Cart › should calculate cart totals correctly 
+    [chromium] › specs/pos.spec.ts:131:5 › POS System › Product Selection and Cart › should display cart is empty message when no items 
+    [chromium] › specs/pos.spec.ts:139:5 › POS System › Discounts › should apply fixed discount ────
+    [chromium] › specs/pos.spec.ts:156:5 › POS System › Discounts › should apply percentage discount 
+    [chromium] › specs/pos.spec.ts:170:5 › POS System › Payment Processing - Cash › should complete cash payment 
+    [chromium] › specs/pos.spec.ts:186:5 › POS System › Payment Processing - Cash › should calculate change correctly 
+    [chromium] › specs/pos.spec.ts:199:5 › POS System › Payment Processing - Cash › should warn when paid amount is insufficient 
+    [chromium] › specs/pos.spec.ts:214:5 › POS System › Payment Processing - Card › should complete card payment 
+    [chromium] › specs/pos.spec.ts:229:5 › POS System › Payment Processing - Credit › should complete credit payment 
+    [chromium] › specs/pos.spec.ts:242:5 › POS System › Payment Processing - Credit › should show credit warning for high balance 
+    [chromium] › specs/pos.spec.ts:259:5 › POS System › Receipt Management › should display receipt after successful payment 
+    [chromium] › specs/pos.spec.ts:271:5 › POS System › Receipt Management › should print receipt ──
+    [chromium] › specs/pos.spec.ts:282:5 › POS System › Receipt Management › should download receipt 
+    [chromium] › specs/pos.spec.ts:293:5 › POS System › Receipt Management › should start new transaction after receipt 
+    [chromium] › specs/pos.spec.ts:308:5 › POS System › Warnings and Alerts › should show low stock warning 
+    [chromium] › specs/pos.spec.ts:317:5 › POS System › Warnings and Alerts › should show credit limit warning 
+    [chromium] › specs/pos.spec.ts:331:5 › POS System › POS Workflow - Complete Transaction › should complete full sales transaction workflow 
+  13 passed (5.6m)
+
+[36m  Serving HTML report at http://localhost:9323. Press Ctrl+C to quit.[39m
