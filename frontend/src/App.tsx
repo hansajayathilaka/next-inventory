@@ -4,6 +4,7 @@ import { Layout } from '@/components/layout/Layout';
 import { ProtectedRoute } from '@/components/auth/ProtectedRoute';
 import { LoginPage } from './pages/LoginPage';
 import { POSPage } from './pages/POSPage';
+import { CreditsPage } from './pages/CreditsPage';
 import { RolesPage } from './pages/RolesPage';
 import { StaffPage } from './pages/StaffPage';
 import { useAuth } from '@/contexts/authContext';
@@ -85,6 +86,12 @@ function App() {
             <Route path="pos" element={
               <ProtectedRoute requiredPermission="create_sale">
                 <POSAppWithHooks />
+              </ProtectedRoute>
+            } />
+
+            <Route path="credits" element={
+              <ProtectedRoute requiredPermission="manage_credit">
+                <CreditsPage />
               </ProtectedRoute>
             } />
 

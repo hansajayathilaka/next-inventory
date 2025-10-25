@@ -11,16 +11,16 @@ interface NavItem {
 const navItems: NavItem[] = [
   { name: 'Dashboard', href: '/dashboard' },
   { name: 'POS', href: '/pos', permission: 'create_sale' },
-  { name: 'Roles', href: '/roles', permission: 'manage_roles' },
-  { name: 'Staff', href: '/staff', permission: 'manage_staff' },
-  { name: 'Customers', href: '/customers', permission: 'manage_customers' },
-  { name: 'Suppliers', href: '/suppliers', permission: 'manage_suppliers' },
-  { name: 'Categories', href: '/categories', permission: 'manage_categories' },
-  { name: 'Products', href: '/products', permission: 'manage_products' },
+  { name: 'Roles', href: '/roles', permission: 'create_role' },
+  { name: 'Staff', href: '/staff', permission: 'create_staff' },
+  { name: 'Customers', href: '/customers', permission: 'create_customer' },
+  { name: 'Suppliers', href: '/suppliers', permission: 'create_supplier' },
+  { name: 'Categories', href: '/categories', permission: 'create_category' },
+  { name: 'Products', href: '/products', permission: 'create_product' },
   { name: 'Inventory', href: '/inventory', permission: 'manage_inventory' },
-  { name: 'Purchases', href: '/purchases', permission: 'manage_purchases' },
-  { name: 'Credits', href: '/credits', permission: 'manage_credits' },
-  { name: 'Returns', href: '/returns', permission: 'process_returns' },
+  { name: 'Purchases', href: '/purchases', permission: 'create_purchase' },
+  { name: 'Credits', href: '/credits', permission: 'manage_credit' },
+  { name: 'Returns', href: '/returns', permission: 'process_return' },
 ];
 
 export function Sidebar() {

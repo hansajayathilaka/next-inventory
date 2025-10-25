@@ -12,14 +12,29 @@ export function LoginPage() {
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
+
+    // Validate input before attempting login
+    if (!username.trim()) {
+      setError('Please enter your username');
+      return;
+    }
+    if (!password.trim()) {
+      setError('Please enter your password');
+      return;
+    }
+
     setError('');
     setIsLoading(true);
 
     try {
       await login(username, password);
+      // Navigate to dashboard after successful login
       navigate('/dashboard');
     } catch (err) {
-      setError(err instanceof Error ? err.message : 'Login failed');
+      // Ensure error message is displayed
+      const errorMessage = err instanceof Error ? err.message : 'Login failed. Please check your credentials.';
+      setError(errorMessage);
+      console.error('Login error:', err);
     } finally {
       setIsLoading(false);
     }
@@ -31,8 +46,15 @@ export function LoginPage() {
         <h1 className="text-3xl font-bold mb-6 text-center">POS System</h1>
 
         {error && (
-          <div className="mb-4 p-4 bg-red-100 text-red-700 rounded">
-            {error}
+          <div role="alert" className="mb-4 p-4 bg-red-100 text-red-700 rounded border-l-4 border-red-700 font-medium">
+            <p className="font-semibold">Login Failed</p>
+            <p className="mt-1">{error}</p>
+          </div>
+        )}
+
+        {isLoading && (
+          <div role="status" className="mb-4 p-4 bg-blue-100 text-blue-700 rounded text-center">
+            Logging in...
           </div>
         )}
 
